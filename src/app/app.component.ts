@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { appRoutesNames } from './app.routes.names';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'service-app-ui';
+
+  public appRoutesNames;
+
+  constructor() {
+    this.appRoutesNames = appRoutesNames;
+  }
 }

@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "jon",
+      "lastName": "snow",
+      "email": "jonsnow@gmail.com",
+      "role": "ADMIN"
+    },
+    {
+      "id": 2,
+      "firstName": "tyrion",
+      "lastName": "lanister",
+      "email": "tyrionlanister@gmail.com",
+      "role": "OPERATOR"
+    }
+  ],
+  "customerVisits": [
+  ]
+}
