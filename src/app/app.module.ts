@@ -1,18 +1,20 @@
 import { SharedModule } from './shared/shared.module';
-import { BrowserModule } from '@angular/platform-browser';
+import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoragepointComponent } from './features/storagepoint/storagepoint.component';
+import { CustomerVisitComponent } from './features/customer-visit/customer-visit.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StoragepointComponent,
+    CustomerVisitComponent
   ],
   imports: [
-    BrowserModule,
-    SharedModule,
-    BrowserAnimationsModule
+    CoreModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

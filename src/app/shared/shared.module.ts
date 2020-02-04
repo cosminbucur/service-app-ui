@@ -1,7 +1,8 @@
+import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material';
 
 
 
@@ -10,7 +11,14 @@ import { CommonModule } from '@angular/common';
   declarations: [],
   imports: [
     CommonModule,
-    MatIconModule,
+    MaterialModule,
+    BrowserAnimationsModule,
+    MatIconModule
+  ],
+
+  exports: [
+    CommonModule,
+    MaterialModule,
     BrowserAnimationsModule
   ]
 })
