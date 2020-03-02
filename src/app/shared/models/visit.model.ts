@@ -1,3 +1,6 @@
 export interface CustomerVisit {
-    id: number;
+    customerId: number;
+    visitDate: Date;
+    licensePlates: string;
+    seasonPassed: boolean;
 }

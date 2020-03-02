@@ -1,1 +1,47 @@
-<p>list-visit works!</p>
+<div class="list-visit">
+
+<h3>CUSTOMER VISITS LIST</h3>
+
+
+<h5 style="padding: 1%;">Enter customer license plate below and click search to retrieve visit history</h5>
+
+
+<form novalidate [formGroup]="inputForm">
+    <mat-form-field>
+        <input matInput placeholder="license plate" formControlName="licensePlate" type="text">
+    </mat-form-field>
+    <button (click)="onFindByLicensePlate()" class="default" mat-raised-button>search</button>
+</form>
+
+
+<table class="mat-elevation-z8" mat-table>
+
+    <ng-container matColumnDef="customerId">
+      <th matHeaderCellDef mat-header-cell>Customer Id</th>
+      <td matCellDef="let element" mat-cell>{{element.customerId}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="licensePlates">
+      <th matHeaderCellDef mat-header-cell>License Plates</th>
+      <td matCellDef="let element" mat-cell>{{element.licensePlates}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="visitDate">
+      <th matHeaderCellDef mat-header-cell>Visit Date</th>
+      <td matCellDef="let element" mat-cell>{{element.visitDate}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="seasonPassed">
+      <th matHeaderCellDef mat-header-cell>Season Passed</th>
+      <td matCellDef="let element" mat-cell>{{element.seasonPassed}}</td>
+    </ng-container>
+
+    
+
+    <tr matHeaderRowDef="displayedColumns" mat-header-row style="background-color: cornflowerblue;"></tr>
+    <tr matRowDef="let row; columns: displayedColumns" mat-row></tr>
+
+  </table>
+
+
+</div>
