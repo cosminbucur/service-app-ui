@@ -24,7 +24,8 @@ import {
   MatGridListModule,
   MatDatepickerModule,
   MatProgressBarModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatTableModule
 } from '@angular/material';
 
 @NgModule({
@@ -60,7 +61,8 @@ import {
     MatTabsModule,
     MatBadgeModule,
     MatExpansionModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatTableModule
   ]
 })
 export class MaterialModule {}

@@ -2,46 +2,50 @@
 
 <h3>CUSTOMER VISITS LIST</h3>
 
-
 <h5 style="padding: 1%;">Enter customer license plate below and click search to retrieve visit history</h5>
 
-
-<form novalidate [formGroup]="inputForm">
+<!-- <form novalidate [formGroup]="inputForm">
     <mat-form-field>
         <input matInput placeholder="license plate" formControlName="licensePlate" type="text">
     </mat-form-field>
     <button (click)="onFindByLicensePlate()" class="default" mat-raised-button>search</button>
-</form>
+</form> -->
+
+<mat-form-field>
+  <mat-label>Search</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="License plate">
+</mat-form-field>
 
 
-<table class="mat-elevation-z8" mat-table>
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8" mat-table>
 
+    <!-- customer id -->
     <ng-container matColumnDef="customerId">
-      <th matHeaderCellDef mat-header-cell>Customer Id</th>
-      <td matCellDef="let element" mat-cell>{{element.customerId}}</td>
+      <mat-header-cell *matHeaderCellDef mat-header-cell>Customer Id</mat-header-cell>
+      <mat-cell *matCellDef="let element" mat-cell>{{element.customerId}}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="licensePlates">
-      <th matHeaderCellDef mat-header-cell>License Plates</th>
-      <td matCellDef="let element" mat-cell>{{element.licensePlates}}</td>
+    <!-- license plate -->
+    <ng-container matColumnDef="licensePlate">
+      <mat-header-cell *matHeaderCellDef mat-header-cell>License Plate</mat-header-cell>
+      <mat-cell *matCellDef="let element" mat-cell>{{element.licensePlate}}</mat-cell>
     </ng-container>
 
+    <!-- visit date -->
     <ng-container matColumnDef="visitDate">
-      <th matHeaderCellDef mat-header-cell>Visit Date</th>
-      <td matCellDef="let element" mat-cell>{{element.visitDate}}</td>
+      <mat-header-cell *matHeaderCellDef mat-header-cell>Visit Date</mat-header-cell>
+      <mat-cell *matCellDef="let element" mat-cell>{{element.visitDate}}</mat-cell>
     </ng-container>
 
+    <!-- season passed -->
     <ng-container matColumnDef="seasonPassed">
-      <th matHeaderCellDef mat-header-cell>Season Passed</th>
-      <td matCellDef="let element" mat-cell>{{element.seasonPassed}}</td>
+      <mat-header-cell *matHeaderCellDef mat-header-cell>Season Passed</mat-header-cell>
+      <mat-cell *matCellDef="let element" mat-cell>{{element.seasonPassed}}</mat-cell>
     </ng-container>
 
-    
+    <mat-header-row *matHeaderRowDef="displayedColumns" mat-header-row style="background-color: cornflowerblue;"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns" mat-row></mat-row>
 
-    <tr matHeaderRowDef="displayedColumns" mat-header-row style="background-color: cornflowerblue;"></tr>
-    <tr matRowDef="let row; columns: displayedColumns" mat-row></tr>
-
-  </table>
-
+  </mat-table>
 
 </div>
