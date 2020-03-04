@@ -7,12 +7,14 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { appRouting } from './app.routes';
 import { ListVisitComponent } from './features/list-visit/list-visit.component';
+import { TyreDetailsComponent } from './features/tyre-details/tyre-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ListVisitComponent
+    ListVisitComponent,
+    TyreDetailsComponent
   ],
   imports: [
     CoreModule,

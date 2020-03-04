@@ -1,0 +1,61 @@
+<mat-card>
+    <!-- <form class="example-form"> -->
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Width</mat-label>
+        <input matInput placeholder="Ex. 205">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Height</mat-label>
+        <input matInput placeholder="Ex. 40">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Diameter type</mat-label>
+        <input matInput placeholder="Ex. R15">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Rim type</mat-label>
+        <mat-select [(value)]="selectedRimType">
+            <mat-option *ngFor="let type of rimTypes" [value]="type.value">
+                {{type.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Tyre type</mat-label>
+        <mat-select [(value)]="selectedTyreType">
+            <mat-option *ngFor="let type of tyreTypes" [value]="type.value">
+                {{type.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Brand</mat-label>
+        <mat-select [(value)]="selectedBrand">
+            <mat-option *ngFor="let brand of brands" [value]="brand.value">
+                {{brand.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Tyre status</mat-label>
+        <mat-select [(value)]="selectedStatus">
+            <mat-option *ngFor="let status of tyreStatus" [value]="status.value">
+                {{status.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <!-- </form> -->
+    <mat-card-actions>
+        <button mat-raised-button>CANCEL</button>
+        <button mat-raised-button color="primary">SAVE</button>
+    </mat-card-actions>
+
+</mat-card>
