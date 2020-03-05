@@ -9,12 +9,12 @@ export class TyreDetailsComponent implements OnInit {
 
   public rimTypes = [
     { value: 'plate', viewValue: 'Plate' },
-    { value: 'alloy', viewValue: 'Alloy' },
+    { value: 'alloy', viewValue: 'Alloy' }
   ];
 
   public tyreTypes = [
     { value: 'regular', viewValue: 'Regular' },
-    { value: 'runflat', viewValue: 'Runflat' },
+    { value: 'runflat', viewValue: 'Runflat' }
   ];
 
   public brands = [
@@ -27,13 +27,20 @@ export class TyreDetailsComponent implements OnInit {
   public tyreStatus = [
     { value: 'good', viewValue: 'Good' },
     { value: 'medium', viewValue: 'Medium' },
-    { value: 'worn', viewValue: 'Worn' },
+    { value: 'worn', viewValue: 'Worn' }
+  ];
+
+  public seasons = [
+    { value: 'summer', viewValue: 'Summer' },
+    { value: 'winter', viewValue: 'Winter' },
+    { value: 'all-season', viewValue: 'All season' }
   ];
 
   public selectedRimType: string;
   public selectedTyreType: string;
   public selectedBrand: string;
   public selectedStatus: string;
+  public selectedSeason: string;
 
   ngOnInit() {
     this.setDefaultValues();
@@ -42,7 +49,6 @@ export class TyreDetailsComponent implements OnInit {
   private setDefaultValues() {
     this.selectedRimType = 'plate';
     this.selectedTyreType = 'regular';
-    this.selectedBrand = 'continental';
     this.selectedStatus = 'medium';
   }
 

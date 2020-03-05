@@ -52,6 +52,15 @@
         </mat-select>
     </mat-form-field>
 
+    <mat-form-field>
+        <mat-label>Season</mat-label>
+        <mat-select [(value)]="selectedSeason">
+            <mat-option *ngFor="let season of seasons" [value]="season.value">
+                {{season.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
     <!-- </form> -->
     <mat-card-actions>
         <button mat-raised-button>CANCEL</button>
