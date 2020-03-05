@@ -1,5 +1,8 @@
 export const appRoutesNames = {
     HOME: 'home',
-    VISIT: 'visit',
-    TYRE_DETAILS: 'tyre-details'
+    VISITS: 'visits',
+    VISIT_DETAILS: 'visit-details',
+    TYRES: 'tyres',
+    TYRE_DETAILS: 'tyre-details',
+    TYRE_CARD: 'tyre-card'
 };
