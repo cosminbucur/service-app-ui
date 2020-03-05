@@ -1,1 +1,27 @@
-<p>visits works!</p>
+<h1>Visit history</h1>
+
+<!-- Search -->
+<mat-form-field>
+  <mat-label>Search</mat-label>
+  <input matInput placeholder="by license plate B22ABC">
+</mat-form-field>
+
+<div class="example-container mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Visit date Column -->
+    <ng-container matColumnDef="visitDate">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.visitDate | date: 'dd/MM/yyyy' }} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

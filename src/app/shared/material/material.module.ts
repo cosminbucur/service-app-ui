@@ -25,7 +25,8 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatProgressBarModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatTableModule
 } from '@angular/material';
 
 @NgModule({
@@ -35,7 +36,8 @@ import {
     MatDialogModule,
     MatTabsModule,
     MatBadgeModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTableModule
   ],
   exports: [
     MatButtonModule,
@@ -62,7 +64,8 @@ import {
     MatTabsModule,
     MatBadgeModule,
     MatExpansionModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatTableModule
   ],
   providers: [
     MatDatepickerModule

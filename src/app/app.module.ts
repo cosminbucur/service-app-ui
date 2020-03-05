@@ -7,10 +7,11 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { appRouting } from './app.routes';
 import { VisitsComponent } from './features/visits/pages/visits/visits.component';
-import { TyreDetailsComponent } from './features/tyre-details/tyre-details.component';
-import { TyresComponent } from './features/tyres/tyres.component';
+import { TyreDetailsComponent } from './features/tyres/pages/tyre-details/tyre-details.component';
+import { TyresComponent } from './features/tyres/pages/tyres/tyres.component';
 import { VisitDetailsComponent } from './features/visits/pages/visit-details/visit-details.component';
 import { TyreCardComponent } from './features/visits/components/tyre-card/tyre-card.component';
+import { StorageComponent } from './features/storage/storage.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TyreCardComponent } from './features/visits/components/tyre-card/tyre-c
     TyreDetailsComponent,
     TyresComponent,
     VisitDetailsComponent,
-    TyreCardComponent
+    TyreCardComponent,
+    StorageComponent
   ],
   imports: [
     CoreModule,

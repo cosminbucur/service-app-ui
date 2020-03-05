@@ -1,10 +1,4 @@
 <mat-card>
-    <button mat-mini-fab color="primary">
-        <mat-icon>add</mat-icon>
-    </button>
-</mat-card>
-
-<mat-card>
     <mat-card-title>Customer info</mat-card-title>
 
     <mat-form-field>
@@ -64,6 +58,11 @@
     <div class="example-container">
         <h2>On car</h2>
       
+        <button mat-mini-fab color="primary"
+            matTooltip="Add tire">
+            <mat-icon>add</mat-icon>
+        </button>
+
         <div
           cdkDropList
           #onCarList="cdkDropList"
