@@ -12,6 +12,8 @@ import { TyresComponent } from './features/tyres/pages/tyres/tyres.component';
 import { VisitDetailsComponent } from './features/visits/pages/visit-details/visit-details.component';
 import { TyreCardComponent } from './features/visits/components/tyre-card/tyre-card.component';
 import { StorageComponent } from './features/storage/storage.component';
+import { UsersComponent } from './features/users/pages/users/users.component';
+import { UserDetailsComponent } from './features/users/pages/user-details/user-details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { StorageComponent } from './features/storage/storage.component';
     TyresComponent,
     VisitDetailsComponent,
     TyreCardComponent,
-    StorageComponent
+    StorageComponent,
+    UsersComponent,
+    UserDetailsComponent
   ],
   imports: [
     CoreModule,

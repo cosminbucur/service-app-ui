@@ -49,9 +49,16 @@
     </a>
 
     <a class="card" rel="noopener" [routerLink]="['/', appRoutesNames.STORAGE]">
-      <mat-icon>storage</mat-icon>
+      <mat-icon>dashboard</mat-icon>
       <span>Storage</span>
     </a>
+
+    <a class="card" rel="noopener" [routerLink]="['/', appRoutesNames.USERS]">
+      <mat-icon>contacts</mat-icon>
+      <span>Users</span>
+    </a>
+
+    <!-- TODO remove components -->
 
     <a class="card" rel="noopener" [routerLink]="['/', appRoutesNames.TYRE_DETAILS]">
       <span>Tyre details</span>
@@ -59,6 +66,10 @@
 
     <a class="card" rel="noopener" [routerLink]="['/', appRoutesNames.TYRE_CARD]">
       <span>Tyre card</span>
+    </a>
+
+    <a class="card" rel="noopener" [routerLink]="['/', appRoutesNames.USER_DETAILS]">
+      <span>User details</span>
     </a>
 
   </div>

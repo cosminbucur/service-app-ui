@@ -1,3 +1,5 @@
+import { UserDetailsComponent } from './features/users/pages/user-details/user-details.component';
+import { UsersComponent } from './features/users/pages/users/users.component';
 import { StorageComponent } from './features/storage/storage.component';
 import { TyreCardComponent } from './features/visits/components/tyre-card/tyre-card.component';
 import { VisitDetailsComponent } from './features/visits/pages/visit-details/visit-details.component';
@@ -18,6 +20,8 @@ export const appRoutes: Routes = [
     { path: appRoutesNames.TYRE_DETAILS, component: TyreDetailsComponent },
     { path: appRoutesNames.TYRE_CARD, component: TyreCardComponent },
   { path: appRoutesNames.STORAGE, component: StorageComponent },
+  { path: appRoutesNames.USERS, component: UsersComponent },
+    { path: appRoutesNames.USER_DETAILS, component: UserDetailsComponent },
   { path: '', pathMatch: 'full', component: AppComponent }
 ];
 

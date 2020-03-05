@@ -5,5 +5,7 @@ export const appRoutesNames = {
     TYRES: 'tyres',
     TYRE_DETAILS: 'tyre-details',
     TYRE_CARD: 'tyre-card',
-    STORAGE: 'storage'
+    STORAGE: 'storage',
+    USERS: 'users',
+    USER_DETAILS: 'user-details'
 };
