@@ -1,0 +1,92 @@
+<mat-card>
+    <button mat-mini-fab color="primary">
+        <mat-icon>add</mat-icon>
+    </button>
+</mat-card>
+
+<mat-card>
+    <mat-card-title>Customer info</mat-card-title>
+
+    <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>First name</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Last name</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Company</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Phone</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-card-actions>
+        <button mat-raised-button>PRINT</button>
+        <button mat-raised-button>ACTIVATE</button>
+
+        <button mat-raised-button>CANCEL</button>
+        <button mat-raised-button color="primary">SAVE</button>
+    </mat-card-actions>
+
+</mat-card>
+
+<mat-card>
+    <mat-card-title>Vehicle info</mat-card-title>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>License plate</mat-label>
+        <input matInput>
+    </mat-form-field>
+</mat-card>
+
+<mat-card>
+    <mat-card-title>Vehicle info</mat-card-title>
+
+    <div class="example-container">
+        <h2>On car</h2>
+      
+        <div
+          cdkDropList
+          #onCarList="cdkDropList"
+          [cdkDropListData]="onCarData"
+          [cdkDropListConnectedTo]="[inStorageList]"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let item of onCarData" cdkDrag>{{item}}</div>
+        </div>
+      </div>
+      
+      <div class="example-container">
+        <h2>In storage</h2>
+      
+        <div
+          cdkDropList
+          #inStorageList="cdkDropList"
+          [cdkDropListData]="inStorageData"
+          [cdkDropListConnectedTo]="[onCarList]"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let item of inStorageData" cdkDrag>{{item}}</div>
+        </div>
+      </div>
+
+</mat-card>

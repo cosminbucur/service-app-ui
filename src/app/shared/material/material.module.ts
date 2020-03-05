@@ -23,6 +23,7 @@ import {
   MatRadioModule,
   MatGridListModule,
   MatDatepickerModule,
+  MatNativeDateModule,
   MatProgressBarModule,
   MatSidenavModule
 } from '@angular/material';
@@ -56,11 +57,15 @@ import {
     MatRadioModule,
     MatGridListModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     MatProgressBarModule,
     MatTabsModule,
     MatBadgeModule,
     MatExpansionModule,
     MatSidenavModule
+  ],
+  providers: [
+    MatDatepickerModule
   ]
 })
 export class MaterialModule {}
