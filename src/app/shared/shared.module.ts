@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [],
@@ -12,7 +13,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     FormsModule,
     MaterialModule,
     RouterModule,
-    DragDropModule
+    DragDropModule,
+    ChartsModule
   ],
   exports: [
     // angular modules
@@ -24,6 +26,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     // 3rd party components
     MaterialModule,
     RouterModule,
+    ChartsModule
   ],
   providers: []
 })
