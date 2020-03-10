@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Count by brand</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div>
+            <div style="display: block">
+                <canvas baseChart [datasets]="data" [labels]="chartLabels" [options]="chartOptions"
+                    [legend]="chartLegend" [chartType]="chartType">
+                </canvas>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+

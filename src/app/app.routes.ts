@@ -1,3 +1,4 @@
+import { ReportsComponent } from './features/reports/reports.component';
 import { UserDetailsComponent } from './features/users/pages/user-details/user-details.component';
 import { UsersComponent } from './features/users/pages/users/users.component';
 import { StorageComponent } from './features/storage/storage.component';
@@ -22,6 +23,7 @@ export const appRoutes: Routes = [
   { path: appRoutesNames.STORAGE, component: StorageComponent },
   { path: appRoutesNames.USERS, component: UsersComponent },
     { path: appRoutesNames.USER_DETAILS, component: UserDetailsComponent },
+  { path: appRoutesNames.REPORTS, component: ReportsComponent },
   { path: '', pathMatch: 'full', component: AppComponent }
 ];
 

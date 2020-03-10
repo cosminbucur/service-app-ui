@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -14,6 +13,9 @@ import { TyreCardComponent } from './features/visits/components/tyre-card/tyre-c
 import { StorageComponent } from './features/storage/storage.component';
 import { UsersComponent } from './features/users/pages/users/users.component';
 import { UserDetailsComponent } from './features/users/pages/user-details/user-details.component';
+import { ReportsComponent } from './features/reports/reports.component';
+import { BrandChartComponent } from './features/reports/brand-chart/brand-chart.component';
+import { SizeChartComponent } from './features/reports/size-chart/size-chart.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,10 @@ import { UserDetailsComponent } from './features/users/pages/user-details/user-d
     TyreCardComponent,
     StorageComponent,
     UsersComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    ReportsComponent,
+    BrandChartComponent,
+    SizeChartComponent
   ],
   imports: [
     CoreModule,
