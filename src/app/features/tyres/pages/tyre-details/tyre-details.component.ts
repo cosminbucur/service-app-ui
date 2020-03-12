@@ -28,7 +28,7 @@ export class TyreDetailsComponent implements OnInit {
     { value: 'pirelli', viewValue: 'Pirelli' }
   ];
 
-  public tyreStatus = [
+  public wearLevels = [
     { value: 'good', viewValue: 'Good' },
     { value: 'medium', viewValue: 'Medium' },
     { value: 'worn', viewValue: 'Worn' }
@@ -47,18 +47,12 @@ export class TyreDetailsComponent implements OnInit {
     width: null,
     height: null,
     diameterType: null,
-    rimType: null,
-    tyreType: null,
+    rimType: 'plate',
+    tyreType: 'regular',
     brand: null,
-    status: null,
-    season: null
+    wearLevel: 'medium',
+    season: 'summer'
   };
-
-  public selectedRimType: string;
-  public selectedTyreType: string;
-  public selectedBrand: string;
-  public selectedStatus: string;
-  public selectedSeason: string;
 
   constructor(
     private router: Router,
@@ -84,7 +78,6 @@ export class TyreDetailsComponent implements OnInit {
 
   private async initializeData() {
     this.createReactiveForm();
-    this.setDefaultValues();
   }
 
   private createReactiveForm() {
@@ -95,15 +88,9 @@ export class TyreDetailsComponent implements OnInit {
       rimType: new FormControl(this.tyre.rimType, Validators.required),
       tyreType: new FormControl(this.tyre.tyreType, Validators.required),
       brand: new FormControl(this.tyre.brand, Validators.required),
-      status: new FormControl(this.tyre.status, Validators.required),
+      wearLevel: new FormControl(this.tyre.wearLevel, Validators.required),
       season: new FormControl(this.tyre.season, Validators.required)
     });
-  }
-
-  private setDefaultValues() {
-    this.selectedRimType = 'plate';
-    this.selectedTyreType = 'regular';
-    this.selectedStatus = 'medium';
   }
 
   private goToVisitDetails() {

@@ -19,7 +19,7 @@
 
         <mat-form-field>
             <mat-label>Rim type</mat-label>
-            <mat-select [(value)]="selectedRimType" formControlName="rimType">
+            <mat-select formControlName="rimType">
                 <mat-option *ngFor="let type of rimTypes" [value]="type.value">
                     {{type.viewValue}}
                 </mat-option>
@@ -28,7 +28,7 @@
 
         <mat-form-field>
             <mat-label>Tyre type</mat-label>
-            <mat-select [(value)]="selectedTyreType" formControlName="tyreType">
+            <mat-select formControlName="tyreType">
                 <mat-option *ngFor="let type of tyreTypes" [value]="type.value">
                     {{type.viewValue}}
                 </mat-option>
@@ -37,7 +37,7 @@
 
         <mat-form-field>
             <mat-label>Brand</mat-label>
-            <mat-select [(value)]="selectedBrand" formControlName="brand">
+            <mat-select formControlName="brand">
                 <mat-option *ngFor="let brand of brands" [value]="brand.value">
                     {{brand.viewValue}}
                 </mat-option>
@@ -45,17 +45,17 @@
         </mat-form-field>
 
         <mat-form-field>
-            <mat-label>Tyre status</mat-label>
-            <mat-select [(value)]="selectedStatus" formControlName="status">
-                <mat-option *ngFor="let status of tyreStatus" [value]="status.value">
-                    {{status.viewValue}}
+            <mat-label>Wear level</mat-label>
+            <mat-select formControlName="wearLevel">
+                <mat-option *ngFor="let wearLevel of wearLevels" [value]="wearLevel.value">
+                    {{wearLevel.viewValue}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
 
         <mat-form-field>
             <mat-label>Season</mat-label>
-            <mat-select [(value)]="selectedSeason" formControlName="season">
+            <mat-select formControlName="season">
                 <mat-option *ngFor="let season of seasons" [value]="season.value">
                     {{season.viewValue}}
                 </mat-option>
