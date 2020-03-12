@@ -1,70 +1,75 @@
-<mat-card>
-    <!-- <form class="example-form"> -->
+<form [formGroup]="form" novalidate autocomplete="off">
+    <mat-card>
+        <!-- <form class="example-form"> -->
 
-    <mat-form-field class="example-full-width">
-        <mat-label>Width</mat-label>
-        <input matInput placeholder="Ex. 205">
-    </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Width</mat-label>
+            <input matInput placeholder="Ex. 205" formControlName="width">
+        </mat-form-field>
 
-    <mat-form-field class="example-full-width">
-        <mat-label>Height</mat-label>
-        <input matInput placeholder="Ex. 40">
-    </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Height</mat-label>
+            <input matInput placeholder="Ex. 40" formControlName="height">
+        </mat-form-field>
 
-    <mat-form-field class="example-full-width">
-        <mat-label>Diameter type</mat-label>
-        <input matInput placeholder="Ex. R15">
-    </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Diameter type</mat-label>
+            <input matInput placeholder="Ex. R15" formControlName="diameterType">
+        </mat-form-field>
 
-    <mat-form-field>
-        <mat-label>Rim type</mat-label>
-        <mat-select [(value)]="selectedRimType">
-            <mat-option *ngFor="let type of rimTypes" [value]="type.value">
-                {{type.viewValue}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+        <mat-form-field>
+            <mat-label>Rim type</mat-label>
+            <mat-select [(value)]="selectedRimType" formControlName="rimType">
+                <mat-option *ngFor="let type of rimTypes" [value]="type.value">
+                    {{type.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
 
-    <mat-form-field>
-        <mat-label>Tyre type</mat-label>
-        <mat-select [(value)]="selectedTyreType">
-            <mat-option *ngFor="let type of tyreTypes" [value]="type.value">
-                {{type.viewValue}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+        <mat-form-field>
+            <mat-label>Tyre type</mat-label>
+            <mat-select [(value)]="selectedTyreType" formControlName="tyreType">
+                <mat-option *ngFor="let type of tyreTypes" [value]="type.value">
+                    {{type.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
 
-    <mat-form-field>
-        <mat-label>Brand</mat-label>
-        <mat-select [(value)]="selectedBrand">
-            <mat-option *ngFor="let brand of brands" [value]="brand.value">
-                {{brand.viewValue}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+        <mat-form-field>
+            <mat-label>Brand</mat-label>
+            <mat-select [(value)]="selectedBrand" formControlName="brand">
+                <mat-option *ngFor="let brand of brands" [value]="brand.value">
+                    {{brand.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
 
-    <mat-form-field>
-        <mat-label>Tyre status</mat-label>
-        <mat-select [(value)]="selectedStatus">
-            <mat-option *ngFor="let status of tyreStatus" [value]="status.value">
-                {{status.viewValue}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+        <mat-form-field>
+            <mat-label>Tyre status</mat-label>
+            <mat-select [(value)]="selectedStatus" formControlName="status">
+                <mat-option *ngFor="let status of tyreStatus" [value]="status.value">
+                    {{status.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
 
-    <mat-form-field>
-        <mat-label>Season</mat-label>
-        <mat-select [(value)]="selectedSeason">
-            <mat-option *ngFor="let season of seasons" [value]="season.value">
-                {{season.viewValue}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+        <mat-form-field>
+            <mat-label>Season</mat-label>
+            <mat-select [(value)]="selectedSeason" formControlName="season">
+                <mat-option *ngFor="let season of seasons" [value]="season.value">
+                    {{season.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
 
-    <!-- </form> -->
-    <mat-card-actions>
-        <button mat-raised-button>CANCEL</button>
-        <button mat-raised-button color="primary">SAVE</button>
-    </mat-card-actions>
+        <mat-card-actions>
+            <button mat-raised-button (click)="cancel()" type="button">CANCEL</button>
+            <button mat-raised-button color="primary" (click)="save()" type="submit">SAVE</button>
+        </mat-card-actions>
 
-</mat-card>
+    </mat-card>
+
+    <!-- TODO remove this in production -->
+    <pre>{{ form.value | json }}</pre>
+
+</form>

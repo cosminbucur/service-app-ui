@@ -46,6 +46,23 @@ export class UserDetailsComponent implements OnInit {
     this.initializeData();
   }
 
+  public async save() {
+    if (!this.form.valid) {
+      this.notificationService.error('There are errors on the user fields!');
+      return;
+    }
+
+    this.notificationService.success('User details saved.');
+  }
+
+  public cancel() {
+    this.goToUsersPage();
+  }
+
+  public resetPassword() {
+    this.notificationService.info('Notification sent.');
+  }
+
   private async initializeData() {
     this.createReactiveForm();
   }
@@ -69,25 +86,8 @@ export class UserDetailsComponent implements OnInit {
     this.router.navigate([`/${appRoutesNames.USERS}`]);
   }
 
-  public cancel() {
-    this.goToUsersPage();
-  }
-
-  public async save() {
-    if (!this.form.valid) {
-      this.notificationService.error('There are errors on the user fields!');
-      return;
-    }
-
-    this.notificationService.success('User details saved.');
-  }
-
   public toggleActive() {
     this.notificationService.info('User activated successfully.');
-  }
-
-  public resetPassword() {
-    this.notificationService.info('Notification sent.');
   }
 
 }
