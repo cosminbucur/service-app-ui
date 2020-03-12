@@ -4,7 +4,6 @@ import { UsersComponent } from './features/users/pages/users/users.component';
 import { StorageComponent } from './features/storage/storage.component';
 import { TyreCardComponent } from './features/visits/components/tyre-card/tyre-card.component';
 import { VisitDetailsComponent } from './features/visits/pages/visit-details/visit-details.component';
-import { TyresComponent } from './features/tyres/pages/tyres/tyres.component';
 import { TyreDetailsComponent } from './features/tyres/pages/tyre-details/tyre-details.component';
 import { HomeComponent } from './features/home/home.component';
 import { AppComponent } from './app.component';
@@ -17,7 +16,6 @@ export const appRoutes: Routes = [
   { path: appRoutesNames.HOME, component: HomeComponent },
   { path: appRoutesNames.VISITS, component: VisitsComponent },
     { path: appRoutesNames.VISIT_DETAILS, component: VisitDetailsComponent },
-  { path: appRoutesNames.TYRES, component: TyresComponent },
     { path: appRoutesNames.TYRE_DETAILS, component: TyreDetailsComponent },
     { path: appRoutesNames.TYRE_CARD, component: TyreCardComponent },
   { path: appRoutesNames.STORAGE, component: StorageComponent },
