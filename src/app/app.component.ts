@@ -10,6 +10,7 @@ export class AppComponent {
   title = 'service-app-ui';
 
   public appRoutesNames;
+  public currentUser = 'Test User';
 
   constructor() {
     this.appRoutesNames = appRoutesNames;

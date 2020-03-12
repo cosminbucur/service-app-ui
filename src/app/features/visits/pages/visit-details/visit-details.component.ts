@@ -64,14 +64,16 @@ export class VisitDetailsComponent implements OnInit {
   }
 
   private createReactiveForm() {
+    const emailPattern = '^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$';
+    const phonePattern = '\\d{10}';
+
     this.form = new FormGroup({
       visitDate:    new FormControl(this.visit.visitDate, Validators.required),
       firstName:    new FormControl(this.visit.firstName, Validators.required),
       lastName:     new FormControl(this.visit.lastName, Validators.required),
       company:      new FormControl(this.visit.company, Validators.required),
-      phone:        new FormControl(this.visit.phone, Validators.pattern('\\d{10}')),
-      // TODO try Validators.email
-      email:        new FormControl(this.visit.email, Validators.pattern('^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$')),
+      phone:        new FormControl(this.visit.phone, [Validators.pattern(phonePattern), Validators.required]),
+      email:        new FormControl(this.visit.email, [Validators.pattern(emailPattern), Validators.required]),
       licensePlate: new FormControl(this.visit.licensePlate, Validators.required)
     });
   }
@@ -86,7 +88,7 @@ export class VisitDetailsComponent implements OnInit {
 
   public async save() {
     if (!this.form.valid) {
-      this.notificationService.error('There are errors on the experience fields!');
+      this.notificationService.error('There are errors on the visit fields!');
       return;
     }
 
