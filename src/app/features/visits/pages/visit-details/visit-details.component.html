@@ -20,7 +20,7 @@
             <input matInput formControlName="lastName">
         </mat-form-field>
 
-      <mat-form-field class="example-full-width">
+        <mat-form-field class="example-full-width">
             <mat-label>Company</mat-label>
             <input matInput formControlName="company">
         </mat-form-field>
@@ -34,7 +34,7 @@
             <mat-label>Email</mat-label>
             <input matInput formControlName="email">
         </mat-form-field>
-  
+
         <mat-card-actions>
             <button mat-raised-button (click)="print()" type="button">PRINT</button>
             <div *ngIf="visit.isActive">
@@ -60,7 +60,7 @@
 </form>
 
 <mat-card>
-    <mat-card-title>Vehicle info</mat-card-title>
+    <mat-card-title>Tyre info</mat-card-title>
 
     <div class="example-container">
         <h2>On car</h2>
@@ -71,7 +71,23 @@
 
         <div cdkDropList #onCarList="cdkDropList" [cdkDropListData]="onCarData"
             [cdkDropListConnectedTo]="[inStorageList]" class="example-list" (cdkDropListDropped)="drop($event)">
-            <div class="example-box" *ngFor="let item of onCarData" cdkDrag>{{item}}</div>
+            <mat-card *ngFor="let item of onCarData" cdkDrag>
+                <mat-card-header>
+                    <mat-card-title>{{ item.size }}</mat-card-title>
+                    <mat-card-subtitle>{{ item.brand }}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>{{ item.season }}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-icon-button matTooltip="Clone tire">
+                        <mat-icon>file_copy</mat-icon>
+                    </button>
+                    <button mat-icon-button matTooltip="Delete tire">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
         </div>
     </div>
 
@@ -80,7 +96,23 @@
 
         <div cdkDropList #inStorageList="cdkDropList" [cdkDropListData]="inStorageData"
             [cdkDropListConnectedTo]="[onCarList]" class="example-list" (cdkDropListDropped)="drop($event)">
-            <div class="example-box" *ngFor="let item of inStorageData" cdkDrag>{{item}}</div>
+            <mat-card *ngFor="let item of inStorageData" cdkDrag>
+                <mat-card-header>
+                    <mat-card-title>{{ item.size }}</mat-card-title>
+                    <mat-card-subtitle>{{ item.brand }}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>{{ item.season }}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-icon-button matTooltip="Clone tire">
+                        <mat-icon>file_copy</mat-icon>
+                    </button>
+                    <button mat-icon-button matTooltip="Delete tire">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
         </div>
     </div>
 

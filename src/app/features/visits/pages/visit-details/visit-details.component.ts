@@ -25,21 +25,47 @@ export class VisitDetailsComponent implements OnInit {
     isActive: true
   };
 
-  onCarData = [
-    'Front left - Summer',
-    'Front right - Summer',
-    'Rear left - Summer',
-    'Rear right - Summer'
+  public onCarData = [
+    { id: null, size: '215 / 65 R15', season: 'summer', brand: 'Continental' },
+    { id: null, size: '215 / 65 R15', season: 'summer', brand: 'Continental' },
+    { id: null, size: '215 / 65 R15', season: 'summer', brand: 'Continental' },
+    { id: null, size: '215 / 65 R15', season: 'summer', brand: 'Continental' },
   ];
 
-  inStorageData = [
-    'Front left - Winter',
-    'Front right - Winter',
-    'Rear left - Winter',
-    'Rear right - Winter'
+  public inStorageData = [
+    { id: null, size: '215 / 65 R15', season: 'winter', brand: 'Continental' },
+    { id: null, size: '215 / 65 R15', season: 'winter', brand: 'Continental' },
+    { id: null, size: '215 / 65 R15', season: 'winter', brand: 'Continental' },
+    { id: null, size: '215 / 65 R15', season: 'winter', brand: 'Continental' },
   ];
 
-  drop(event: CdkDragDrop<string[]>) {
+  constructor(
+    private router: Router,
+    private notificationService: NotificationService
+  ) { }
+
+  ngOnInit() {
+    this.initializeData();
+  }
+
+  public async save() {
+    if (!this.form.valid) {
+      this.notificationService.error('There are errors on the visit fields!');
+      return;
+    }
+
+    this.notificationService.success('Visit details saved.');
+  }
+
+  public cancel() {
+    this.goToVisitsPage();
+  }
+
+  public print() {
+    this.notificationService.info('Printing in progress.');
+  }
+
+  public drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -50,13 +76,8 @@ export class VisitDetailsComponent implements OnInit {
     }
   }
 
-  constructor(
-    private router: Router,
-    private notificationService: NotificationService
-  ) { }
-
-  ngOnInit() {
-    this.initializeData();
+  public toggleActive() {
+    this.notificationService.info('Customer activated');
   }
 
   private async initializeData() {
@@ -80,27 +101,6 @@ export class VisitDetailsComponent implements OnInit {
 
   private goToVisitsPage() {
     this.router.navigate([`/${appRoutesNames.VISITS}`]);
-  }
-
-  public cancel() {
-    this.goToVisitsPage();
-  }
-
-  public async save() {
-    if (!this.form.valid) {
-      this.notificationService.error('There are errors on the visit fields!');
-      return;
-    }
-
-    this.notificationService.success('Visit details saved.');
-  }
-
-  public print() {
-    this.notificationService.info('Printing in progress.');
-  }
-
-  public toggleActive() {
-    this.notificationService.info('Customer activated');
   }
 
   get firstName(): any {
