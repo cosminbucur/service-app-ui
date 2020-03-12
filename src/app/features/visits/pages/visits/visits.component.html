@@ -15,10 +15,10 @@
       <td mat-cell *matCellDef="let element"> {{element.visitDate | date: 'dd/MM/yyyy' }} </td>
     </ng-container>
 
-    <!-- Name Column -->
+    <!-- Reason Column -->
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      <th mat-header-cell *matHeaderCellDef> Reason </th>
+      <td mat-cell *matCellDef="let element"> {{element.reason}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
