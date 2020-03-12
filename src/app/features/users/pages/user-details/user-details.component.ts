@@ -30,6 +30,13 @@ export class UserDetailsComponent implements OnInit {
   public checked = false;
   public disabled = false;
 
+  public roles = [
+    { value: 'admin', viewValue: 'Admin' },
+    { value: 'operator', viewValue: 'Operator' }
+  ];
+
+  public selectedRole: string;
+
   constructor(
     private router: Router,
     private notificationService: NotificationService
@@ -80,7 +87,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   public resetPassword() {
-    this.notificationService.info('Notification sent.')
+    this.notificationService.info('Notification sent.');
   }
 
 }

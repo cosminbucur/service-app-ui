@@ -28,6 +28,15 @@
             <input matInput maxlength="10" placeholder="Ex. 0722333444" formControlName="phone">
         </mat-form-field>
 
+        <mat-form-field>
+            <mat-label>Role</mat-label>
+            <mat-select [(value)]="selectedRole" formControlName="role">
+                <mat-option *ngFor="let role of roles" [value]="role.value">
+                    {{role.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
         <mat-card-actions>
             <mat-slide-toggle class="example-margin" [checked]="user.active" formControlName="active">
                 Active
