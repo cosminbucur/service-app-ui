@@ -10,18 +10,18 @@ export class StorageComponent implements OnInit {
   public data = [
     {
       licensePlate: 'B22ABC', storagePoint: '1-1-1-2-3', tires: [
-        { size: 'P215/65R17 95H', brand: 'Continental', wornLevel: 'normal' },
-        { size: 'P215/65R17 95H', brand: 'Continental', wornLevel: 'normal' },
-        { size: 'P215/65R17 95H', brand: 'Continental', wornLevel: 'normal' },
-        { size: 'P215/65R17 95H', brand: 'Continental', wornLevel: 'normal' }
+        { size: '215 / 65 R17', brand: 'Continental', season: 'summer', wornLevel: 'normal' },
+        { size: '215 / 65 R17', brand: 'Continental', season: 'summer', wornLevel: 'normal' },
+        { size: '215 / 65 R17', brand: 'Continental', season: 'summer', wornLevel: 'normal' },
+        { size: '215 / 65 R17', brand: 'Continental', season: 'summer', wornLevel: 'normal' }
       ]
     },
     {
       licensePlate: 'IF33DEF', storagePoint: '1-1-1-2-4', tires: [
-        { size: 'P215/65R17 95H', brand: 'Pirelli', wornLevel: 'danger' },
-        { size: 'P215/65R17 95H', brand: 'Pirelli', wornLevel: 'danger' },
-        { size: 'P215/65R17 95H', brand: 'Pirelli', wornLevel: 'danger' },
-        { size: 'P215/65R17 95H', brand: 'Pirelli', wornLevel: 'danger' }
+        { size: '215 / 65 R17', brand: 'Pirelli', season: 'winter', wornLevel: 'danger' },
+        { size: '215 / 65 R17', brand: 'Pirelli', season: 'winter', wornLevel: 'danger' },
+        { size: '215 / 65 R17', brand: 'Pirelli', season: 'winter', wornLevel: 'danger' },
+        { size: '215 / 65 R17', brand: 'Pirelli', season: 'winter', wornLevel: 'danger' }
       ]
     }
   ];
