@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ChartsModule } from 'ng2-charts';
+import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
   declarations: [],
@@ -14,7 +15,8 @@ import { ChartsModule } from 'ng2-charts';
     MaterialModule,
     RouterModule,
     DragDropModule,
-    ChartsModule
+    ChartsModule,
+    TextMaskModule
   ],
   exports: [
     // angular modules
@@ -26,7 +28,8 @@ import { ChartsModule } from 'ng2-charts';
     // 3rd party components
     MaterialModule,
     RouterModule,
-    ChartsModule
+    ChartsModule,
+    TextMaskModule
   ],
   providers: []
 })

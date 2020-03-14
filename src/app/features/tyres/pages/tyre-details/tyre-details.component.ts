@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/core/services/notification.service';
 import { appRoutesNames } from 'src/app/app.routes.names';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Observable } from 'rxjs/internal/Observable';
+import { startWith, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tyre-details',
@@ -27,6 +29,8 @@ export class TyreDetailsComponent implements OnInit {
     { value: 'michelin', viewValue: 'Michelin' },
     { value: 'pirelli', viewValue: 'Pirelli' }
   ];
+
+  public filteredBrands: Observable<any[]>;
 
   public wearLevels = [
     { value: 'good', viewValue: 'Good' },
@@ -61,6 +65,22 @@ export class TyreDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.initializeData();
+
+    this.filteredBrands = this.form.get('brand').valueChanges.pipe(
+        startWith(''),
+        map(brand => typeof brand === 'string' ? brand : brand.viewValue),
+        map(viewValue => viewValue ? this._filter(viewValue) : this.brands.slice())
+      );
+  }
+
+  public displayBrand(brand: any): string {
+    return brand && brand.value ? brand.value : '';
+  }
+
+  private _filter(value: string): any[] {
+    const filterValue = value.toLowerCase();
+
+    return this.brands.filter(brand => brand.value.toLowerCase().indexOf(filterValue) === 0);
   }
 
   public async save() {

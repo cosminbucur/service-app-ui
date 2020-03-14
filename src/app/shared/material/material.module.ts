@@ -26,7 +26,8 @@ import {
   MatNativeDateModule,
   MatProgressBarModule,
   MatSidenavModule,
-  MatTableModule
+  MatTableModule,
+  MatAutocompleteModule
 } from '@angular/material';
 
 @NgModule({
@@ -65,7 +66,8 @@ import {
     MatBadgeModule,
     MatExpansionModule,
     MatSidenavModule,
-    MatTableModule
+    MatTableModule,
+    MatAutocompleteModule
   ],
   providers: [
     MatDatepickerModule

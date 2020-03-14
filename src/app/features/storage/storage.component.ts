@@ -1,4 +1,6 @@
+import { NotificationService } from './../../core/services/notification.service';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-storage',
@@ -26,9 +28,37 @@ export class StorageComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  public form: FormGroup;
+  public storagePoint: any = {
+    id: null,
+    section: null,
+    area: null,
+    row: null,
+    shelf: null,
+    floor: null
+  };
+
+  constructor(private notificationService: NotificationService) { }
 
   ngOnInit() {
+    this.initializeData();
   }
 
+  public moveToStoragePoint() {
+    this.notificationService.success('Tyres moved to storage.');
+  }
+
+  private async initializeData() {
+    this.createReactiveForm();
+  }
+
+  private createReactiveForm() {
+    this.form = new FormGroup({
+      section:  new FormControl(this.storagePoint.section, Validators.required),
+      area:     new FormControl(this.storagePoint.area, Validators.required),
+      row:      new FormControl(this.storagePoint.row, Validators.required),
+      shelf:    new FormControl(this.storagePoint.shelf, Validators.required),
+      floor:    new FormControl(this.storagePoint.floor, Validators.required)
+    });
+  }
 }

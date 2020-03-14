@@ -37,12 +37,22 @@
 
         <mat-form-field>
             <mat-label>Brand</mat-label>
+            <input type="text" matInput formControlName="brand" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayBrand">
+              <mat-option *ngFor="let brand of filteredBrands | async" [value]="brand.value">
+                {{brand.viewValue}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+        <!-- <mat-form-field>
+            <mat-label>Brand</mat-label>
             <mat-select formControlName="brand">
                 <mat-option *ngFor="let brand of brands" [value]="brand.value">
                     {{brand.viewValue}}
                 </mat-option>
             </mat-select>
-        </mat-form-field>
+        </mat-form-field> -->
 
         <mat-form-field>
             <mat-label>Wear level</mat-label>
