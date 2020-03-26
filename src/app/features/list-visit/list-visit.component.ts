@@ -37,10 +37,10 @@ export class ListVisitComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  public onFindByLicensePlate(): void {
-    console.log('searching license plate');
-    this.toastr.success('Looking for license plate');
-  }
+  // public onFindByLicensePlate(): void {
+  //   console.log('searching license plate');
+  //   this.toastr.success('Looking for license plate');
+  // }
 
   public applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

@@ -26,7 +26,7 @@ import { map } from 'rxjs/operators';
       .toPromise();
   }
 
-    toEntity(dto: any): CustomerVisit {
+    toEntity(dto: CustomerVisit): CustomerVisit {
         return{
             customerId: dto.customerId,
             visitDate: dto.visitDate,
