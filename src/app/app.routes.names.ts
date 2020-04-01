@@ -1,4 +1,5 @@
 export const appRoutesNames = {
     HOME: 'home',
-    VISIT: 'visit'
+    VISIT: 'visit',
+    CREATE_VISIT: 'new-visit'
 };

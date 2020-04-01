@@ -7,12 +7,15 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { appRouting } from './app.routes';
 import { ListVisitComponent } from './features/list-visit/list-visit.component';
+import { CreateVisitComponent } from './features/create-visit/create-visit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ListVisitComponent
+    ListVisitComponent,
+    CreateVisitComponent,
+
   ],
   imports: [
     CoreModule,
