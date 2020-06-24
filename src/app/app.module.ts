@@ -15,8 +15,7 @@ import { UserDetailsComponent } from './features/users/pages/user-details/user-d
 import { ReportsComponent } from './features/reports/reports.component';
 import { BrandChartComponent } from './features/reports/brand-chart/brand-chart.component';
 import { SizeChartComponent } from './features/reports/size-chart/size-chart.component';
-import { ListVisitComponent } from './features/list-visit/list-visit.component';
-import { CreateVisitComponent } from './features/create-visit/create-visit.component';
+import { CreateVisitComponent } from './features/visits/pages/create-visit/create-visit.component';
 
 @NgModule({
   declarations: [
@@ -31,10 +30,8 @@ import { CreateVisitComponent } from './features/create-visit/create-visit.compo
     UserDetailsComponent,
     ReportsComponent,
     BrandChartComponent,
-    SizeChartComponent
-    ListVisitComponent,
+    SizeChartComponent,
     CreateVisitComponent,
-
   ],
   imports: [
     CoreModule,

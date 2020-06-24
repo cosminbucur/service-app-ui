@@ -17,7 +17,7 @@ import { MatStepperModule, MatNativeDateModule } from '@angular/material';
     RouterModule,
     DragDropModule,
     ChartsModule,
-    TextMaskModule
+    TextMaskModule,
     MatStepperModule,
     MatNativeDateModule
   ],
@@ -32,7 +32,7 @@ import { MatStepperModule, MatNativeDateModule } from '@angular/material';
     MaterialModule,
     RouterModule,
     ChartsModule,
-    TextMaskModule
+    TextMaskModule,
     MatStepperModule,
     MatNativeDateModule
   ],
