@@ -1,0 +1,37 @@
+<div class=container>
+
+    <div>
+        <mat-card class="example-card">
+
+            <mat-card-header>
+                <mat-card-title>Tyres by brand and size</mat-card-title>
+                <mat-card-subtitle></mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content *ngFor="let item of data">
+                <span>{{ item.brand }}</span>
+                <mat-chip>{{ item.count }}</mat-chip>
+
+                <mat-card *ngFor="let prop of item.sizes">
+                    <span>{{ prop.size }}</span>
+                    <mat-chip>{{ prop.count }}</mat-chip>
+                </mat-card>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div>
+        <mat-card class="example-card">
+            <mat-card-content>
+                <mat-chip-list aria-label="Fish selection">
+                    <mat-chip>By size</mat-chip>
+                    <mat-chip>By brand</mat-chip>
+                </mat-chip-list>
+            </mat-card-content>
+        </mat-card>
+
+        <app-brand-chart></app-brand-chart>
+
+        <app-size-chart></app-size-chart>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<form [formGroup]="form" novalidate autocomplete="off">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Move storage</mat-card-title>
+            <mat-card-subtitle>stored tyres</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <!-- Storage point -->
+            <div class="storage-point">
+                <mat-form-field class="storage-part">
+                    <mat-label>Section</mat-label>
+                    <input matInput formControlName="section">
+                </mat-form-field>
+                <mat-form-field class="storage-part">
+                    <mat-label>Area</mat-label>
+                    <input matInput formControlName="area">
+                </mat-form-field>
+                <mat-form-field class="storage-part">
+                    <mat-label>Row</mat-label>
+                    <input matInput formControlName="row">
+                </mat-form-field>
+                <mat-form-field class="storage-part">
+                    <mat-label>Shelf</mat-label>
+                    <input matInput formControlName="shelf">
+                </mat-form-field>
+                <mat-form-field class="storage-part">
+                    <mat-label>Floor</mat-label>
+                    <input matInput formControlName="floor">
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="moveToStoragePoint()">Move</button>
+        </mat-card-actions>
+    </mat-card>
+</form>
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>In storage</mat-card-title>
+        <mat-card-subtitle>stored tyres</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <!-- Search -->
+        <mat-form-field>
+            <mat-label>Search</mat-label>
+            <input matInput placeholder="Eg: B22ABC" #search [value]="search.value.toUpperCase()">
+            <mat-hint align="start"><strong>by license plate</strong></mat-hint>
+        </mat-form-field>
+
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{ data[0].licensePlate }}</mat-card-title>
+                <mat-card-subtitle>{{ data[0].storagePoint }}</mat-card-subtitle>
+            </mat-card-header>
+        </mat-card>
+
+        <mat-card *ngFor="let item of data[0].tires" cdkDrag>
+            <mat-card-header>
+                <mat-card-title>{{ item.size }}</mat-card-title>
+                <mat-card-subtitle>{{ item.brand }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{ item.season }}</p>
+                <p>{{ item.wornLevel }}</p>
+            </mat-card-content>
+        </mat-card>
+
+    </mat-card-content>
+
+</mat-card>

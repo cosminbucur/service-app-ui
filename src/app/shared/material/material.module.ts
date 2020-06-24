@@ -23,8 +23,11 @@ import {
   MatRadioModule,
   MatGridListModule,
   MatDatepickerModule,
+  MatNativeDateModule,
   MatProgressBarModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatTableModule,
+  MatAutocompleteModule
 } from '@angular/material';
 
 @NgModule({
@@ -34,7 +37,8 @@ import {
     MatDialogModule,
     MatTabsModule,
     MatBadgeModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTableModule
   ],
   exports: [
     MatButtonModule,
@@ -56,11 +60,17 @@ import {
     MatRadioModule,
     MatGridListModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     MatProgressBarModule,
     MatTabsModule,
     MatBadgeModule,
     MatExpansionModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatTableModule,
+    MatAutocompleteModule
+  ],
+  providers: [
+    MatDatepickerModule
   ]
 })
 export class MaterialModule {}
