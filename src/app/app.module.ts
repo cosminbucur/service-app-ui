@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
@@ -22,10 +23,10 @@ import { BrandChartComponent } from './features/reports/brand-chart/brand-chart.
 import { SizeChartComponent } from './features/reports/size-chart/size-chart.component';
 import { CreateVisitComponent } from './features/visits/pages/create-visit/create-visit.component';
 
+
 @NgModule({
   declarations: [
-    AppComponent
-,
+    AppComponent,
     HomeComponent,
     VisitsComponent,
     TyreDetailsComponent,
@@ -42,7 +43,7 @@ import { CreateVisitComponent } from './features/visits/pages/create-visit/creat
   imports: [
     CoreModule,
     SharedModule,
-    appRouting
+    appRouting,
     BrowserModule,
     FormsModule,
     HttpClientModule,
