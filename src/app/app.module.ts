@@ -1,4 +1,9 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './features/home/home.component';
@@ -19,7 +24,8 @@ import { CreateVisitComponent } from './features/visits/pages/create-visit/creat
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
+,
     HomeComponent,
     VisitsComponent,
     TyreDetailsComponent,
@@ -37,6 +43,11 @@ import { CreateVisitComponent } from './features/visits/pages/create-visit/creat
     CoreModule,
     SharedModule,
     appRouting
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
