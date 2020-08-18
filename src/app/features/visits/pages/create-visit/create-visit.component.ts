@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-create-visit',
@@ -7,24 +7,60 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./create-visit.component.scss']
 })
 export class CreateVisitComponent implements OnInit {
+
+  constructor(private formBuilder: FormBuilder) { }
   isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
+  customerDetailsFormGroup: FormGroup;
+  serviceDetailsFormGroup: FormGroup;
   tyreDetailsFormGroup: FormGroup;
 
+  reviewDetailsFormGroup: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder) { }
+  public customerDetails: any = {
+    firstName: null,
+    lastName: null,
+    company: null,
+    phoneNumber: null,
+    email: null,
+    licensePlate: null
+  };
+
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
+    this.customerDetailsFormGroup = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      company: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
+      email: ['', Validators.required],
+      licensePlate: ['', Validators.required]
     });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+    this.serviceDetailsFormGroup = this.formBuilder.group({
+      serviceDetailsControl: ['', Validators.required]
     });
-    this.tyreDetailsFormGroup = this._formBuilder.group({
+    this.tyreDetailsFormGroup = this.formBuilder.group({
       tyreSizeCtrl: ['', Validators.required]
     });
+
+    this.initialiseReviewData();
+
+  }
+
+  private async initialiseReviewData() {
+    this.createReactiveForm();
+  }
+
+  private createReactiveForm() {
+    this.reviewDetailsFormGroup = new FormGroup(
+      {
+        firstName: new FormControl(this.customerDetails.firstName, Validators.required),
+        lastName: new FormControl(this.customerDetails.lastName, Validators.required),
+        company: new FormControl(this.customerDetails.company, Validators.required),
+        phoneNumber: new FormControl(this.customerDetails.phoneNumber, Validators.required),
+        email: new FormControl(this.customerDetails.email, Validators.required),
+        licensePlate: new FormControl(this.customerDetails.licensePlate, Validators.required)
+      }
+    );
   }
 
 }
