@@ -154,8 +154,9 @@
         <ng-template matStepLabel>Review Information</ng-template>
 
         <div>
-          <mat-card>            
-            <pre> {{ customerDetailsFormGroup.value | json }} </pre>
+          <mat-card>
+            <label for="">First name: </label>            
+            <p> {{ customerDetailsFormGroup.value.firstName }} </p>
             </mat-card>
             <mat-card> 
             dddd
