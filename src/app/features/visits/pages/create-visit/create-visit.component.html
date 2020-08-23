@@ -41,23 +41,23 @@
         <ng-template matStepLabel>Service details</ng-template>
         <mat-form-field>
             <mat-label>Choose a date</mat-label>
-                <input matInput [matDatepicker]="picker">
+                <input matInput formControlName="date" [matDatepicker]="picker">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>          
         <mat-form-field>
           <mat-label>Mechanic Name</mat-label>
-          <input matInput formControlName="serviceDetailsControl" placeholder="ex: Alex"
+          <input matInput formControlName="mechanicName" placeholder="ex: Alex"
                  required>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Services Performed</mat-label>
-            <input matInput formControlName="serviceDetailsControl" placeholder="ex: complete 15inch"
+            <input matInput formControlName="servicesPerformed" placeholder="ex: complete 15inch"
                    required>
         </mat-form-field>
         <mat-form-field class="service-details-comment-box">
             <mat-label>Observations</mat-label>
-            <textarea matInput placeholder="ex: tyres require changing soon"></textarea>
+            <textarea matInput formControlName="observations" placeholder="ex: tyres require changing soon"></textarea>
         </mat-form-field>
 
         <div>
@@ -72,45 +72,47 @@
       <p>Mounted Tyre Details</p>
       <mat-form-field>
         <mat-label>width</mat-label>
-        <input matInput formControlName="tyreSizeCtrl" placeholder="ex: 185" required>
+        <input matInput formControlName="mountedWidth" placeholder="ex: 185" required>
       </mat-form-field>
       <mat-form-field>
         <mat-label>height</mat-label>
-        <input matInput formControlName="tyreSizeCtrl" placeholder="ex: 65" required>
+        <input matInput formControlName="mountedHeight" placeholder="ex: 65" required>
       </mat-form-field>      
       <mat-form-field>
         <mat-label>rim diameter</mat-label>        
-        <input matInput formControlName="tyreSizeCtrl" placeholder="ex: R15" required>
+        <input matInput formControlName="mountedRimDiameter" placeholder="ex: R15" required>
       </mat-form-field>
       </form>
       <form [formGroup]="tyreDetailsFormGroup">
       <mat-form-field>
         <mat-label>Mounted Tyres Brand</mat-label>
-        <input matInput formControlName="tyreSizeCtrl" placeholder="ex: Michelin" required>
+        <input matInput formControlName="mountedBrand" placeholder="ex: Michelin" required>
       </mat-form-field>
-        <mat-radio-button value="1">Summer</mat-radio-button>
-        <mat-radio-button value="2">Winter</mat-radio-button>
-        <mat-radio-button value="3">All-Season</mat-radio-button>
-      
+
+      <mat-radio-group class="mounted-tyres-season" [(ngModel)]="mountedSeason">
+        <mat-radio-button *ngFor= "let season of seasons" [value]="season">
+          {{ season }}
+        </mat-radio-button>
+      </mat-radio-group>
 
       <p>Hotel Tyre Details</p>
       <mat-form-field>
         <mat-label>width</mat-label>
-        <input matInput formControlName="tyreSizeCtrl" placeholder="ex: 185" required>
+        <input matInput formControlName="hotelWidth" placeholder="ex: 185" required>
       </mat-form-field>
       <mat-form-field>
         <mat-label>height</mat-label>
-        <input matInput formControlName="tyreSizeCtrl" placeholder="ex: 65" required>
+        <input matInput formControlName="hotelHeight" placeholder="ex: 65" required>
       </mat-form-field>      
       <mat-form-field>
         <mat-label>rim diameter</mat-label>        
-        <input matInput formControlName="tyreSizeCtrl" placeholder="ex: R15" required>
+        <input matInput formControlName="hotelRimDiameter" placeholder="ex: R15" required>
       </mat-form-field>
       </form>
       <form [formGroup]="tyreDetailsFormGroup">
       <mat-form-field>
         <mat-label>Hotel Tyres Brand</mat-label>
-        <input matInput formControlName="tyreSizeCtrl" placeholder="ex: Michelin" required>
+        <input matInput formControlName="hotelBrand" placeholder="ex: Michelin" required>
       </mat-form-field>
         <mat-radio-button value="1">Summer</mat-radio-button>
         <mat-radio-button value="2">Winter</mat-radio-button>
@@ -119,7 +121,7 @@
       <form [formGroup]="tyreDetailsFormGroup">
         <mat-form-field>
           <mat-label>Tyre wear indicator</mat-label>
-          <input matInput formControlName="tyreSizeCtrl" placeholder="ex: 3">
+          <input matInput formControlName="hotelTyreWearIndicator" placeholder="ex: 3">
         </mat-form-field>
       </form>
 
@@ -129,7 +131,7 @@
         <mat-radio-button value="5">Alloy Rims</mat-radio-button>
       <mat-form-field>
         <mat-label>Caps</mat-label>
-        <input matInput formControlName="tyreSizeCtrl" placeholder="ex: 4">
+        <input matInput formControlName="hotelCaps" placeholder="ex: 4">
       </mat-form-field> 
       
       <form [formGroup]="tyreDetailsFormGroup">
@@ -138,7 +140,7 @@
 
         <mat-form-field>
           <mat-label>Storagepoint Location</mat-label>
-          <input matInput formControlName="tyreSizeCtrl" placeholder="ex: R1R1E1" required>
+          <input matInput formControlName="storagePointLocation" placeholder="ex: R1R1E1" required>
         </mat-form-field>
       </form>
 
@@ -153,15 +155,105 @@
         <form [formGroup]="tyreDetailsFormGroup">
         <ng-template matStepLabel>Review Information</ng-template>
 
+      <div class=container>
+
         <div>
-          <mat-card>
-            <label for="">First name: </label>            
-            <p> {{ customerDetailsFormGroup.value.firstName }} </p>
+          <div>                              
+            <mat-card>
+
+              <mat-card-subtitle>Client details</mat-card-subtitle>
+                <div>
+                  <label for="">Full Name: {{ customerDetailsFormGroup.value.firstName }} 
+                    {{ customerDetailsFormGroup.value.lastName }}              
+                  </label>
+                </div>
+                <div>
+                  <label for="">Company: {{ customerDetailsFormGroup.value.company }} </label>
+                </div>
+                <div>
+                  <label for="">Phone Number: {{ customerDetailsFormGroup.value.phoneNumber }} </label>
+                </div>
+                <div>
+                  <label for="">Email: {{ customerDetailsFormGroup.value.email }}</label>
+                </div>
+                <div>
+                  <label for="">License Plate: {{ customerDetailsFormGroup.value.licensePlate }}</label>
+                </div>
+                                         
             </mat-card>
-            <mat-card> 
-            dddd
+          </div>
+  
+          <div>
+            <mat-card>
+              
+              <mat-card-subtitle>Service details</mat-card-subtitle>
+                <div>
+                  <label for="">Date: {{ serviceDetailsFormGroup.value.date }}</label>
+                </div>
+                <div>
+                  <label for="">Mechanic: {{ serviceDetailsFormGroup.value.mechanicName}}</label>
+                </div>
+                <div>
+                  <label for="">Services: {{ serviceDetailsFormGroup.value.servicesPerformed}}</label>
+                </div>
+                <div>
+                  <label for="">Observations: {{ serviceDetailsFormGroup.value.observations }}</label>
+                </div>
+
             </mat-card>
+          </div>
         </div>
+
+        <div>
+            <div>  
+              <mat-card>
+                <mat-card-subtitle>Mounted Tyres</mat-card-subtitle>
+                <div>
+                  <label for="">Size: {{tyreDetailsFormGroup.value.mountedWidth}}/
+                    {{tyreDetailsFormGroup.value.mountedHeight}} R{{ tyreDetailsFormGroup.value.mountedRimDiameter }} </label>
+                </div>
+                <div>
+                  <label for="">Brand: {{ tyreDetailsFormGroup.value.mountedBrand }}</label>
+                </div>
+                <div>
+                  Season: {{ mountedSeason }}
+                </div>
+              </mat-card>
+            </div>
+            
+            <div>
+              <mat-card>
+                <mat-card-subtitle>Hotel Tyres</mat-card-subtitle>
+                <div>
+                  <label for="">Size: {{tyreDetailsFormGroup.value.hotelWidth}}/
+                    {{tyreDetailsFormGroup.value.hotelHeight}} R{{ tyreDetailsFormGroup.value.hotelRimDiameter }} </label>
+                </div>
+                <div>
+                  <label for="">Brand: {{ tyreDetailsFormGroup.value.hotelBrand }}</label>
+                </div>
+                <div>
+                  <label for="">Season: {{ hotelSeason }}</label>
+                </div>
+                <div>
+                  <label for="">Wear indicator: {{ tyreDetailsFormGroup.value.hotelTyreWearIndicator }} </label>
+                </div>
+                <div>
+                  <label for="">Rims type: {{ tyreDetailsFormGroup.value.hotelRims }}</label>
+                </div>
+                <div>
+                  <label for="">Caps: {{ tyreDetailsFormGroup.value.hotelCaps }}</label>
+                </div>
+                <div>
+                  <label for="">Storage Point: {{ tyreDetailsFormGroup.value.storagePointLocation }}</label>
+                </div>
+              </mat-card>
+            </div>
+
+        </div>
+        
+        
+      </div>
+           
 
         <div>
           <button mat-button matStepperPrevious>Back</button>
