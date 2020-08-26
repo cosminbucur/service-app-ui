@@ -9,3 +9,14 @@
 .service-details-comment-box {
     width: 100%;
   }
+
+.container {
+  display: flex;
+  justify-content: space-around
+}
+
+.mounted-tyres-season {
+  display: flex;
+  flex-direction: row;
+  margin: 15px 0;
+}
