@@ -22,6 +22,7 @@ import { ReportsComponent } from './features/reports/reports.component';
 import { BrandChartComponent } from './features/reports/brand-chart/brand-chart.component';
 import { SizeChartComponent } from './features/reports/size-chart/size-chart.component';
 import { CreateVisitComponent } from './features/visits/pages/create-visit/create-visit.component';
+import { CustomerDetailsComponent } from './features/visits/pages/customer-details/customer-details.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { CreateVisitComponent } from './features/visits/pages/create-visit/creat
     BrandChartComponent,
     SizeChartComponent,
     CreateVisitComponent,
+    CustomerDetailsComponent,
   ],
   imports: [
     CoreModule,

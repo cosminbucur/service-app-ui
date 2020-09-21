@@ -3,6 +3,7 @@ export const appRoutesNames = {
     VISITS: 'visits',
     CREATE_VISIT: 'new-visit',
     VISIT_DETAILS: 'visit-details',
+    CUSTOMER_DETAILS: 'customer-details',
     TYRE_DETAILS: 'tyre-details',
     TYRE_CARD: 'tyre-card',
     STORAGE: 'storage',

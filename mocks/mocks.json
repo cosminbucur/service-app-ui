@@ -15,6 +15,15 @@
       "role": "OPERATOR"
     }
   ],
-  "customerVisits": [
+  "customerVisits": [],
+  "customers": [
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "email": "test@gmail.com",
+      "phone": "0722333444",
+      "company": "test",
+      "id": 1
+    }
   ]
 }
