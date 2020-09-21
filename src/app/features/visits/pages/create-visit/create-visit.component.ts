@@ -46,13 +46,12 @@ export class CreateVisitComponent implements OnInit {
     hotelRims: null,
     hotelCaps: null,
     storagePointLocation: null
-  }
+  };
 
   public mountedSeason: string;
   public hotelSeason: string;
 
   public seasons: string[] = ['Summer', 'Winter', 'All Seasons'];
-
 
   ngOnInit() {
     this.customerDetailsFormGroup = this.formBuilder.group({
@@ -83,7 +82,6 @@ export class CreateVisitComponent implements OnInit {
     hotelCaps: [''],
     storagePointLocation: ['', Validators.required]
     });
-
   }
 
 }
