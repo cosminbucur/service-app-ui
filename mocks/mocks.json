@@ -18,12 +18,38 @@
   "customerVisits": [],
   "customers": [
     {
-      "firstName": "test",
-      "lastName": "test",
-      "email": "test@gmail.com",
+      "firstName": "daenerys",
+      "lastName": "targarien",
+      "email": "danny@gmail.com",
       "phone": "0722333444",
-      "company": "test",
+      "company": "westeros",
       "id": 1
+    },
+    {
+      "firstName": "alex",
+      "lastName": "vasile",
+      "email": "alexvasile@gmail.com",
+      "phone": "0733222444",
+      "company": "pipera",
+      "id": 2
+    },
+    {
+      "firstName": "ana",
+      "lastName": "vasilescu",
+      "email": "alexvasile@gmail.com",
+      "phone": "0733222444",
+      "company": "pipera",
+      "id": 3
+    }
+  ],
+  "tyreBrands": [
+    {
+      "id": 1,
+      "name": "Michelin"  
+    },
+    {
+      "id": 2,
+      "name": "Pirelli"  
     }
   ]
 }

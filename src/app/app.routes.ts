@@ -1,3 +1,4 @@
+import { CustomerSearchComponent } from './features/visits/components/customer-search/customer-search.component';
 import { CustomerDetailsComponent } from './features/visits/pages/customer-details/customer-details.component';
 import { ReportsComponent } from './features/reports/reports.component';
 import { UserDetailsComponent } from './features/users/pages/user-details/user-details.component';
@@ -20,6 +21,7 @@ export const appRoutes: Routes = [
   { path: appRoutesNames.CREATE_VISIT, component: CreateVisitComponent },
   { path: appRoutesNames.VISIT_DETAILS, component: VisitDetailsComponent },
   { path: appRoutesNames.CUSTOMER_DETAILS, component: CustomerDetailsComponent },
+  { path: appRoutesNames.CUSTOMER_SEARCH, component: CustomerSearchComponent },
   { path: appRoutesNames.TYRE_DETAILS, component: TyreDetailsComponent },
   { path: appRoutesNames.TYRE_CARD, component: TyreCardComponent },
   { path: appRoutesNames.STORAGE, component: StorageComponent },

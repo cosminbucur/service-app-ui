@@ -4,6 +4,7 @@ import { Customer } from 'src/app/shared/models/customer.mode';
 import { environment } from 'src/environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs/internal/observable/of';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class CustomersService {
 
   private readonly CUSTOMER_API = `${environment.serverApiUrl}/customers`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   /**
    * Create a new customer
@@ -26,6 +27,34 @@ export class CustomersService {
     return this.http
       .get<Customer[]>(this.CUSTOMER_API)
       .pipe(catchError(this.handleError));
+  }
+
+  getById(id: number): Observable<Customer> {
+    return this.http
+      .get<Customer>(this.CUSTOMER_API + `${id}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  getByLastName(lastName: string): Observable<Customer[]> {
+    // return this.http
+    //   .get<Customer>(this.CUSTOMER_API + `${lastName}`)
+    //   .pipe(catchError(this.handleError));
+    return of([{
+      firstName: 'daenerys',
+      lastName: 'vasilescu',
+      email: 'danny@gmail.com',
+      phone: '0722333444',
+      company: 'westeros',
+      id: 1
+    },
+    {
+      firstName: 'daenerys',
+      lastName: 'vasile',
+      email: 'danny@gmail.com',
+      phone: '0722333444',
+      company: 'westeros',
+      id: 1
+    }]);
   }
 
   private toRequestDto(customer: Customer): object {

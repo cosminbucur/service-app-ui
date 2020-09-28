@@ -41,7 +41,7 @@ export class CustomerDetailsComponent implements OnInit {
     try {
       this.customerService.create(this.form.value);
 
-      this.notificationService.success('Visit details saved.');
+      this.notificationService.success('Customer details saved.');
     } catch (err) {
       console.log(err.toString());
     }
