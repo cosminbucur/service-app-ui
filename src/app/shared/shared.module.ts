@@ -6,7 +6,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ChartsModule } from 'ng2-charts';
 import { TextMaskModule } from 'angular2-text-mask';
-import { MatStepperModule, MatNativeDateModule } from '@angular/material';
 
 @NgModule({
   declarations: [],
@@ -18,8 +17,6 @@ import { MatStepperModule, MatNativeDateModule } from '@angular/material';
     DragDropModule,
     ChartsModule,
     TextMaskModule,
-    MatStepperModule,
-    MatNativeDateModule
   ],
   exports: [
     // angular modules
@@ -33,8 +30,6 @@ import { MatStepperModule, MatNativeDateModule } from '@angular/material';
     RouterModule,
     ChartsModule,
     TextMaskModule,
-    MatStepperModule,
-    MatNativeDateModule
   ],
   providers: []
 })

@@ -31,4 +31,4 @@ export const appRoutes: Routes = [
   { path: '', pathMatch: 'full', component: AppComponent }
 ];
 
-export const appRouting: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+export const appRouting: ModuleWithProviders<RouterModule> = RouterModule.forRoot(appRoutes);

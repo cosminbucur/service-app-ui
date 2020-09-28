@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { MatRadioGroup } from '@angular/material';
+import { MatRadioGroup } from '@angular/material/radio';
 
 @Component({
   selector: 'app-visit-details2',
