@@ -3,11 +3,11 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { MatRadioGroup } from '@angular/material';
 
 @Component({
-  selector: 'app-create-visit',
-  templateUrl: './create-visit.component.html',
-  styleUrls: ['./create-visit.component.scss']
+  selector: 'app-visit-details2',
+  templateUrl: './visit-details2.component.html',
+  styleUrls: ['./visit-details2.component.scss']
 })
-export class CreateVisitComponent implements OnInit {
+export class VisitDetails2Component implements OnInit {
 
   constructor(private formBuilder: FormBuilder) { }
   isLinear = false;
