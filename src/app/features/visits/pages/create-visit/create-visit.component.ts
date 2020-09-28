@@ -69,18 +69,18 @@ export class CreateVisitComponent implements OnInit {
       observations: ['']
     });
     this.tyreDetailsFormGroup = this.formBuilder.group({
-    mountedWidth: ['', Validators.required],
-    mountedHeight: ['', Validators.required],
-    mountedRimDiameter: ['', Validators.required],
-    mountedBrand: ['', Validators.required],
-    hotelWidth: ['', Validators.required],
-    hotelHeight: ['', Validators.required],
-    hotelRimDiameter: ['', Validators.required],
-    hotelBrand: ['', Validators.required],
-    hotelTyreWearIndicator: [''],
-    hotelRims: ['', Validators.required],
-    hotelCaps: [''],
-    storagePointLocation: ['', Validators.required]
+      mountedWidth: ['', Validators.required],
+      mountedHeight: ['', Validators.required],
+      mountedRimDiameter: ['', Validators.required],
+      mountedBrand: ['', Validators.required],
+      hotelWidth: ['', Validators.required],
+      hotelHeight: ['', Validators.required],
+      hotelRimDiameter: ['', Validators.required],
+      hotelBrand: ['', Validators.required],
+      hotelTyreWearIndicator: [''],
+      hotelRims: ['', Validators.required],
+      hotelCaps: [''],
+      storagePointLocation: ['', Validators.required]
     });
   }
 

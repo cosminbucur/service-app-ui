@@ -24,7 +24,7 @@ import { SizeChartComponent } from './features/reports/size-chart/size-chart.com
 import { CreateVisitComponent } from './features/visits/pages/create-visit/create-visit.component';
 import { CustomerDetailsComponent } from './features/visits/pages/customer-details/customer-details.component';
 import { CustomerSearchComponent } from './features/visits/components/customer-search/customer-search.component';
-
+import { MechanicSearchComponent } from './features/visits/components/mechanic-search/mechanic-search.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +43,7 @@ import { CustomerSearchComponent } from './features/visits/components/customer-s
     CreateVisitComponent,
     CustomerDetailsComponent,
     CustomerSearchComponent,
+    MechanicSearchComponent
   ],
   imports: [
     CoreModule,

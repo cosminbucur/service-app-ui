@@ -30,7 +30,6 @@ export class CustomerSearchComponent implements OnInit {
 
     this.customersService.getAll().subscribe(data => {
       this.customers = data;
-      console.log(data);
     });
 
     this.filteredCustomers = this.customerFilter.valueChanges

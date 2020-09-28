@@ -9,6 +9,8 @@
     <form [formGroup]="customerDetailsFormGroup">
       <ng-template matStepLabel>Customer details</ng-template>
 
+      <app-customer-search></app-customer-search>
+
       <!-- first name -->
       <mat-form-field>
         <mat-label>First Name</mat-label>
@@ -72,6 +74,8 @@
         <mat-label>Mechanic Name</mat-label>
         <input matInput formControlName="mechanicName" placeholder="ex: Alex" required>
       </mat-form-field>
+
+      <app-mechanic-search></app-mechanic-search>
 
       <!-- services performed -->
       <mat-form-field>
