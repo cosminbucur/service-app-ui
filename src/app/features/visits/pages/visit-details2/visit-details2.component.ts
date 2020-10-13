@@ -54,6 +54,7 @@ export class VisitDetails2Component implements OnInit {
 
   public seasons: string[] = ['Summer', 'Winter', 'All Seasons'];
 
+  public visitDate = Date.now();
   private dialogRef;
 
   constructor(
@@ -70,7 +71,6 @@ export class VisitDetails2Component implements OnInit {
       licensePlate: ['', Validators.required]
     });
     this.serviceDetailsFormGroup = this.formBuilder.group({
-      date: ['', Validators.required],
       mechanicName: ['', Validators.required],
       servicesPerformed: ['', Validators.required],
       observations: ['']
