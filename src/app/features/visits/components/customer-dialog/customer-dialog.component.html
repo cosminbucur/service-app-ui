@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Add customer</h2>
+<mat-dialog-content>
+    <app-customer-details></app-customer-details>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>OK</button>
+</mat-dialog-actions>

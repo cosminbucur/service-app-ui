@@ -11,6 +11,11 @@
 
       <app-customer-search></app-customer-search>
 
+      <button mat-mini-fab color="primary" matTooltip="Add customer"
+      (click)="openDialog()">
+        <mat-icon>add</mat-icon>
+      </button>
+
       <!-- first name -->
       <mat-form-field>
         <mat-label>First Name</mat-label>
@@ -43,7 +48,7 @@
         <mat-label>E-mail</mat-label>
         <input matInput placeholder="ex: alex@gmail.com" formControlName="email" required>
       </mat-form-field>
-      
+
       <!-- license plate -->
       <mat-form-field>
         <mat-label>License Plate</mat-label>
@@ -102,7 +107,7 @@
     <form [formGroup]="tyreDetailsFormGroup">
       <ng-template matStepLabel>Tyre details</ng-template>
       <p>Mounted Tyre Details</p>
-      
+
       <!-- width -->
       <mat-form-field>
         <mat-label>width</mat-label>
