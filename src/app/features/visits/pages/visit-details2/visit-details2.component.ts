@@ -38,6 +38,7 @@ export class VisitDetails2Component implements OnInit {
     mountedHeight: null,
     mountedRimDiameter: null,
     mountedBrand: null,
+    mountedSeason: null,
     hotelWidth: null,
     hotelHeight: null,
     hotelRimDiameter: null,
@@ -47,9 +48,6 @@ export class VisitDetails2Component implements OnInit {
     hotelCaps: null,
     storagePointLocation: null
   };
-
-  public mountedSeason: string;
-  public hotelSeason: string;
 
   public seasons: string[] = ['Summer', 'Winter', 'All Seasons'];
 
@@ -69,18 +67,19 @@ export class VisitDetails2Component implements OnInit {
       observations: ['']
     });
     this.tyreDetailsFormGroup = this.formBuilder.group({
-      mountedWidth: ['', Validators.required],
-      mountedHeight: ['', Validators.required],
-      mountedRimDiameter: ['', Validators.required],
-      mountedBrand: ['', Validators.required],
-      hotelWidth: ['', Validators.required],
-      hotelHeight: ['', Validators.required],
-      hotelRimDiameter: ['', Validators.required],
-      hotelBrand: ['', Validators.required],
-      hotelTyreWearIndicator: [''],
-      hotelRims: ['', Validators.required],
-      hotelCaps: [''],
-      storagePointLocation: ['', Validators.required]
+    mountedWidth: ['', Validators.required],
+    mountedHeight: ['', Validators.required],
+    mountedRimDiameter: ['', Validators.required],
+    mountedBrand: ['', Validators.required],
+    mountedSeason: ['', Validators.required],
+    hotelWidth: ['', Validators.required],
+    hotelHeight: ['', Validators.required],
+    hotelRimDiameter: ['', Validators.required],
+    hotelBrand: ['', Validators.required],
+    hotelTyreWearIndicator: [''],
+    hotelRims: ['', Validators.required],
+    hotelCaps: [''],
+    storagePointLocation: ['', Validators.required]
     });
   }
 
