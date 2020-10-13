@@ -7,7 +7,7 @@
   <mat-step [stepControl]="customerDetailsFormGroup">
 
     <form [formGroup]="customerDetailsFormGroup">
-      <ng-template matStepLabel>Customer details</ng-template>
+      <ng-template matStepLabel>Customer</ng-template>
 
       <app-customer-search></app-customer-search>
 
@@ -105,7 +105,7 @@
   <mat-step [stepControl]="tyreDetailsFormGroup">
 
     <form [formGroup]="tyreDetailsFormGroup">
-      <ng-template matStepLabel>Tyre details</ng-template>
+      <ng-template matStepLabel>Tyres</ng-template>
       <p>Mounted Tyre Details</p>
 
       <!-- width -->
@@ -212,7 +212,7 @@
   <!-- step 4 -->
   <mat-step [stepControl]="tyreDetailsFormGroup">
     <form [formGroup]="tyreDetailsFormGroup">
-      <ng-template matStepLabel>Review Information</ng-template>
+      <ng-template matStepLabel>Summary</ng-template>
 
       <div class=container>
         <div>
@@ -243,7 +243,7 @@
           <!-- service details -->
           <div>
             <mat-card>
-              <mat-card-subtitle>Service details</mat-card-subtitle>
+              <mat-card-subtitle>Service</mat-card-subtitle>
               <div>
                 <label for="">Date: {{ serviceDetailsFormGroup.value.date }}</label>
               </div>
