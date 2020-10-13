@@ -38,6 +38,7 @@ export class CreateVisitComponent implements OnInit {
     mountedHeight: null,
     mountedRimDiameter: null,
     mountedBrand: null,
+    mountedSeason: null,
     hotelWidth: null,
     hotelHeight: null,
     hotelRimDiameter: null,
@@ -47,9 +48,6 @@ export class CreateVisitComponent implements OnInit {
     hotelCaps: null,
     storagePointLocation: null
   }
-
-  public mountedSeason: string;
-  public hotelSeason: string;
 
   public seasons: string[] = ['Summer', 'Winter', 'All Seasons'];
 
@@ -74,6 +72,7 @@ export class CreateVisitComponent implements OnInit {
     mountedHeight: ['', Validators.required],
     mountedRimDiameter: ['', Validators.required],
     mountedBrand: ['', Validators.required],
+    mountedSeason: ['', Validators.required],
     hotelWidth: ['', Validators.required],
     hotelHeight: ['', Validators.required],
     hotelRimDiameter: ['', Validators.required],
