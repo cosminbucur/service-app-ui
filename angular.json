@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss",
               "node_modules/ngx-toastr/toastr.css"
             ],
@@ -94,6 +95,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -125,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "service-app-ui"
+    }
+  },
+  "defaultProject": "service-app-ui",
+  "cli": {
+    "analytics": "6c268c78-9118-463f-b53c-822c14084e8c"
+  }
 }

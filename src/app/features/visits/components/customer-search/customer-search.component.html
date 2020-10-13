@@ -1,0 +1,12 @@
+<form [formGroup]='form'>
+    <mat-form-field>
+        <mat-label>Search customer</mat-label>
+        <input type="text" matInput formControlName="filter" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let customer of filteredCustomers | async" [value]="customer">
+            {{ customer.lastName }} {{ customer.firstName }}
+        </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</form>
+<span>Selected: {{ customerFilter.value | json }}</span>

@@ -48,6 +48,10 @@
       <span>Tyre card</span>
     </a>
 
+    <a class="card" rel="noopener" [routerLink]="['/', appRoutesNames.CUSTOMER_DETAILS]">
+      <span>Add customer</span>
+    </a>
+
   </div>
 
   <!-- Quick actions -->
@@ -57,7 +61,15 @@
   <input type="hidden" #selection>
 
   <div class="card-container">
-    <div class="card card-small" [routerLink]="['/', appRoutesNames.CREATE_VISIT]"
+    <div class="card card-small" [routerLink]="['/', appRoutesNames.VISIT_DETAILS2]"
+      (click)="selection.value = 'customerVisit2'" tabindex="0">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg>
+
+      <span>Customer visit 2</span>
+    </div>
+
+    <div class="card card-small" [routerLink]="['/', appRoutesNames.VISIT_DETAILS]"
       (click)="selection.value = 'customerVisit'" tabindex="0">
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
         <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg>

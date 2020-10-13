@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/core/services/notification.service';
 import { appRoutesNames } from 'src/app/app.routes.names';
-import { ThemePalette } from '@angular/material';
+import { ThemePalette } from '@angular/material/core/common-behaviors/color';
 
 @Component({
   selector: 'app-user-details',

@@ -3,6 +3,22 @@
 
         <mat-card-title>Customer info</mat-card-title>
 
+        <!-- new -->
+        <!-- existing -->
+        <!-- <mat-form-field class="example-full-width">
+            <input type="text"
+                   placeholder=""
+                   aria-label="Number"
+                   matInput
+                   [formControl]="myControl"
+                   [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field> -->
+
         <mat-form-field>
             <mat-label>Choose a date</mat-label>
             <input matInput [matDatepicker]="visitDate" formControlName="visitDate">

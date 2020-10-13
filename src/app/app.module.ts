@@ -21,24 +21,41 @@ import { UserDetailsComponent } from './features/users/pages/user-details/user-d
 import { ReportsComponent } from './features/reports/reports.component';
 import { BrandChartComponent } from './features/reports/brand-chart/brand-chart.component';
 import { SizeChartComponent } from './features/reports/size-chart/size-chart.component';
-import { CreateVisitComponent } from './features/visits/pages/create-visit/create-visit.component';
-
+import { VisitDetails2Component } from './features/visits/pages/visit-details2/visit-details2.component';
+import { CustomerDetailsComponent } from './features/visits/pages/customer-details/customer-details.component';
+import { CustomerSearchComponent } from './features/visits/components/customer-search/customer-search.component';
+import { MechanicSearchComponent } from './features/visits/components/mechanic-search/mechanic-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+
+    // visits
     VisitsComponent,
-    TyreDetailsComponent,
     VisitDetailsComponent,
+    VisitDetails2Component,
+
+    // tyres
+    TyreDetailsComponent,
     TyreCardComponent,
+
     StorageComponent,
+
+    // users
     UsersComponent,
     UserDetailsComponent,
+
     ReportsComponent,
     BrandChartComponent,
     SizeChartComponent,
-    CreateVisitComponent,
+
+    // customers
+    CustomerDetailsComponent,
+    CustomerSearchComponent,
+
+    // mechanics
+    MechanicSearchComponent
   ],
   imports: [
     CoreModule,

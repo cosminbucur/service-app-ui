@@ -1,5 +1,3 @@
-import { UserRole } from './user-role.model';
-
 export interface User {
   id: number;
   firstName: string;
@@ -9,3 +7,5 @@ export interface User {
   registerDate: Date;
   isActive?: boolean;
 }
+
+export type UserRole = 'ADMIN' | 'OPERATOR' | 'VIEWER';

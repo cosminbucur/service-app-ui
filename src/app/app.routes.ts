@@ -1,3 +1,6 @@
+import { MechanicSearchComponent } from './features/visits/components/mechanic-search/mechanic-search.component';
+import { CustomerSearchComponent } from './features/visits/components/customer-search/customer-search.component';
+import { CustomerDetailsComponent } from './features/visits/pages/customer-details/customer-details.component';
 import { ReportsComponent } from './features/reports/reports.component';
 import { UserDetailsComponent } from './features/users/pages/user-details/user-details.component';
 import { UsersComponent } from './features/users/pages/users/users.component';
@@ -5,7 +8,7 @@ import { StorageComponent } from './features/storage/storage.component';
 import { TyreCardComponent } from './features/visits/components/tyre-card/tyre-card.component';
 import { VisitDetailsComponent } from './features/visits/pages/visit-details/visit-details.component';
 import { TyreDetailsComponent } from './features/tyres/pages/tyre-details/tyre-details.component';
-import { CreateVisitComponent } from './features/visits/pages/create-visit/create-visit.component';
+import { VisitDetails2Component } from './features/visits/pages/visit-details2/visit-details2.component';
 import { HomeComponent } from './features/home/home.component';
 import { AppComponent } from './app.component';
 import { ModuleWithProviders } from '@angular/core';
@@ -16,8 +19,9 @@ import { VisitsComponent } from './features/visits/pages/visits/visits.component
 export const appRoutes: Routes = [
   { path: appRoutesNames.HOME, component: HomeComponent },
   { path: appRoutesNames.VISITS, component: VisitsComponent },
-  { path: appRoutesNames.CREATE_VISIT, component: CreateVisitComponent },
+  { path: appRoutesNames.VISIT_DETAILS2, component: VisitDetails2Component },
   { path: appRoutesNames.VISIT_DETAILS, component: VisitDetailsComponent },
+  { path: appRoutesNames.CUSTOMER_DETAILS, component: CustomerDetailsComponent },
   { path: appRoutesNames.TYRE_DETAILS, component: TyreDetailsComponent },
   { path: appRoutesNames.TYRE_CARD, component: TyreCardComponent },
   { path: appRoutesNames.STORAGE, component: StorageComponent },
@@ -27,4 +31,4 @@ export const appRoutes: Routes = [
   { path: '', pathMatch: 'full', component: AppComponent }
 ];
 
-export const appRouting: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+export const appRouting: ModuleWithProviders<RouterModule> = RouterModule.forRoot(appRoutes);

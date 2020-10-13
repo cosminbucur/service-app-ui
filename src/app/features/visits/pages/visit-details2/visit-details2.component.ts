@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { MatRadioGroup } from '@angular/material';
+import { MatRadioGroup } from '@angular/material/radio';
 
 @Component({
-  selector: 'app-create-visit',
-  templateUrl: './create-visit.component.html',
-  styleUrls: ['./create-visit.component.scss']
+  selector: 'app-visit-details2',
+  templateUrl: './visit-details2.component.html',
+  styleUrls: ['./visit-details2.component.scss']
 })
-export class CreateVisitComponent implements OnInit {
+export class VisitDetails2Component implements OnInit {
 
   constructor(private formBuilder: FormBuilder) { }
   isLinear = false;
@@ -47,10 +47,9 @@ export class CreateVisitComponent implements OnInit {
     hotelRims: null,
     hotelCaps: null,
     storagePointLocation: null
-  }
+  };
 
   public seasons: string[] = ['Summer', 'Winter', 'All Seasons'];
-
 
   ngOnInit() {
     this.customerDetailsFormGroup = this.formBuilder.group({
@@ -82,7 +81,6 @@ export class CreateVisitComponent implements OnInit {
     hotelCaps: [''],
     storagePointLocation: ['', Validators.required]
     });
-
   }
 
 }

@@ -1,9 +1,14 @@
+import { CustomersService } from './../../../../core/services/customers.service';
 import { NotificationService } from './../../../../core/services/notification.service';
 import { appRoutesNames } from './../../../../app.routes.names';
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Customer } from 'src/app/shared/models/customer.mode';
+import { startWith } from 'rxjs/internal/operators/startWith';
+import { map } from 'rxjs/internal/operators/map';
 
 @Component({
   selector: 'app-visit-details',
@@ -13,6 +18,11 @@ import { Router } from '@angular/router';
 export class VisitDetailsComponent implements OnInit {
 
   public form: FormGroup;
+  // public customerControl = new FormControl();
+  public options: string[];
+  public customers: Customer[];
+  public filteredOptions: Observable<string[]>;
+
   public visit: any = {
     id: null,
     visitDate: new Date(),
@@ -41,11 +51,30 @@ export class VisitDetailsComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private customerService: CustomersService
   ) { }
 
   ngOnInit() {
     this.initializeData();
+
+    this.customerService.getAll().subscribe(data => {
+      this.customers = data;
+    });
+
+    console.log(this.customers);
+
+    // this.filteredOptions = this.customerControl.valueChanges
+    //   .pipe(
+    //     startWith(''),
+    //     map(value => typeof value === 'string' ? value : value.name),
+    //     map(name => name ? this.filter(name) : this.options.slice())
+    //   );
+    // console.log(this.filteredOptions);
+  }
+
+  public displayFn(customer: Customer): string {
+    return customer && customer.lastName ? customer.firstName : '';
   }
 
   public async save() {
@@ -97,6 +126,12 @@ export class VisitDetailsComponent implements OnInit {
       email:        new FormControl(this.visit.email, [Validators.pattern(emailPattern), Validators.required]),
       licensePlate: new FormControl(this.visit.licensePlate, Validators.required)
     });
+  }
+
+  private filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   private goToVisitsPage() {
