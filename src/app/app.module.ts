@@ -27,6 +27,7 @@ import { CustomerSearchComponent } from './features/visits/components/customer-s
 import { MechanicSearchComponent } from './features/visits/components/mechanic-search/mechanic-search.component';
 import { CustomerDialogComponent } from './features/visits/components/customer-dialog/customer-dialog.component';
 import { StepCustomerComponent } from './features/visits/components/stepper/step-customer/step-customer.component';
+import { StepServiceComponent } from './features/visits/components/stepper/step-service/step-service.component';
 
 @NgModule({
   declarations: [
@@ -35,10 +36,13 @@ import { StepCustomerComponent } from './features/visits/components/stepper/step
 
     // visits
     VisitsComponent,
-    StepCustomerComponent,
-    StepTyresComponent,
-    CustomerDialogComponent,
+
     VisitDetailsComponent,
+    StepCustomerComponent,
+    StepServiceComponent,
+    StepTyresComponent,
+
+    CustomerDialogComponent,
 
     // tyres
     TyreDetailsComponent,

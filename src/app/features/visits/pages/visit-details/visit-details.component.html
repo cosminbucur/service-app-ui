@@ -4,59 +4,28 @@
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
 
   <!-- step 1 -->
-  <mat-step [stepControl]="customerDetailsFormGroup">
+  <mat-step [stepControl]="customerFormGroup">
     <ng-template matStepLabel>Customer</ng-template>
     <app-step-customer></app-step-customer>
   </mat-step>
 
   <!-- step 2 -->
-  <mat-step [stepControl]="serviceDetailsFormGroup">
-    <form [formGroup]="serviceDetailsFormGroup">
+  <mat-step [stepControl]="serviceFormGroup">
       <ng-template matStepLabel>Service</ng-template>
-
-      <!-- mechanic name -->
-      <mat-form-field>
-        <mat-label>Mechanic Name</mat-label>
-        <input matInput formControlName="mechanicName" placeholder="ex: Alex" required>
-      </mat-form-field>
-
-      <app-mechanic-search></app-mechanic-search>
-
-      <!-- services performed -->
-      <mat-form-field>
-        <mat-label>Services Performed</mat-label>
-        <input matInput formControlName="servicesPerformed" placeholder="ex: complete 15inch" required>
-      </mat-form-field>
-
-      <!-- observations -->
-      <mat-form-field class="service-details-comment-box">
-        <mat-label>Observations</mat-label>
-        <textarea matInput formControlName="observations" placeholder="ex: tyres require changing soon"></textarea>
-      </mat-form-field>
-
-      <div>
-        <button mat-button matStepperPrevious>BACK</button>
-        <button mat-button matStepperNext>NEXT</button>
-      </div>
-    </form>
+      <app-step-service></app-step-service>
   </mat-step>
 
   <!-- step 3 -->
-  <mat-step [stepControl]="tyreDetailsFormGroup">
-
-    <form [formGroup]="tyreDetailsFormGroup">
+  <mat-step [stepControl]="tyresFormGroup">
       <ng-template matStepLabel>Tyres</ng-template>
-
       <app-step-tyres></app-step-tyres>
-
-    </form>
   </mat-step>
 
   <!-- step 4 -->
-  <mat-step [stepControl]="tyreDetailsFormGroup">
+  <mat-step [stepControl]="summaryFormGroup">
     <mat-card>
 
-      <form [formGroup]="tyreDetailsFormGroup">
+      <form [formGroup]="summaryFormGroup">
         <ng-template matStepLabel>Summary</ng-template>
   
         <div class=container>
@@ -87,7 +56,7 @@
   
             <!-- service details -->
             <div>
-              <mat-card>
+              <!-- <mat-card>
                 <mat-card-subtitle>Service</mat-card-subtitle>
                 <div>
                   <label>Date: {{ visit.visitDate | date }}</label>
@@ -101,14 +70,14 @@
                 <div>
                   <label>Observations: {{ serviceDetailsFormGroup.value.observations }}</label>
                 </div>
-              </mat-card>
+              </mat-card> -->
             </div>
           </div>
   
           <div>
             <!-- mounted tyres -->
             <div>
-              <mat-card>
+              <!-- <mat-card>
                 <mat-card-subtitle>Mounted Tyres</mat-card-subtitle>
                 <div>
                   <label>Size: 
@@ -123,12 +92,12 @@
                 <div>
                   Season: {{ mountedSeason }}
                 </div>
-              </mat-card>
+              </mat-card> -->
             </div>
   
             <!-- hotel tyres -->
             <div>
-              <mat-card>
+              <!-- <mat-card>
                 <mat-card-subtitle>Hotel Tyres</mat-card-subtitle>
                 <div>
                   <label>Size: {{tyreDetailsFormGroup.value.hotelWidth}}/
@@ -152,7 +121,7 @@
                 <div>
                   <label>Storage Point: {{ tyreDetailsFormGroup.value.storagePointLocation }}</label>
                 </div>
-              </mat-card>
+              </mat-card> -->
             </div>
           </div>
         </div>

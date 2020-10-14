@@ -1,0 +1,38 @@
+<mat-card>
+
+    <mat-card-title>Service info</mat-card-title>
+
+    <form [formGroup]="form" novalidate autocomplete="off">
+        
+        <div>
+            <button mat-mini-fab color="primary" matTooltip="Add mechanic" (click)="openDialog()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+
+        <app-mechanic-search></app-mechanic-search>
+
+        <!-- services performed -->
+        <mat-form-field>
+            <mat-label>Services Performed</mat-label>
+            <input matInput formControlName="servicesPerformed" placeholder="ex: complete 15inch" required>
+        </mat-form-field>
+
+        <!-- observations -->
+        <mat-form-field class="service-details-comment-box">
+            <mat-label>Observations</mat-label>
+            <textarea matInput formControlName="observations" placeholder="ex: tyres require changing soon"></textarea>
+        </mat-form-field>
+
+    </form>
+
+    <mat-card-actions>
+        <button mat-button matStepperPrevious>BACK</button>
+        <button mat-raised-button color="primary" matStepperNext>NEXT</button>
+    </mat-card-actions>
+
+
+    <!-- TODO remove this in production -->
+    <pre>{{ form.value | json }}</pre>
+
+</mat-card>

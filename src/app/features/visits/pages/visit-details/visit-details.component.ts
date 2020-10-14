@@ -17,33 +17,6 @@ import { MatRadioGroup } from '@angular/material/radio';
 export class VisitDetailsComponent implements OnInit {
 
   public isLinear = false;
-  public serviceDetailsFormGroup: FormGroup;
-  public tyreDetailsFormGroup: FormGroup;
-  public mountedTyresSeasonGroup: MatRadioGroup;
-  public hotelTyresSeasonGroup: MatRadioGroup;
-
-  public serviceDetails: any = {
-    date: null,
-    mechanicName: null,
-    servicesPerformed: null,
-    observations: null
-  };
-
-  public tyreDetails: any = {
-    mountedWidth: null,
-    mountedHeight: null,
-    mountedRimDiameter: null,
-    mountedBrand: null,
-    mountedSeason: null,
-    hotelWidth: null,
-    hotelHeight: null,
-    hotelRimDiameter: null,
-    hotelBrand: null,
-    hotelTyreWearIndicator: null,
-    hotelRims: null,
-    hotelCaps: null,
-    storagePointLocation: null
-  };
 
   public seasons: string[] = ['Summer', 'Winter', 'All Seasons'];
 
@@ -63,37 +36,12 @@ export class VisitDetailsComponent implements OnInit {
   public form: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
     private notificationService: NotificationService,
-    private router: Router,
-    private dialog: MatDialog) { }
+    private router: Router) { }
 
-  ngOnInit() {
-    this.serviceDetailsFormGroup = this.formBuilder.group({
-      mechanicName: ['', Validators.required],
-      servicesPerformed: ['', Validators.required],
-      observations: ['']
-    });
-    this.tyreDetailsFormGroup = this.formBuilder.group({
-      mountedWidth: ['', Validators.required],
-      mountedHeight: ['', Validators.required],
-      mountedRimDiameter: ['', Validators.required],
-      mountedBrand: ['', Validators.required],
-      mountedSeason: ['', Validators.required],
-      hotelWidth: ['', Validators.required],
-      hotelHeight: ['', Validators.required],
-      hotelRimDiameter: ['', Validators.required],
-      hotelBrand: ['', Validators.required],
-      hotelTyreWearIndicator: [''],
-      hotelRims: ['', Validators.required],
-      hotelCaps: [''],
-      storagePointLocation: ['', Validators.required]
-    });
+  ngOnInit(): void {
+
   }
-
-
-
-
 
   public cancel() {
     this.goToVisitsPage();
