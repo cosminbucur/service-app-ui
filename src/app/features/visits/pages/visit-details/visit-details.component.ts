@@ -16,22 +16,11 @@ import { MatRadioGroup } from '@angular/material/radio';
 })
 export class VisitDetailsComponent implements OnInit {
 
-  public customers: Customer[];
   public isLinear = false;
-  public customerDetailsFormGroup: FormGroup;
   public serviceDetailsFormGroup: FormGroup;
   public tyreDetailsFormGroup: FormGroup;
   public mountedTyresSeasonGroup: MatRadioGroup;
   public hotelTyresSeasonGroup: MatRadioGroup;
-
-  public customerDetails: any = {
-    firstName: null,
-    lastName: null,
-    company: null,
-    phoneNumber: null,
-    email: null,
-    licensePlate: null
-  };
 
   public serviceDetails: any = {
     date: null,
@@ -70,32 +59,16 @@ export class VisitDetailsComponent implements OnInit {
     isActive: true
   };
 
-  private dialogRef;
-
   // TODO remove this
   public form: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private notificationService: NotificationService,
-    private customerService: CustomersService,
     private router: Router,
     private dialog: MatDialog) { }
 
   ngOnInit() {
-    this.initializeData();
-
-    const emailPattern = '^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$';
-    const phonePattern = '\\d{10}';
-
-    this.customerDetailsFormGroup = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      company: ['', Validators.required],
-      phoneNumber: ['', [Validators.pattern(phonePattern), Validators.required]],
-      email: ['', [Validators.pattern(emailPattern), Validators.required]],
-      licensePlate: ['', Validators.required]
-    });
     this.serviceDetailsFormGroup = this.formBuilder.group({
       mechanicName: ['', Validators.required],
       servicesPerformed: ['', Validators.required],
@@ -118,25 +91,9 @@ export class VisitDetailsComponent implements OnInit {
     });
   }
 
-  private async initializeData() {
-    this.customerService.getAll().subscribe(data => {
-      this.customers = data;
-    });
 
-    console.log(this.customers);
-  }
 
-  public openDialog(): void {
-    this.dialogRef = this.dialog.open(CustomerDialogComponent);
 
-    this.dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
-  public onCancel(): void {
-    this.dialogRef.close();
-  }
 
   public cancel() {
     this.goToVisitsPage();

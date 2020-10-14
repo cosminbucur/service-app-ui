@@ -5,61 +5,8 @@
 
   <!-- step 1 -->
   <mat-step [stepControl]="customerDetailsFormGroup">
-
-    <form [formGroup]="customerDetailsFormGroup" novalidate autocomplete="off">
-      <ng-template matStepLabel>Customer</ng-template>
-
-      <app-customer-search></app-customer-search>
-
-      <button mat-mini-fab color="primary" matTooltip="Add customer" (click)="openDialog()">
-        <mat-icon>add</mat-icon>
-      </button>
-
-      <!-- first name -->
-      <mat-form-field>
-        <mat-label>First Name</mat-label>
-        <input matInput placeholder="ex: Eminescu" formControlName="firstName" required>
-      </mat-form-field>
-
-      <!-- last name -->
-      <mat-form-field>
-        <mat-label>Last Name</mat-label>
-        <input matInput placeholder="ex: Mihai" formControlName="lastName" required>
-      </mat-form-field>
-
-      <!-- company -->
-      <mat-form-field>
-        <mat-label>Company</mat-label>
-        <input matInput placeholder="ex: Premium Anvelope" formControlName="company" required>
-      </mat-form-field>
-    </form>
-
-    <!-- TODO remove this in production -->
-    <!-- <pre>{{ customerDetailsFormGroup.value | json }}</pre> -->
-
-    <form [formGroup]="customerDetailsFormGroup">
-      <!-- phone number -->
-      <mat-form-field>
-        <mat-label>Phone Number</mat-label>
-        <input matInput placeholder="ex: 0723456789" formControlName="phoneNumber" required>
-      </mat-form-field>
-
-      <!-- email -->
-      <mat-form-field>
-        <mat-label>E-mail</mat-label>
-        <input matInput placeholder="ex: alex@gmail.com" formControlName="email" required>
-      </mat-form-field>
-
-      <!-- license plate -->
-      <mat-form-field>
-        <mat-label>License Plate</mat-label>
-        <input matInput placeholder="ex: B001BOS" formControlName="licensePlate" required>
-      </mat-form-field>
-
-      <div>
-        <button mat-button matStepperNext>NEXT</button>
-      </div>
-    </form>
+    <ng-template matStepLabel>Customer</ng-template>
+    <app-step-customer></app-step-customer>
   </mat-step>
 
   <!-- step 2 -->
@@ -116,7 +63,7 @@
           <div>
             <!-- client details -->
             <div>
-              <mat-card>
+              <!-- <mat-card>
                 <mat-card-subtitle>Client details</mat-card-subtitle>
                 <div>
                   <label>Full Name: {{ customerDetailsFormGroup.value.firstName }}
@@ -135,7 +82,7 @@
                 <div>
                   <label>License Plate: {{ customerDetailsFormGroup.value.licensePlate }}</label>
                 </div>
-              </mat-card>
+              </mat-card> -->
             </div>
   
             <!-- service details -->

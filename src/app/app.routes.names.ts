@@ -1,7 +1,7 @@
 export const appRoutesNames = {
     HOME: 'home',
     VISITS: 'visits',
-    visit_details: 'visit-details2',
+    visit_details: 'visit-details',
     STEP_TYRES: 'step-tyres',
     CUSTOMER_DETAILS: 'customer-details',
     CUSTOMER_SEARCH: 'customer-search',

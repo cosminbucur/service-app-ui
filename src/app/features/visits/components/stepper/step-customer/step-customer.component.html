@@ -1,0 +1,54 @@
+<mat-card>
+
+    <mat-card-title>Customer info</mat-card-title>
+
+    <form [formGroup]="form" novalidate autocomplete="off">
+        
+        <div>
+            <button mat-mini-fab color="primary" matTooltip="Add customer" (click)="openDialog()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+
+        <app-customer-search></app-customer-search>
+
+        <!-- first name -->
+        <mat-form-field class="example-full-width">
+            <mat-label>First name</mat-label>
+            <input matInput formControlName="firstName" placeholder="Ex. Eminescu">
+        </mat-form-field>
+
+        <!-- last name -->
+        <mat-form-field class="example-full-width">
+            <mat-label>Last name</mat-label>
+            <input matInput formControlName="lastName" placeholder="Ex. Mihai">
+        </mat-form-field>
+
+        <!-- company -->
+        <mat-form-field class="example-full-width">
+            <mat-label>Company</mat-label>
+            <input matInput formControlName="company" placeholder="Ex. Premium Anvelope" >
+        </mat-form-field>
+
+        <!-- phone number -->
+        <mat-form-field class="example-full-width">
+            <mat-label>Phone</mat-label>
+            <input matInput maxlength="10" formControlName="phoneNumber" placeholder="Ex. 0722333444">
+        </mat-form-field>
+        
+        <!-- email -->
+        <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" placeholder="Ex. jonsnow@gmail.com" >
+        </mat-form-field>
+
+    </form>
+
+    <mat-card-actions>
+        <button mat-raised-button color="primary" matStepperNext>NEXT</button>
+    </mat-card-actions>
+
+    <!-- TODO remove this in production -->
+    <pre>{{ form.value | json }}</pre>
+
+</mat-card>
