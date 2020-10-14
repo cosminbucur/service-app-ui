@@ -18,60 +18,9 @@ export class VisitDetailsComponent implements OnInit {
 
   public isLinear = false;
 
-  public seasons: string[] = ['Summer', 'Winter', 'All Seasons'];
-
-  public visit: any = {
-    id: null,
-    visitDate: new Date(),
-    firstName: null,
-    lastName: null,
-    company: null,
-    phone: null,
-    email: null,
-    licensePlate: null,
-    isActive: true
-  };
-
   // TODO remove this
   public form: FormGroup;
 
-  constructor(
-    private notificationService: NotificationService,
-    private router: Router) { }
-
-  ngOnInit(): void {
-
-  }
-
-  public cancel() {
-    this.goToVisitsPage();
-  }
-
-  public print() {
-    this.notificationService.info('Printing in progress.');
-  }
-
-  public toggleActive() {
-    this.notificationService.info('Customer activated');
-  }
-
-  public async save() {
-    if (!this.form.valid) {
-      this.notificationService.error('There are errors on the visit fields!');
-      return;
-    }
-
-    this.notificationService.success('Visit details saved.');
-  }
-
-  private goToVisitsPage() {
-    this.router.navigate([`/${appRoutesNames.VISITS}`]);
-  }
-
-  // getters & setters
-
-  get firstName(): any {
-    return this.form.get('firstName');
-  }
+  ngOnInit(): void { }
 
 }
