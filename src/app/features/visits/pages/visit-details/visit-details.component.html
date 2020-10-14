@@ -57,7 +57,7 @@
       </mat-form-field>
 
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext>NEXT</button>
       </div>
     </form>
   </mat-step>
@@ -88,8 +88,8 @@
       </mat-form-field>
 
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious>BACK</button>
+        <button mat-button matStepperNext>NEXT</button>
       </div>
     </form>
   </mat-step>
@@ -99,16 +99,9 @@
 
     <form [formGroup]="tyreDetailsFormGroup">
       <ng-template matStepLabel>Tyres</ng-template>
-      
-      <button mat-mini-fab color="primary" matTooltip="Add tyre">
-        <mat-icon>add</mat-icon>
-    </button>
 
+      <app-step-tyres></app-step-tyres>
 
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
     </form>
   </mat-step>
 

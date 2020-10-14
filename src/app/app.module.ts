@@ -1,4 +1,4 @@
-import { StepTyresComponent } from './features/visits/pages/step-tyres/step-tyres.component';
+import { StepTyresComponent } from './features/visits/components/stepper/step-tyres/step-tyres.component';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,7 +21,7 @@ import { UserDetailsComponent } from './features/users/pages/user-details/user-d
 import { ReportsComponent } from './features/reports/reports.component';
 import { BrandChartComponent } from './features/reports/brand-chart/brand-chart.component';
 import { SizeChartComponent } from './features/reports/size-chart/size-chart.component';
-import { VisitDetails2Component } from './features/visits/pages/visit-details2/visit-details2.component';
+import { VisitDetailsComponent } from './features/visits/pages/visit-details/visit-details.component';
 import { CustomerDetailsComponent } from './features/visits/pages/customer-details/customer-details.component';
 import { CustomerSearchComponent } from './features/visits/components/customer-search/customer-search.component';
 import { MechanicSearchComponent } from './features/visits/components/mechanic-search/mechanic-search.component';
@@ -35,7 +35,7 @@ import { CustomerDialogComponent } from './features/visits/components/customer-d
     // visits
     VisitsComponent,
     StepTyresComponent,
-    VisitDetails2Component,
+    VisitDetailsComponent,
 
     // tyres
     TyreDetailsComponent,
