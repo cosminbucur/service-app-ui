@@ -6,13 +6,12 @@
   <!-- step 1 -->
   <mat-step [stepControl]="customerDetailsFormGroup">
 
-    <form [formGroup]="customerDetailsFormGroup">
+    <form [formGroup]="customerDetailsFormGroup" novalidate autocomplete="off">
       <ng-template matStepLabel>Customer</ng-template>
 
       <app-customer-search></app-customer-search>
 
-      <button mat-mini-fab color="primary" matTooltip="Add customer"
-      (click)="openDialog()">
+      <button mat-mini-fab color="primary" matTooltip="Add customer" (click)="openDialog()">
         <mat-icon>add</mat-icon>
       </button>
 
@@ -35,6 +34,8 @@
       </mat-form-field>
     </form>
 
+    <!-- TODO remove this in production -->
+    <!-- <pre>{{ customerDetailsFormGroup.value | json }}</pre> -->
 
     <form [formGroup]="customerDetailsFormGroup">
       <!-- phone number -->
@@ -64,7 +65,7 @@
   <!-- step 2 -->
   <mat-step [stepControl]="serviceDetailsFormGroup">
     <form [formGroup]="serviceDetailsFormGroup">
-      <ng-template matStepLabel>Service details</ng-template>
+      <ng-template matStepLabel>Service</ng-template>
 
       <!-- mechanic name -->
       <mat-form-field>
@@ -98,101 +99,11 @@
 
     <form [formGroup]="tyreDetailsFormGroup">
       <ng-template matStepLabel>Tyres</ng-template>
-      <p>Mounted Tyre Details</p>
+      
+      <button mat-mini-fab color="primary" matTooltip="Add tyre">
+        <mat-icon>add</mat-icon>
+    </button>
 
-      <!-- width -->
-      <mat-form-field>
-        <mat-label>width</mat-label>
-        <input matInput formControlName="mountedWidth" placeholder="ex: 185" required>
-      </mat-form-field>
-
-      <!-- height -->
-      <mat-form-field>
-        <mat-label>height</mat-label>
-        <input matInput formControlName="mountedHeight" placeholder="ex: 65" required>
-      </mat-form-field>
-
-      <!-- rim diameter -->
-      <mat-form-field>
-        <mat-label>rim diameter</mat-label>
-        <input matInput formControlName="mountedRimDiameter" placeholder="ex: R15" required>
-      </mat-form-field>
-    </form>
-
-    <form [formGroup]="tyreDetailsFormGroup">
-
-      <!-- mounted tyres brand -->
-      <mat-form-field>
-        <mat-label>Mounted Tyres Brand</mat-label>
-        <input matInput formControlName="mountedBrand" placeholder="ex: Michelin" required>
-      </mat-form-field>
-
-      <!-- <mat-radio-group class="mounted-tyres-season" [(ngModel)]="mountedSeason">
-        <mat-radio-button *ngFor= "let season of seasons" [value]="season">
-          {{ season }}
-        </mat-radio-button>
-      </mat-radio-group> -->
-
-      <!-- hotel tyre details -->
-      <p>Hotel Tyre Details</p>
-      <mat-form-field>
-        <mat-label>width</mat-label>
-        <input matInput formControlName="hotelWidth" placeholder="ex: 185" required>
-      </mat-form-field>
-
-      <!-- height -->
-      <mat-form-field>
-        <mat-label>height</mat-label>
-        <input matInput formControlName="hotelHeight" placeholder="ex: 65" required>
-      </mat-form-field>
-
-      <!-- rim diameter -->
-      <mat-form-field>
-        <mat-label>rim diameter</mat-label>
-        <input matInput formControlName="hotelRimDiameter" placeholder="ex: R15" required>
-      </mat-form-field>
-    </form>
-
-    <form [formGroup]="tyreDetailsFormGroup">
-      <!-- hotel tyres brand -->
-      <mat-form-field>
-        <mat-label>Hotel Tyres Brand</mat-label>
-        <input matInput formControlName="hotelBrand" placeholder="ex: Michelin" required>
-      </mat-form-field>
-      <mat-radio-button value="1">Summer</mat-radio-button>
-      <mat-radio-button value="2">Winter</mat-radio-button>
-      <mat-radio-button value="3">All-Season</mat-radio-button>
-    </form>
-
-    <form [formGroup]="tyreDetailsFormGroup">
-      <!-- tyre wear indicator -->
-      <mat-form-field>
-        <mat-label>Tyre wear indicator</mat-label>
-        <input matInput formControlName="hotelTyreWearIndicator" placeholder="ex: 3">
-      </mat-form-field>
-    </form>
-
-    <form [formGroup]="tyreDetailsFormGroup">
-      <p>Hotel Rims Details</p>
-      <mat-radio-button value="4">Plate Rims</mat-radio-button>
-      <mat-radio-button value="5">Alloy Rims</mat-radio-button>
-
-      <!-- caps -->
-      <mat-form-field>
-        <mat-label>Caps</mat-label>
-        <input matInput formControlName="hotelCaps" placeholder="ex: 4">
-      </mat-form-field>
-
-      <form [formGroup]="tyreDetailsFormGroup">
-        <p>StoragePoint Details</p>
-        <mat-checkbox>New Customer</mat-checkbox>
-
-        <!-- storagepoint location -->
-        <mat-form-field>
-          <mat-label>Storagepoint Location</mat-label>
-          <input matInput formControlName="storagePointLocation" placeholder="ex: R1R1E1" required>
-        </mat-form-field>
-      </form>
 
       <div>
         <button mat-button matStepperPrevious>Back</button>
@@ -203,114 +114,129 @@
 
   <!-- step 4 -->
   <mat-step [stepControl]="tyreDetailsFormGroup">
-    <form [formGroup]="tyreDetailsFormGroup">
-      <ng-template matStepLabel>Summary</ng-template>
+    <mat-card>
 
-      <div class=container>
-        <div>
-          <!-- client details -->
+      <form [formGroup]="tyreDetailsFormGroup">
+        <ng-template matStepLabel>Summary</ng-template>
+  
+        <div class=container>
           <div>
-            <mat-card>
-              <mat-card-subtitle>Client details</mat-card-subtitle>
-              <div>
-                <label>Full Name: {{ customerDetailsFormGroup.value.firstName }}
-                  {{ customerDetailsFormGroup.value.lastName }}
-                </label>
-              </div>
-              <div>
-                <label>Company: {{ customerDetailsFormGroup.value.company }} </label>
-              </div>
-              <div>
-                <label>Phone Number: {{ customerDetailsFormGroup.value.phoneNumber }} </label>
-              </div>
-              <div>
-                <label>Email: {{ customerDetailsFormGroup.value.email }}</label>
-              </div>
-              <div>
-                <label>License Plate: {{ customerDetailsFormGroup.value.licensePlate }}</label>
-              </div>
-            </mat-card>
+            <!-- client details -->
+            <div>
+              <mat-card>
+                <mat-card-subtitle>Client details</mat-card-subtitle>
+                <div>
+                  <label>Full Name: {{ customerDetailsFormGroup.value.firstName }}
+                    {{ customerDetailsFormGroup.value.lastName }}
+                  </label>
+                </div>
+                <div>
+                  <label>Company: {{ customerDetailsFormGroup.value.company }} </label>
+                </div>
+                <div>
+                  <label>Phone Number: {{ customerDetailsFormGroup.value.phoneNumber }} </label>
+                </div>
+                <div>
+                  <label>Email: {{ customerDetailsFormGroup.value.email }}</label>
+                </div>
+                <div>
+                  <label>License Plate: {{ customerDetailsFormGroup.value.licensePlate }}</label>
+                </div>
+              </mat-card>
+            </div>
+  
+            <!-- service details -->
+            <div>
+              <mat-card>
+                <mat-card-subtitle>Service</mat-card-subtitle>
+                <div>
+                  <label>Date: {{ visit.visitDate | date }}</label>
+                </div>
+                <div>
+                  <label>Mechanic: {{ serviceDetailsFormGroup.value.mechanicName}}</label>
+                </div>
+                <div>
+                  <label>Services: {{ serviceDetailsFormGroup.value.servicesPerformed}}</label>
+                </div>
+                <div>
+                  <label>Observations: {{ serviceDetailsFormGroup.value.observations }}</label>
+                </div>
+              </mat-card>
+            </div>
           </div>
-
-          <!-- service details -->
+  
           <div>
-            <mat-card>
-              <mat-card-subtitle>Service</mat-card-subtitle>
-              <div>
-                <label>Date: {{ visitDate | date }}</label>
-              </div>
-              <div>
-                <label>Mechanic: {{ serviceDetailsFormGroup.value.mechanicName}}</label>
-              </div>
-              <div>
-                <label>Services: {{ serviceDetailsFormGroup.value.servicesPerformed}}</label>
-              </div>
-              <div>
-                <label>Observations: {{ serviceDetailsFormGroup.value.observations }}</label>
-              </div>
-            </mat-card>
+            <!-- mounted tyres -->
+            <div>
+              <mat-card>
+                <mat-card-subtitle>Mounted Tyres</mat-card-subtitle>
+                <div>
+                  <label>Size: 
+                    {{ tyreDetailsFormGroup.value.mountedWidth }}/
+                    {{ tyreDetailsFormGroup.value.mountedHeight }} R
+                    {{ tyreDetailsFormGroup.value.mountedRimDiameter }}
+                  </label>
+                </div>
+                <div>
+                  <label>Brand: {{ tyreDetailsFormGroup.value.mountedBrand }}</label>
+                </div>
+                <div>
+                  Season: {{ mountedSeason }}
+                </div>
+              </mat-card>
+            </div>
+  
+            <!-- hotel tyres -->
+            <div>
+              <mat-card>
+                <mat-card-subtitle>Hotel Tyres</mat-card-subtitle>
+                <div>
+                  <label>Size: {{tyreDetailsFormGroup.value.hotelWidth}}/
+                    {{tyreDetailsFormGroup.value.hotelHeight}} R{{ tyreDetailsFormGroup.value.hotelRimDiameter }} </label>
+                </div>
+                <div>
+                  <label>Brand: {{ tyreDetailsFormGroup.value.hotelBrand }}</label>
+                </div>
+                <div>
+                  <label>Season: {{ hotelSeason }}</label>
+                </div>
+                <div>
+                  <label>Wear indicator: {{ tyreDetailsFormGroup.value.hotelTyreWearIndicator }} </label>
+                </div>
+                <div>
+                  <label>Rims type: {{ tyreDetailsFormGroup.value.hotelRims }}</label>
+                </div>
+                <div>
+                  <label>Caps: {{ tyreDetailsFormGroup.value.hotelCaps }}</label>
+                </div>
+                <div>
+                  <label>Storage Point: {{ tyreDetailsFormGroup.value.storagePointLocation }}</label>
+                </div>
+              </mat-card>
+            </div>
           </div>
         </div>
 
+        <mat-card-actions>
+          <div>
+            <button mat-raised-button (click)="print()" type="button">PRINT</button>
+            <div *ngIf="visit.isActive">
+                <button mat-raised-button (click)="toggleActive()" type="button">DEACTIVATE</button>
+            </div>
+            <div *ngIf="!visit.isActive">
+                <button mat-raised-button (click)="toggleActive()" type="button">ACTIVATE</button>
+            </div>
+            <button mat-raised-button (click)="sendEmail()" type="button">EMAIL</button>
+          </div>
+        </mat-card-actions>
+
         <div>
-          <!-- mounted tyres -->
-          <div>
-            <mat-card>
-              <mat-card-subtitle>Mounted Tyres</mat-card-subtitle>
-              <div>
-                <label>Size: 
-                  {{ tyreDetailsFormGroup.value.mountedWidth }}/
-                  {{ tyreDetailsFormGroup.value.mountedHeight }} R
-                  {{ tyreDetailsFormGroup.value.mountedRimDiameter }}
-                </label>
-              </div>
-              <div>
-                <label>Brand: {{ tyreDetailsFormGroup.value.mountedBrand }}</label>
-              </div>
-              <div>
-                Season: {{ mountedSeason }}
-              </div>
-            </mat-card>
-          </div>
-
-          <!-- hotel tyres -->
-          <div>
-            <mat-card>
-              <mat-card-subtitle>Hotel Tyres</mat-card-subtitle>
-              <div>
-                <label>Size: {{tyreDetailsFormGroup.value.hotelWidth}}/
-                  {{tyreDetailsFormGroup.value.hotelHeight}} R{{ tyreDetailsFormGroup.value.hotelRimDiameter }} </label>
-              </div>
-              <div>
-                <label>Brand: {{ tyreDetailsFormGroup.value.hotelBrand }}</label>
-              </div>
-              <div>
-                <label>Season: {{ hotelSeason }}</label>
-              </div>
-              <div>
-                <label>Wear indicator: {{ tyreDetailsFormGroup.value.hotelTyreWearIndicator }} </label>
-              </div>
-              <div>
-                <label>Rims type: {{ tyreDetailsFormGroup.value.hotelRims }}</label>
-              </div>
-              <div>
-                <label>Caps: {{ tyreDetailsFormGroup.value.hotelCaps }}</label>
-              </div>
-              <div>
-                <label>Storage Point: {{ tyreDetailsFormGroup.value.storagePointLocation }}</label>
-              </div>
-            </mat-card>
-          </div>
+          <button mat-button matStepperPrevious>BACK</button>
+          <button mat-raised-button (click)="cancel()" type="button">CANCEL</button>
+          <button mat-raised-button color="primary" (click)="save()" type="submit">SAVE</button>
         </div>
-      </div>
-
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button>Save</button>
-        <button mat-button>Print Info</button>
-        <button mat-button>Send to E-mail</button>
-      </div>
-    </form>
+      </form>
+    </mat-card>
   </mat-step>
 
 </mat-horizontal-stepper>

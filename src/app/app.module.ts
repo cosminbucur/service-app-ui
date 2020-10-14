@@ -1,3 +1,4 @@
+import { StepTyresComponent } from './features/visits/pages/step-tyres/step-tyres.component';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,7 +14,6 @@ import { SharedModule } from './shared/shared.module';
 import { appRouting } from './app.routes';
 import { VisitsComponent } from './features/visits/pages/visits/visits.component';
 import { TyreDetailsComponent } from './features/tyres/pages/tyre-details/tyre-details.component';
-import { VisitDetailsComponent } from './features/visits/pages/visit-details/visit-details.component';
 import { TyreCardComponent } from './features/visits/components/tyre-card/tyre-card.component';
 import { StorageComponent } from './features/storage/storage.component';
 import { UsersComponent } from './features/users/pages/users/users.component';
@@ -34,7 +34,7 @@ import { CustomerDialogComponent } from './features/visits/components/customer-d
 
     // visits
     VisitsComponent,
-    VisitDetailsComponent,
+    StepTyresComponent,
     VisitDetails2Component,
 
     // tyres

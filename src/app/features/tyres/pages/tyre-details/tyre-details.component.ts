@@ -114,7 +114,7 @@ export class TyreDetailsComponent implements OnInit {
   }
 
   private goToVisitDetails() {
-    this.router.navigate([`/${appRoutesNames.VISIT_DETAILS}`]);
+    this.router.navigate([`/${appRoutesNames.STEP_TYRES}`]);
   }
 
 }

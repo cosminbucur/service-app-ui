@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Customer } from 'src/app/shared/models/customer.mode';
+import { Customer } from 'src/app/shared/models/customer.model';
 import { environment } from 'src/environments/environment';
 import { catchError } from 'rxjs/operators';
 import { Observable, of, throwError } from 'rxjs';

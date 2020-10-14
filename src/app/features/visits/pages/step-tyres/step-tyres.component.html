@@ -1,0 +1,63 @@
+<form [formGroup]="form" novalidate autocomplete="off">
+
+    <button mat-mini-fab color="primary" matTooltip="Add tire">
+        <mat-icon>add</mat-icon>
+    </button>
+
+    <mat-card>
+
+        <div class="tyre-container">
+            <h2>On car</h2>
+
+            <div cdkDropList #onCarList="cdkDropList" [cdkDropListData]="onCarData"
+                [cdkDropListConnectedTo]="[inStorageList]" class="tyre-list" (cdkDropListDropped)="drop($event)">
+                <mat-card *ngFor="let item of onCarData" cdkDrag>
+                    <mat-card-header>
+                        <mat-card-title>{{ item.size }}</mat-card-title>
+                        <mat-card-subtitle>{{ item.brand }}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>{{ item.season }}</p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-icon-button matTooltip="Clone tire">
+                            <mat-icon>file_copy</mat-icon>
+                        </button>
+                        <button mat-icon-button matTooltip="Delete tire">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+
+        <div class="tyre-container">
+            <h2>In storage</h2>
+
+            <div cdkDropList #inStorageList="cdkDropList" [cdkDropListData]="inStorageData"
+                [cdkDropListConnectedTo]="[onCarList]" class="tyre-list" (cdkDropListDropped)="drop($event)">
+                <mat-card *ngFor="let item of inStorageData" cdkDrag>
+                    <mat-card-header>
+                        <mat-card-title>{{ item.size }}</mat-card-title>
+                        <mat-card-subtitle>{{ item.brand }}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>{{ item.season }}</p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-icon-button matTooltip="Clone tire">
+                            <mat-icon>file_copy</mat-icon>
+                        </button>
+                        <button mat-icon-button matTooltip="Delete tire">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+
+        <!-- TODO remove this in production -->
+        <pre>{{ form.value | json }}</pre>
+
+    </mat-card>
+</form>

@@ -2,7 +2,7 @@ import { CustomersService } from '../../../../core/services/customers.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Customer } from 'src/app/shared/models/customer.mode';
+import { Customer } from 'src/app/shared/models/customer.model';
 import { FormBuilder } from '@angular/forms';
 import { startWith, map } from 'rxjs/operators';
 import { FormArray } from '@angular/forms';
