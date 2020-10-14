@@ -23,7 +23,7 @@ export class CustomerSearchComponent implements OnInit {
     private customersService: CustomersService
   ) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.form = this.fb.group({
       filter: null
     });

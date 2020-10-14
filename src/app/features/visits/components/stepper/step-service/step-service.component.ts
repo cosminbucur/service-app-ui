@@ -24,7 +24,7 @@ export class StepServiceComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private dialog: MatDialog) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.initializeData();
     this.createForm();
   }

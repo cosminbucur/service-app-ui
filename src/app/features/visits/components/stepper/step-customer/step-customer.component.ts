@@ -2,9 +2,7 @@ import { CustomerDialogComponent } from './../../customer-dialog/customer-dialog
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { CustomersService } from 'src/app/core/services/customers.service';
-import { NotificationService } from 'src/app/core/services/notification.service';
 import { Customer } from 'src/app/shared/models/customer.model';
 
 @Component({
@@ -33,7 +31,7 @@ export class StepCustomerComponent implements OnInit {
     private customerService: CustomersService,
     private dialog: MatDialog) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.initializeData();
     this.createForm();
   }

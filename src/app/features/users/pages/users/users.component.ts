@@ -36,7 +36,7 @@ export class UsersComponent implements OnInit {
     private notificationService: NotificationService
   ) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
   }
 
   public goToDetails() {

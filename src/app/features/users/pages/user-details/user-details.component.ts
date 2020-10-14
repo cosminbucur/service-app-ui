@@ -41,7 +41,7 @@ export class UserDetailsComponent implements OnInit {
     private notificationService: NotificationService
   ) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.initializeData();
   }
 

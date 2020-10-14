@@ -40,7 +40,7 @@ export class StorageComponent implements OnInit {
 
   constructor(private notificationService: NotificationService) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.initializeData();
   }
 

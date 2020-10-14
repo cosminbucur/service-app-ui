@@ -9,7 +9,7 @@ export class CustomerDialogComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
 }

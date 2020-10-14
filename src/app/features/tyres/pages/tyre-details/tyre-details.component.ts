@@ -63,7 +63,7 @@ export class TyreDetailsComponent implements OnInit {
     private notificationService: NotificationService
   ) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.initializeData();
 
     this.filteredBrands = this.form.get('brand').valueChanges.pipe(

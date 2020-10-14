@@ -1,13 +1,5 @@
-import { Router } from '@angular/router';
-import { appRoutesNames } from '../../../../app.routes.names';
-import { Customer } from 'src/app/shared/models/customer.model';
-import { CustomersService } from '../../../../core/services/customers.service';
-import { NotificationService } from '../../../../core/services/notification.service';
-import { CustomerDialogComponent } from '../../components/customer-dialog/customer-dialog.component';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { MatRadioGroup } from '@angular/material/radio';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-visit-details',
@@ -21,6 +13,6 @@ export class VisitDetailsComponent implements OnInit {
   // TODO remove this
   public form: FormGroup;
 
-  ngOnInit(): void { }
+  public ngOnInit(): void { }
 
 }

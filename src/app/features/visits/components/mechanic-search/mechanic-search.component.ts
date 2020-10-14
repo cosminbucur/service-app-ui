@@ -23,7 +23,7 @@ export class MechanicSearchComponent implements OnInit {
     private mechanicsService: MechanicsService
   ) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.form = this.fb.group({
       filter: null
     });

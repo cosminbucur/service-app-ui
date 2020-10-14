@@ -51,7 +51,7 @@ export class SizeChartComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
   }
 
 }

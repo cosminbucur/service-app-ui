@@ -28,7 +28,7 @@ export class CustomerDetailsComponent implements OnInit {
     private customerService: CustomersService
   ) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.initializeData();
   }
 
