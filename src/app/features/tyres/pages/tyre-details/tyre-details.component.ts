@@ -1,3 +1,4 @@
+import { Tyre } from './../../../../shared/models/tyre.model';
 import { TyreOptions } from './../../../../shared/models/tyre.options';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -24,9 +25,7 @@ export class TyreDetailsComponent implements OnInit {
 
   public form: FormGroup;
 
-  // TODO use tyre model
-  // TODO add caps no
-  public tyre: any = {
+  public tyre: Tyre = {
     id: null,
     width: null,
     height: null,
@@ -36,6 +35,7 @@ export class TyreDetailsComponent implements OnInit {
     brand: null,
     wearLevel: 'medium',
     season: 'summer',
+    capsNo: 4
   };
 
   constructor(

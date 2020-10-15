@@ -1,17 +1,5 @@
 export class MockData {
 
-    public visit: any = {
-        id: null,
-        visitDate: new Date(),
-        firstName: null,
-        lastName: null,
-        company: null,
-        phone: null,
-        email: null,
-        licensePlate: null,
-        isActive: true
-    };
-
     public customerDetails: any = {
         firstName: 'Alex',
         lastName: 'Vasile',
@@ -27,19 +15,6 @@ export class MockData {
         mechanicName: 'Nea Gigi',
         servicesPerformed: 'schimb complet',
         observations: 'e bine ca nu e rau'
-    };
-
-    public tyre: any = {
-        id: null,
-        width: null,
-        height: null,
-        diameterType: null,
-        rimType: 'plate',
-        tyreType: 'regular',
-        brand: null,
-        wearLevel: 'medium',
-        season: 'summer',
-        capsNo: 4
     };
 
     public storagePoint = 'R1E1E1';

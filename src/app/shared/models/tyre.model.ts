@@ -1,5 +1,14 @@
 export interface Tyre {
   id: number;
+  width: number,
+  height: number,
+  diameterType: number,
+  rimType: string,
+  tyreType: string,
+  brand: string,
+  wearLevel: string,
+  season: string,
+  capsNo: number
 }
 
 export interface TyreBrand {
