@@ -1,3 +1,5 @@
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { TyreDialogComponent } from './../../dialogs/tyre-dialog/tyre-dialog.component';
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -16,7 +18,9 @@ export class StepTyresComponent implements OnInit {
   public onCarData = this.mockData.onCarData;
   public inStorageData = this.mockData.inStorageData;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private dialog: MatDialog) { }
 
   public ngOnInit(): void {
     this.initializeData();
@@ -24,6 +28,14 @@ export class StepTyresComponent implements OnInit {
   }
 
   // actions
+
+  public openDialog(): void {
+    const dialogRef = this.dialog.open(TyreDialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
   public drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {

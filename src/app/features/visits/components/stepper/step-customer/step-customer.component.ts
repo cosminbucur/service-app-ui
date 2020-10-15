@@ -1,7 +1,7 @@
-import { CustomerDialogComponent } from './../../customer-dialog/customer-dialog.component';
+import { CustomerDialogComponent } from './../../dialogs/customer-dialog/customer-dialog.component';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CustomersService } from 'src/app/core/services/customers.service';
 import { Customer } from 'src/app/shared/models/customer.model';
 
@@ -25,8 +25,6 @@ export class StepCustomerComponent implements OnInit {
     licensePlate: null
   };
 
-  private dialogRef;
-
   constructor(private fb: FormBuilder,
     private customerService: CustomersService,
     private dialog: MatDialog) { }
@@ -37,15 +35,11 @@ export class StepCustomerComponent implements OnInit {
   }
 
   public openDialog(): void {
-    this.dialogRef = this.dialog.open(CustomerDialogComponent);
+    const dialogRef = this.dialog.open(CustomerDialogComponent);
 
-    this.dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
-  }
-
-  public onCancel(): void {
-    this.dialogRef.close();
   }
 
   // private methods

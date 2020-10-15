@@ -3,6 +3,6 @@
     <app-customer-details></app-customer-details>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>OK</button>
+  <button mat-raised-button (click)="cancel()">CANCEL</button>
+  <button mat-raised-button color="primary" (click)="save()" cdkFocusInitial>SAVE</button>
 </mat-dialog-actions>

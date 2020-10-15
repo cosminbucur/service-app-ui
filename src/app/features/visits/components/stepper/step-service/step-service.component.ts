@@ -1,7 +1,7 @@
+import { CustomerDialogComponent } from './../../dialogs/customer-dialog/customer-dialog.component';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { CustomerDialogComponent } from '../../customer-dialog/customer-dialog.component';
 
 @Component({
   selector: 'app-step-service',

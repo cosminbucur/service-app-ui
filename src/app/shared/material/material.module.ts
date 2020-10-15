@@ -67,7 +67,8 @@ import { MatNativeDateModule } from '@angular/material/core'
     MatTableModule,
     MatAutocompleteModule,
     MatStepperModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDialogModule
   ],
   providers: [
   ]
