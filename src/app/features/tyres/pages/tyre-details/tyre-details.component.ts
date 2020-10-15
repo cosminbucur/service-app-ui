@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/core/services/notification.service';
 import { appRoutesNames } from 'src/app/app.routes.names';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
 import { startWith, map } from 'rxjs/operators';
 
@@ -39,6 +39,7 @@ export class TyreDetailsComponent implements OnInit {
   };
 
   constructor(
+    private fb: FormBuilder,
     private router: Router,
     private notificationService: NotificationService
   ) { }
@@ -80,20 +81,20 @@ export class TyreDetailsComponent implements OnInit {
   // private methods
 
   private async initializeData() {
-    this.createReactiveForm();
+    this.createForm();
   }
 
-  // TODO use form builder
-  private createReactiveForm() {
-    this.form = new FormGroup({
-      width: new FormControl(this.tyre.width, Validators.required),
-      height: new FormControl(this.tyre.height, Validators.required),
-      diameterType: new FormControl(this.tyre.diameterType, Validators.required),
-      rimType: new FormControl(this.tyre.rimType, Validators.required),
-      tyreType: new FormControl(this.tyre.tyreType, Validators.required),
-      brand: new FormControl(this.tyre.brand, Validators.required),
-      wearLevel: new FormControl(this.tyre.wearLevel, Validators.required),
-      season: new FormControl(this.tyre.season, Validators.required)
+  private createForm() {
+    this.form = this.fb.group({
+      width: [this.tyre.width, Validators.required],
+      height: [this.tyre.height, Validators.required],
+      diameterType: [this.tyre.diameterType, Validators.required],
+      rimType: [this.tyre.rimType, Validators.required],
+      tyreType: [this.tyre.tyreType, Validators.required],
+      brand: [this.tyre.brand, Validators.required],
+      wearLevel: [this.tyre.wearLevel, Validators.required],
+      season: [this.tyre.season, Validators.required],
+      capsNo: [this.tyre.capsNo, Validators.required]
     });
   }
 
