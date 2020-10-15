@@ -9,6 +9,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class StorageComponent implements OnInit {
 
+  // TODO replace this with component
   public data = [
     {
       licensePlate: 'B22ABC', storagePoint: '1-1-1-2-3', tires: [

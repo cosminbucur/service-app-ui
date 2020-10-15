@@ -18,6 +18,7 @@ export class StepSummaryComponent implements OnInit {
   public customerDetails: any = this.mockData.customerDetails;
   public serviceDetails: any = this.mockData.serviceDetails;
   public storagePoint = this.mockData.storagePoint;
+  public capsNo = this.mockData.capsNo;
   public onCarData = this.mockData.onCarData;
   public inStorageData = this.mockData.inStorageData;
 

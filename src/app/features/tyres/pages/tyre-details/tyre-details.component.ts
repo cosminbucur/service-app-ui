@@ -34,8 +34,7 @@ export class TyreDetailsComponent implements OnInit {
     tyreType: 'regular',
     brand: null,
     wearLevel: 'medium',
-    season: 'summer',
-    capsNo: 4
+    season: 'summer'
   };
 
   constructor(
@@ -46,12 +45,7 @@ export class TyreDetailsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.initializeData();
-
-    this.filteredBrands = this.form.get('brand').valueChanges.pipe(
-        startWith(''),
-        map(brand => typeof brand === 'string' ? brand : brand.viewValue),
-        map(viewValue => viewValue ? this._filter(viewValue) : this.brands.slice())
-      );
+    this.setBrand();
   }
 
   // TODO fix display brand
@@ -93,9 +87,16 @@ export class TyreDetailsComponent implements OnInit {
       tyreType: [this.tyre.tyreType, Validators.required],
       brand: [this.tyre.brand, Validators.required],
       wearLevel: [this.tyre.wearLevel, Validators.required],
-      season: [this.tyre.season, Validators.required],
-      capsNo: [this.tyre.capsNo, Validators.required]
+      season: [this.tyre.season, Validators.required]
     });
+  }
+
+  private setBrand() {
+    this.filteredBrands = this.form.get('brand').valueChanges.pipe(
+      startWith(''),
+      map(brand => typeof brand === 'string' ? brand : brand.viewValue),
+      map(viewValue => viewValue ? this._filter(viewValue) : this.brands.slice())
+    );
   }
 
   private goToVisitDetails() {

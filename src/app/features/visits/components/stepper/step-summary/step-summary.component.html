@@ -4,57 +4,68 @@
 
     <!-- client details -->
     <mat-card>
-        <label>Full Name: 
-            {{ customerDetails.firstName }} 
+        <div>Full Name:
+            {{ customerDetails.firstName }}
             {{ customerDetails.lastName }}
-        </label>
-        <label>Company: {{ customerDetails.company }} </label>
-        <label>Phone Number: {{ customerDetails.phoneNumber }} </label>
-        <label>Email: {{ customerDetails.email }}</label>
-        <label>License Plate: {{ customerDetails.licensePlate }}</label>
+        </div>
+        <div>Company: {{ customerDetails.company }} </div>
+        <div>Phone Number: {{ customerDetails.phoneNumber }} </div>
+        <div>Email: {{ customerDetails.email }}</div>
+        <div>License Plate: {{ customerDetails.licensePlate }}</div>
     </mat-card>
 
     <!-- service details -->
     <mat-card>
-        <label>Date: {{ serviceDetails.visitDate | date }}</label>
-        <label>Mechanic: {{ serviceDetails.mechanicName }} </label>
-        <label>Services: {{ serviceDetails.servicesPerformed }}</label>
-        <label>Observations: {{ serviceDetails.observations }}</label>
+        <div>Date: {{ serviceDetails.visitDate | date }}</div>
+        <div>Mechanic: {{ serviceDetails.mechanicName }} </div>
+        <div>Services: {{ serviceDetails.servicesPerformed }}</div>
+        <div>Observations: {{ serviceDetails.observations }}</div>
     </mat-card>
 
     <!-- tyre details -->
-    <label>Storage Point: {{ storagePoint }}</label>
+    <mat-card>
+        <div>Storage Point: {{ storagePoint }}</div>
+        <div>Caps number: {{ capsNo }}</div>
+    </mat-card>
 
-    <div *ngFor="let tyre of onCarData">
-        <mat-card class="tyre-details">
-            <label>Size: {{ tyre.size }}</label>
-            <label>Rim type: {{ tyre.rimType }}</label>
-            <label>Rim type: {{ tyre.tyreType }}</label>
-            <label>Brand: {{ tyre.brand }}</label>
-            <label>Season: {{ tyre.season }}</label>
-            <label>Wear indicator: {{ tyre.wearLevel }} </label>
-            <label>Caps no: {{ tyre.capsNo }}</label>
-        </mat-card >
+    <div>
 
-    </div>
+        <div class="tyres-container">
+            <div *ngFor="let tyre of onCarData">
+                <mat-card>
+                    <div>Size: {{ tyre.size }}</div>
+                    <div>Rim type: {{ tyre.rimType }}</div>
+                    <div>Tyre type: {{ tyre.tyreType }}</div>
+                    <div>Brand: {{ tyre.brand }}</div>
+                    <div>Season: {{ tyre.season }}</div>
+                    <div>Wear indicator: {{ tyre.wearLevel }} </div>
+                </mat-card>
+            </div>
+        </div>
 
-    <div *ngFor="let tyre of inStorageData">
-        <mat-card class="tyre-details">
-            <label>Size: {{ tyre.size }}</label>
-            <label>Rim type: {{ tyre.rimType }}</label>
-            <label>Rim type: {{ tyre.tyreType }}</label>
-            <label>Brand: {{ tyre.brand }}</label>
-            <label>Season: {{ tyre.season }}</label>
-            <label>Wear indicator: {{ tyre.wearLevel }} </label>
-            <label>Caps no: {{ tyre.capsNo }}</label>
-        </mat-card>
+
+        <div class="tyres-container">
+            <div *ngFor="let tyre of inStorageData">
+                <mat-card>
+                    <div>Size: {{ tyre.size }}</div>
+                    <div>Rim type: {{ tyre.rimType }}</div>
+                    <div>Rim type: {{ tyre.tyreType }}</div>
+                    <div>Brand: {{ tyre.brand }}</div>
+                    <div>Season: {{ tyre.season }}</div>
+                    <div>Wear indicator: {{ tyre.wearLevel }} </div>
+                </mat-card>
+            </div>
+        </div>
+
     </div>
 
     <mat-card-actions>
         <div>
             <button mat-raised-button (click)="print()" type="button">PRINT</button>
-            <button *ngIf="customerDetails.isActive" mat-raised-button (click)="toggleActive()" type="button">DEACTIVATE</button>
-            <button *ngIf="!customerDetails.isActive" mat-raised-button (click)="toggleActive()" type="button">ACTIVATE</button>
+            <button *ngIf="customerDetails.isActive" mat-raised-button (click)="toggleActive()"
+                type="button">DEACTIVATE</button>
+            <button *ngIf="!customerDetails.isActive" mat-raised-button (click)="toggleActive()"
+                type="button">ACTIVATE</button>
             <button mat-raised-button (click)="sendEmail()" type="button">EMAIL</button>
         </div>
         <div>

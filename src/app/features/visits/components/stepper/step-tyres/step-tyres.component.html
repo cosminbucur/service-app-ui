@@ -16,29 +16,22 @@
             <input matInput formControlName="storagePoint" placeholder="Ex. R1E1E2" required>
         </mat-form-field>    
 
+        <!-- caps number -->
+        <mat-form-field>
+            <mat-label>Caps number</mat-label>
+            <input matInput formControlName="capsNo" placeholder="Ex. 14" required>
+        </mat-form-field>    
+
         <!-- on car -->
         <div class="tyre-container">
             <h2>On car</h2>
 
             <div cdkDropList #onCarList="cdkDropList" [cdkDropListData]="onCarData"
                 [cdkDropListConnectedTo]="[inStorageList]" class="tyre-list" (cdkDropListDropped)="drop($event)">
-                <mat-card *ngFor="let item of onCarData" cdkDrag>
-                    <mat-card-header>
-                        <mat-card-title>{{ item.size }}</mat-card-title>
-                        <mat-card-subtitle>{{ item.brand }}</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <p>{{ item.season }}</p>
-                    </mat-card-content>
-                    <mat-card-actions>
-                        <button mat-icon-button matTooltip="Clone tire">
-                            <mat-icon>file_copy</mat-icon>
-                        </button>
-                        <button mat-icon-button matTooltip="Delete tire">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </mat-card-actions>
-                </mat-card>
+
+                <div *ngFor="let item of onCarData" cdkDrag>
+                    <app-tyre-card [tyre]="item"></app-tyre-card>
+                </div>
             </div>
         </div>
 
@@ -48,23 +41,10 @@
 
             <div cdkDropList #inStorageList="cdkDropList" [cdkDropListData]="inStorageData"
                 [cdkDropListConnectedTo]="[onCarList]" class="tyre-list" (cdkDropListDropped)="drop($event)">
-                <mat-card *ngFor="let item of inStorageData" cdkDrag>
-                    <mat-card-header>
-                        <mat-card-title>{{ item.size }}</mat-card-title>
-                        <mat-card-subtitle>{{ item.brand }}</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <p>{{ item.season }}</p>
-                    </mat-card-content>
-                    <mat-card-actions>
-                        <button mat-icon-button matTooltip="Clone tire">
-                            <mat-icon>file_copy</mat-icon>
-                        </button>
-                        <button mat-icon-button matTooltip="Delete tire">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </mat-card-actions>
-                </mat-card>
+
+                <div *ngFor="let item of inStorageData" cdkDrag>
+                    <app-tyre-card [tyre]="item"></app-tyre-card>
+                </div>
             </div>
         </div>
 

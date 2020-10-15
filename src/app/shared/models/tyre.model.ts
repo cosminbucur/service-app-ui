@@ -7,8 +7,7 @@ export interface Tyre {
   tyreType: string,
   brand: string,
   wearLevel: string,
-  season: string,
-  capsNo: number
+  season: string
 }
 
 export interface TyreBrand {

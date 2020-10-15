@@ -4,5 +4,5 @@
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-raised-button (click)="cancel()">CANCEL</button>
-  <button mat-raised-button color="primary" (click)="save()" cdkFocusInitial>SAVE</button>
+  <button mat-raised-button color="primary" (click)="save()" [disabled]="false" cdkFocusInitial>SAVE</button>
 </mat-dialog-actions>

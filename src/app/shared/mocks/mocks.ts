@@ -18,19 +18,20 @@ export class MockData {
     };
 
     public storagePoint = 'R1E1E1';
+    public capsNo = 12;
 
     public onCarData = [
-        { id: null, size: '215 / 65 R15', rimType: 'alloy', tyreType: 'regular', brand: 'Continental',  wearLevel: 'medium', season: 'summer', capsNo: 4 },
-        { id: null, size: '215 / 65 R15', rimType: 'alloy', tyreType: 'regular', brand: 'Continental',  wearLevel: 'medium', season: 'summer', capsNo: 4 },
-        { id: null, size: '215 / 65 R15', rimType: 'alloy', tyreType: 'regular', brand: 'Continental',  wearLevel: 'medium', season: 'summer', capsNo: 4 },
-        { id: null, size: '215 / 65 R15', rimType: 'alloy', tyreType: 'regular', brand: 'Continental',  wearLevel: 'medium', season: 'summer', capsNo: 4 }
+        { id: null, size: '215 / 65 R15', rimType: 'alloy', tyreType: 'regular', brand: 'Continental',  wearLevel: 'medium', season: 'summer'},
+        { id: null, size: '215 / 65 R15', rimType: 'alloy', tyreType: 'regular', brand: 'Continental',  wearLevel: 'medium', season: 'summer'},
+        { id: null, size: '215 / 65 R15', rimType: 'alloy', tyreType: 'regular', brand: 'Continental',  wearLevel: 'medium', season: 'summer'},
+        { id: null, size: '215 / 65 R15', rimType: 'alloy', tyreType: 'regular', brand: 'Continental',  wearLevel: 'medium', season: 'summer'}
     ];
 
     public inStorageData = [
-        { id: null, size: '215 / 65 R15', rimType: 'alloy', tyreType: 'regular', brand: 'Michelin',  wearLevel: 'medium', season: 'winter', capsNo: 4 },
-        { id: null, size: '215 / 65 R15', rimType: 'alloy', tyreType: 'regular', brand: 'Michelin',  wearLevel: 'medium', season: 'winter', capsNo: 4 },
-        { id: null, size: '215 / 65 R15', rimType: 'alloy', tyreType: 'regular', brand: 'Michelin',  wearLevel: 'medium', season: 'winter', capsNo: 4 },
-        { id: null, size: '215 / 65 R15', rimType: 'alloy', tyreType: 'regular', brand: 'Michelin',  wearLevel: 'medium', season: 'winter', capsNo: 4 }
+        { id: null, size: '215 / 65 R15', rimType: 'alloy', tyreType: 'regular', brand: 'Michelin',  wearLevel: 'medium', season: 'winter'},
+        { id: null, size: '215 / 65 R15', rimType: 'alloy', tyreType: 'regular', brand: 'Michelin',  wearLevel: 'medium', season: 'winter'},
+        { id: null, size: '215 / 65 R15', rimType: 'alloy', tyreType: 'regular', brand: 'Michelin',  wearLevel: 'medium', season: 'winter'},
+        { id: null, size: '215 / 65 R15', rimType: 'alloy', tyreType: 'regular', brand: 'Michelin',  wearLevel: 'medium', season: 'winter'}
     ];
 
 }

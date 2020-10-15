@@ -55,7 +55,8 @@ export class StepTyresComponent implements OnInit {
 
   private createForm() {
     this.form = this.fb.group({
-      storagePoint: ['', Validators.required]
+      storagePoint: ['', Validators.required],
+      capsNo: ['12', Validators.required],
     });
   }
 

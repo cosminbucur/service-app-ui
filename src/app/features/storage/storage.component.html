@@ -55,16 +55,9 @@
             </mat-card-header>
         </mat-card>
 
-        <mat-card *ngFor="let item of data[0].tires" cdkDrag>
-            <mat-card-header>
-                <mat-card-title>{{ item.size }}</mat-card-title>
-                <mat-card-subtitle>{{ item.brand }}</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>{{ item.season }}</p>
-                <p>{{ item.wornLevel }}</p>
-            </mat-card-content>
-        </mat-card>
+        <div *ngFor="let item of data[0].tires" cdkDrag>
+            <app-tyre-card [tyre]="item"></app-tyre-card>
+        </div>
 
     </mat-card-content>
 

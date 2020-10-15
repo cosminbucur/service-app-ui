@@ -19,27 +19,11 @@ export class StepServiceComponent implements OnInit {
     observations: null
   };
 
-  private dialogRef;
-
-  constructor(private fb: FormBuilder,
-    private dialog: MatDialog) { }
+  constructor(private fb: FormBuilder) { }
 
   public ngOnInit(): void {
     this.initializeData();
     this.createForm();
-  }
-
-  public openDialog(): void {
-    // TODO open mechanic dialog
-    this.dialogRef = this.dialog.open(CustomerDialogComponent);
-
-    this.dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
-  public onCancel(): void {
-    this.dialogRef.close();
   }
 
   // private methods
