@@ -10,6 +10,13 @@
             </button>
         </div>
 
+        <!-- storage point -->
+        <mat-form-field>
+            <mat-label>Storage point</mat-label>
+            <input matInput formControlName="storagePoint" placeholder="Ex. R1E1E2" required>
+        </mat-form-field>    
+
+        <!-- on car -->
         <div class="tyre-container">
             <h2>On car</h2>
 
@@ -35,6 +42,7 @@
             </div>
         </div>
 
+        <!-- in storage -->
         <div class="tyre-container">
             <h2>In storage</h2>
 
@@ -68,6 +76,7 @@
     </mat-card-actions>
 
     <!-- TODO remove this in production -->
+    <pre>{{ form.value | json }}</pre>
     <pre>{{ onCarData | json }}</pre>
     <pre>{{ inStorageData | json }}</pre>
 

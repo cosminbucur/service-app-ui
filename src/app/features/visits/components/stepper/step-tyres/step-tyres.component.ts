@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-step-tyres',
@@ -25,9 +25,11 @@ export class StepTyresComponent implements OnInit {
     { id: null, size: '215 / 65 R15', season: 'winter', brand: 'Continental' },
   ];
 
+  constructor(private fb: FormBuilder) {}
+
   public ngOnInit(): void {
     this.initializeData();
-    this.form = new FormGroup({});
+    this.createForm();
   }
 
   // actions
@@ -46,6 +48,12 @@ export class StepTyresComponent implements OnInit {
   // private methods
 
   private async initializeData() {
+  }
+
+  private createForm() {
+    this.form = this.fb.group({
+      storagePoint: ['', Validators.required]
+    });
   }
 
 }
