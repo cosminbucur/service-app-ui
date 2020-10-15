@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MockData } from 'src/app/shared/mocks/mocks';
 
 @Component({
   selector: 'app-step-tyres',
@@ -11,21 +12,11 @@ export class StepTyresComponent implements OnInit {
 
   public form: FormGroup;
 
-  public onCarData = [
-    { id: null, size: '215 / 65 R15', season: 'summer', brand: 'Continental' },
-    { id: null, size: '215 / 65 R15', season: 'summer', brand: 'Continental' },
-    { id: null, size: '215 / 65 R15', season: 'summer', brand: 'Continental' },
-    { id: null, size: '215 / 65 R15', season: 'summer', brand: 'Continental' },
-  ];
+  private mockData: MockData = new MockData();
+  public onCarData = this.mockData.onCarData;
+  public inStorageData = this.mockData.inStorageData;
 
-  public inStorageData = [
-    { id: null, size: '215 / 65 R15', season: 'winter', brand: 'Continental' },
-    { id: null, size: '215 / 65 R15', season: 'winter', brand: 'Continental' },
-    { id: null, size: '215 / 65 R15', season: 'winter', brand: 'Continental' },
-    { id: null, size: '215 / 65 R15', season: 'winter', brand: 'Continental' },
-  ];
-
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
   public ngOnInit(): void {
     this.initializeData();

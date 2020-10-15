@@ -5,7 +5,7 @@
     <!-- client details -->
     <mat-card>
         <label>Full Name: 
-            {{ customerDetails.firstName }}
+            {{ customerDetails.firstName }} 
             {{ customerDetails.lastName }}
         </label>
         <label>Company: {{ customerDetails.company }} </label>
@@ -28,11 +28,12 @@
     <div *ngFor="let tyre of onCarData">
         <mat-card class="tyre-details">
             <label>Size: {{ tyre.size }}</label>
+            <label>Rim type: {{ tyre.rimType }}</label>
+            <label>Rim type: {{ tyre.tyreType }}</label>
             <label>Brand: {{ tyre.brand }}</label>
             <label>Season: {{ tyre.season }}</label>
             <label>Wear indicator: {{ tyre.wearLevel }} </label>
             <label>Caps no: {{ tyre.capsNo }}</label>
-            <label>Rim type: {{ tyre.rimType }}</label>
         </mat-card >
 
     </div>
@@ -40,19 +41,20 @@
     <div *ngFor="let tyre of inStorageData">
         <mat-card class="tyre-details">
             <label>Size: {{ tyre.size }}</label>
+            <label>Rim type: {{ tyre.rimType }}</label>
+            <label>Rim type: {{ tyre.tyreType }}</label>
             <label>Brand: {{ tyre.brand }}</label>
             <label>Season: {{ tyre.season }}</label>
             <label>Wear indicator: {{ tyre.wearLevel }} </label>
             <label>Caps no: {{ tyre.capsNo }}</label>
-            <label>Rim type: {{ tyre.rimType }}</label>
         </mat-card>
     </div>
 
     <mat-card-actions>
         <div>
             <button mat-raised-button (click)="print()" type="button">PRINT</button>
-            <button *ngIf="visit.isActive" mat-raised-button (click)="toggleActive()" type="button">DEACTIVATE</button>
-            <button *ngIf="!visit.isActive" mat-raised-button (click)="toggleActive()" type="button">ACTIVATE</button>
+            <button *ngIf="customerDetails.isActive" mat-raised-button (click)="toggleActive()" type="button">DEACTIVATE</button>
+            <button *ngIf="!customerDetails.isActive" mat-raised-button (click)="toggleActive()" type="button">ACTIVATE</button>
             <button mat-raised-button (click)="sendEmail()" type="button">EMAIL</button>
         </div>
         <div>

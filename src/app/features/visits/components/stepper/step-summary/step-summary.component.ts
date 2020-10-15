@@ -1,3 +1,4 @@
+import { MockData } from './../../../../../shared/mocks/mocks';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -13,61 +14,12 @@ export class StepSummaryComponent implements OnInit {
 
   public form: FormGroup;
 
-  public visit: any = {
-    id: null,
-    visitDate: new Date(),
-    firstName: null,
-    lastName: null,
-    company: null,
-    phone: null,
-    email: null,
-    licensePlate: null,
-    isActive: true
-  };
-
-  public customerDetails: any = {
-    firstName: 'Alex',
-    lastName: 'Vasile',
-    company: 'Ibm',
-    phoneNumber: '0722 333 444',
-    email: 'alex@gmail.com',
-    licensePlate: 'B123BOS'
-  };
-
-  public serviceDetails: any = {
-    visitDate: Date.now(),
-    mechanicName: 'Nea Gigi',
-    servicesPerformed: 'schimb complet',
-    observations: 'e bine ca nu e rau'
-  };
-
-  public tyre: any = {
-    id: null,
-    width: null,
-    height: null,
-    diameterType: null,
-    rimType: 'plate',
-    tyreType: 'regular',
-    brand: null,
-    wearLevel: 'medium',
-    season: 'summer'
-  };
-
-  public storagePoint = 'R1E1E1';
-
-  public onCarData = [
-    { id: null, size: '215 / 65 R15', season: 'summer', brand: 'Continental', rimType: 'alloy', tyreType: 'regular', wearLevel: 'medium', capsNo: 4 },
-    { id: null, size: '215 / 65 R15', season: 'summer', brand: 'Continental', rimType: 'alloy', tyreType: 'regular', wearLevel: 'medium', capsNo: 4 },
-    { id: null, size: '215 / 65 R15', season: 'summer', brand: 'Continental', rimType: 'alloy', tyreType: 'regular', wearLevel: 'medium', capsNo: 4 },
-    { id: null, size: '215 / 65 R15', season: 'summer', brand: 'Continental', rimType: 'alloy', tyreType: 'regular', wearLevel: 'medium', capsNo: 4 }
-  ];
-
-  public inStorageData = [
-    { id: null, size: '215 / 65 R15', season: 'winter', brand: 'Continental', rimType: 'alloy', tyreType: 'regular', wearLevel: 'medium', capsNo: 4 },
-    { id: null, size: '215 / 65 R15', season: 'winter', brand: 'Continental', rimType: 'alloy', tyreType: 'regular', wearLevel: 'medium', capsNo: 4 },
-    { id: null, size: '215 / 65 R15', season: 'winter', brand: 'Continental', rimType: 'alloy', tyreType: 'regular', wearLevel: 'medium', capsNo: 4 },
-    { id: null, size: '215 / 65 R15', season: 'winter', brand: 'Continental', rimType: 'alloy', tyreType: 'regular', wearLevel: 'medium', capsNo: 4 }
-  ];
+  private mockData: MockData = new MockData();
+  public customerDetails: any = this.mockData.customerDetails;
+  public serviceDetails: any = this.mockData.serviceDetails;
+  public storagePoint = this.mockData.storagePoint;
+  public onCarData = this.mockData.onCarData;
+  public inStorageData = this.mockData.inStorageData;
 
   constructor(
     private notificationService: NotificationService,
@@ -79,20 +31,24 @@ export class StepSummaryComponent implements OnInit {
     this.form = new FormGroup({});
   }
 
-  public cancel() {
-    this.goToVisitsPage();
-  }
+  // actions
 
   public print() {
     this.notificationService.info('Printing in progress.');
+  }
+
+  public toggleActive() {
+    this.notificationService.info('Customer activated');
   }
 
   public sendEmail() {
     this.notificationService.info('Email sent to ' + this.customerDetails.email);
   }
 
-  public toggleActive() {
-    this.notificationService.info('Customer activated');
+  // navigation actions
+
+  public cancel() {
+    this.goToVisitsPage();
   }
 
   public async save() {
@@ -103,6 +59,8 @@ export class StepSummaryComponent implements OnInit {
 
     this.notificationService.success('Visit details saved.');
   }
+
+  // private methods
 
   private goToVisitsPage() {
     this.router.navigate([`/${appRoutesNames.VISITS}`]);

@@ -1,3 +1,4 @@
+import { TyreOptions } from './../../../../shared/models/tyre.options';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/core/services/notification.service';
@@ -13,39 +14,18 @@ import { startWith, map } from 'rxjs/operators';
 })
 export class TyreDetailsComponent implements OnInit {
 
-  public rimTypes = [
-    { value: 'plate', viewValue: 'Plate' },
-    { value: 'alloy', viewValue: 'Alloy' }
-  ];
-
-  public tyreTypes = [
-    { value: 'regular', viewValue: 'Regular' },
-    { value: 'runflat', viewValue: 'Runflat' }
-  ];
-
-  public brands = [
-    { value: 'continental', viewValue: 'Continental' },
-    { value: 'dunlop', viewValue: 'Dunlop' },
-    { value: 'michelin', viewValue: 'Michelin' },
-    { value: 'pirelli', viewValue: 'Pirelli' }
-  ];
-
+  private tyreOptions: TyreOptions = new TyreOptions();
+  public rimTypes = this.tyreOptions.rimTypes;
+  public tyreTypes = this.tyreOptions.tyreTypes;
+  public brands = this.tyreOptions.brands;
   public filteredBrands: Observable<any[]>;
-
-  public wearLevels = [
-    { value: 'good', viewValue: 'Good' },
-    { value: 'medium', viewValue: 'Medium' },
-    { value: 'worn', viewValue: 'Worn' }
-  ];
-
-  public seasons = [
-    { value: 'summer', viewValue: 'Summer' },
-    { value: 'winter', viewValue: 'Winter' },
-    { value: 'all-season', viewValue: 'All season' }
-  ];
+  public wearLevels = this.tyreOptions.wearLevels;
+  public seasons = this.tyreOptions.seasons;
 
   public form: FormGroup;
 
+  // TODO use tyre model
+  // TODO add caps no
   public tyre: any = {
     id: null,
     width: null,
@@ -55,7 +35,7 @@ export class TyreDetailsComponent implements OnInit {
     tyreType: 'regular',
     brand: null,
     wearLevel: 'medium',
-    season: 'summer'
+    season: 'summer',
   };
 
   constructor(
@@ -73,6 +53,7 @@ export class TyreDetailsComponent implements OnInit {
       );
   }
 
+  // TODO fix display brand
   public displayBrand(brand: any): string {
     return brand && brand.value ? brand.value : '';
   }
@@ -96,10 +77,13 @@ export class TyreDetailsComponent implements OnInit {
     this.goToVisitDetails();
   }
 
+  // private methods
+
   private async initializeData() {
     this.createReactiveForm();
   }
 
+  // TODO use form builder
   private createReactiveForm() {
     this.form = new FormGroup({
       width: new FormControl(this.tyre.width, Validators.required),

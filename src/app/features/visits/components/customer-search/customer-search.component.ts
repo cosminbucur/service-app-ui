@@ -18,6 +18,7 @@ export class CustomerSearchComponent implements OnInit {
   public filteredCustomers: Observable<Customer[]>;
   public form: FormGroup;
 
+  // TODO find by license plate
   constructor(
     private fb: FormBuilder,
     private customersService: CustomersService
@@ -40,13 +41,13 @@ export class CustomerSearchComponent implements OnInit {
       );
   }
 
+  public displayFn(customer: Customer): string {
+    return customer && customer.lastName && customer.firstName ? customer.lastName + ' ' + customer.firstName : '';
+  }
+
   private filter(name: string): Customer[] {
     const filterValue = name.toLowerCase();
     return this.customers.filter(customer => customer.lastName.toLowerCase().indexOf(filterValue) === 0);
-  }
-
-  public displayFn(customer: Customer): string {
-    return customer && customer.lastName && customer.firstName ? customer.lastName + ' ' + customer.firstName : '';
   }
 
   get customerFilter() {

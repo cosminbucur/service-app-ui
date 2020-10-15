@@ -42,6 +42,8 @@ export class StepServiceComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  // private methods
+
   private async initializeData() {
 
   }

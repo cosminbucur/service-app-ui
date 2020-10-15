@@ -21,7 +21,7 @@
             <mat-label>Rim type</mat-label>
             <mat-select formControlName="rimType">
                 <mat-option *ngFor="let type of rimTypes" [value]="type.value">
-                    {{type.viewValue}}
+                    {{ type.viewValue }}
                 </mat-option>
             </mat-select>
         </mat-form-field>
@@ -30,7 +30,7 @@
             <mat-label>Tyre type</mat-label>
             <mat-select formControlName="tyreType">
                 <mat-option *ngFor="let type of tyreTypes" [value]="type.value">
-                    {{type.viewValue}}
+                    {{ type.viewValue }}
                 </mat-option>
             </mat-select>
         </mat-form-field>
@@ -40,7 +40,7 @@
             <input type="text" matInput formControlName="brand" [matAutocomplete]="auto">
             <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayBrand">
               <mat-option *ngFor="let brand of filteredBrands | async" [value]="brand.value">
-                {{brand.viewValue}}
+                {{ brand.viewValue }}
               </mat-option>
             </mat-autocomplete>
           </mat-form-field>

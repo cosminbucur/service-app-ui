@@ -48,6 +48,8 @@ export class StepCustomerComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  // private methods
+
   private async initializeData() {
     this.customerService.getAll().subscribe(data => {
       this.customers = data;
