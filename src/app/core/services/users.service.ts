@@ -15,7 +15,7 @@ import { catchError, map } from 'rxjs/operators';
 export class UsersService {
   headers: HttpHeaders;
 
-  private readonly USER_API = `${environment.serverApiUrl}/users`;
+  private readonly USER_API = `${environment.serverApiUrl}/api/users`;
 
   constructor(private http: HttpClient) {}
 
