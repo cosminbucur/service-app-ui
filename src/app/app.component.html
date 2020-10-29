@@ -1,18 +1,14 @@
-<!-- Toolbar -->
-<div class="toolbar" role="banner">
+<!-- toolbar -->
+<mat-toolbar color="primary">
   <img width="40" alt="Angular Logo"
     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" />
   <span>Premium anvelope</span>
+  <span class="spacer"></span>
+  <div>{{ currentUser }}</div>
+</mat-toolbar>
 
-  <div class="spacer"></div>
-
-  {{ currentUser }}
-</div>
-
-<div class="content" role="main">
-
-  <div class="card-container">
-
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened>
     <a class="card" rel="noopener" [routerLink]="['/', appRoutesNames.HOME]">
       <mat-icon>home</mat-icon>
       <span>Home</span>
@@ -37,60 +33,43 @@
       <mat-icon>assessment</mat-icon>
       <span>Reports</span>
     </a>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- content -->
+    <div class="content" role="main">
+    <!-- <div> -->
 
-  </div>
+      <!-- quick actions -->
+      <h2>Quick actions</h2>
+      <p>What do you want to do next with your app?</p>
 
-  <!-- Quick actions -->
-  <h2>Quick actions</h2>
-  <p>What do you want to do next with your app?</p>
+      <input type="hidden" #selection>
 
-  <input type="hidden" #selection>
+      <div class="card-container">
+        <div class="card card-small" [routerLink]="['/', appRoutesNames.VISIT_DETAILS]"
+          (click)="selection.value = 'customerVisit2'" tabindex="0">
+          <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg>
 
-  <div class="card-container">
-    <div class="card card-small" [routerLink]="['/', appRoutesNames.VISIT_DETAILS]"
-      (click)="selection.value = 'customerVisit2'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg>
+          <span>Customer visit</span>
+        </div>
 
-      <span>Customer visit</span>
-    </div>
+        <div class="card card-small" [routerLink]="['/', appRoutesNames.USER_DETAILS]"
+          (click)="selection.value = 'users'" tabindex="0">
+          <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg>
 
-    <div class="card card-small" [routerLink]="['/', appRoutesNames.USER_DETAILS]" (click)="selection.value = 'users'"
-      tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg>
-
-      <span>Add user</span>
-    </div>
-  </div>
-
-  <!-- Terminal -->
-  <div class="terminal" [ngSwitch]="selection.value">
-    <pre *ngSwitchDefault>create a new customer visit</pre>
-    <pre *ngSwitchCase="'users'">add a new user</pre>
-  </div>
-
-  <article>
-    <div>
-      <router-outlet></router-outlet>
-    </div>
-  </article>
-
-  <!-- Footer -->
-  <footer>
-    Love our work?&nbsp;
-    <a href="https://github.com/cosminbucur/service-app" target="_blank" rel="noopener"> Give our repo a star.
-      <div class="github-star-badge">
-        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-          <path d="M0 0h24v24H0z" fill="none" />
-          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" /></svg>
-        Star
+          <span>Add user</span>
+        </div>
       </div>
-    </a>
-    <a href="https://github.com/cosminbucur/service-app" target="_blank" rel="noopener">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2" />
-        <path d="M0 0h24v24H0z" fill="none" /></svg>
-    </a>
-  </footer>
-</div>
+
+      <article>
+        <div>
+          <router-outlet></router-outlet>
+        </div>
+      </article>
+
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
