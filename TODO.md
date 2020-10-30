@@ -1,19 +1,25 @@
 # Focus
 
-    BE move service props to visit
--[x] US find all cusomer visits
+    
+
 
 # Feature
 
+-[x] US find all cusomer visits
+    - [x] BE move service props to visit
+
 -[x] US deactivate user
+
 
 # Technical
 
+- use full imports
+- update tests to angular 10 version
 - FE add global error handler
 - FE fix router display on home page
 
-# To read
 
+# To read
 
 ## 1. Backend
 
