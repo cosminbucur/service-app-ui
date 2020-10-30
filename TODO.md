@@ -13,11 +13,11 @@
 
 # Technical
 
-- use full imports
 - update tests to angular 10 version
 - FE add global error handler
-- FE fix router display on home page
 
+-[x] use full imports
+-[x] FE fix router display on home page
 
 # To read
 

@@ -5,7 +5,6 @@ import { UsersComponent } from './features/users/pages/users/users.component';
 import { StorageComponent } from './features/storage/storage.component';
 import { VisitDetailsComponent } from './features/visits/pages/visit-details/visit-details.component';
 import { HomeComponent } from './features/home/home.component';
-import { AppComponent } from './app.component';
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { appRoutesNames } from './app.routes.names';
@@ -20,7 +19,8 @@ export const appRoutes: Routes = [
   { path: appRoutesNames.USERS, component: UsersComponent },
   { path: appRoutesNames.USER_DETAILS, component: UserDetailsComponent },
   { path: appRoutesNames.REPORTS, component: ReportsComponent },
-  { path: '', pathMatch: 'full', component: AppComponent }
+  { path: '', pathMatch: 'full', component: HomeComponent },
+  { path: '**', redirectTo: '/' }
 ];
 
 export const appRouting: ModuleWithProviders<RouterModule> = RouterModule.forRoot(appRoutes);

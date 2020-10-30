@@ -1,4 +1,4 @@
-import { MockData } from './.src/app/shared/mocks/mocks';
+import { MockData } from 'src/app/shared/mocks/mocks';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';

@@ -1,4 +1,4 @@
-import { MechanicsService } from './src/app/core/services/mechanics.service';
+import { MechanicsService } from 'src/app/core/services/mechanics.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
