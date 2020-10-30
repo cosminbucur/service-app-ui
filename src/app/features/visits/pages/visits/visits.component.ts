@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { VisitsService } from 'src/app/core/services/visits.service';
+import { CustomerVisit } from 'src/app/shared/models/visit.model';
 
 @Component({
   selector: 'app-visits',
@@ -7,19 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VisitsComponent implements OnInit {
 
-  ELEMENT_DATA: any[] = [
-    { visitDate: new Date(2020, 1, 20), reason: 'replace summer with winter' },
-    { visitDate: new Date(2019, 12, 15), reason: 'tyre service' },
-    { visitDate: new Date(2019, 6, 10), reason: 'replace winter with summer' },
-    { visitDate: new Date(2018, 12, 5), reason: 'initial visit' }
-  ];
+  public displayedColumns = ['visitDate', 'services'];
+  public customerVisits: CustomerVisit[] = [];
 
-  public displayedColumns = ['visitDate', 'name'];
-  public dataSource = this.ELEMENT_DATA;
-
-  constructor() { }
+  constructor(private visitsService: VisitsService) { }
 
   public ngOnInit(): void {
+    this.fetchVisits();
   }
 
+  private fetchVisits() {
+    this.visitsService.getAll().subscribe(data => {
+      this.customerVisits = data;
+      console.log('customerVisits', this.customerVisits);
+    });
+  }
 }

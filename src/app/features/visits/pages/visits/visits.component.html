@@ -7,18 +7,18 @@
 </mat-form-field>
 
 <div class="example-container mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource">
+  <table mat-table [dataSource]="customerVisits">
 
     <!-- Visit date Column -->
     <ng-container matColumnDef="visitDate">
       <th mat-header-cell *matHeaderCellDef> Date </th>
-      <td mat-cell *matCellDef="let element"> {{ element.visitDate | date: 'dd/MM/yyyy' }} </td>
+      <td mat-cell *matCellDef="let visit"> {{ visit.visitDate | date: 'dd/MM/yyyy' }} </td>
     </ng-container>
 
-    <!-- Reason Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Reason </th>
-      <td mat-cell *matCellDef="let element"> {{ element.reason }} </td>
+    <!-- Services Column -->
+    <ng-container matColumnDef="services">
+      <th mat-header-cell *matHeaderCellDef> Services performed </th>
+      <td mat-cell *matCellDef="let visit"> {{ visit.servicesPerformed }} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
