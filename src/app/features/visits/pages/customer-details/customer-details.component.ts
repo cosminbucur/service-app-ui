@@ -1,5 +1,5 @@
-import { CustomersService } from './../../../../core/services/customers.service';
-import { appRoutesNames } from './../../../../app.routes.names';
+import { CustomersService } from 'src/app/core/services/customers.service';
+import { appRoutesNames } from 'src/app/app.routes.names';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';

@@ -1,7 +1,7 @@
 import { CustomerDialogComponent } from './../../dialogs/customer-dialog/customer-dialog.component';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, } from '@angular/material/dialog';
 import { CustomersService } from 'src/app/core/services/customers.service';
 import { Customer } from 'src/app/shared/models/customer.model';
 

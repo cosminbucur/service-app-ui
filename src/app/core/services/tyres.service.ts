@@ -1,4 +1,4 @@
-import { TyreBrand } from './../../shared/models/tyre.model';
+import { TyreBrand } from 'src/app/shared/models/tyre.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';

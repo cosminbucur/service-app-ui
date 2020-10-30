@@ -1,4 +1,4 @@
-import { CustomersService } from '../../../../core/services/customers.service';
+import { CustomersService } from 'src/app/core/services/customers.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';

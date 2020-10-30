@@ -1,6 +1,6 @@
-import { NotificationService } from './../../core/services/notification.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { NotificationService } from 'src/app/core/services/notification.service';
 
 @Component({
   selector: 'app-storage',

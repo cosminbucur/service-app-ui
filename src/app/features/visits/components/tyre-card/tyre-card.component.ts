@@ -1,4 +1,4 @@
-import { Tyre } from './../../../../shared/models/tyre.model';
+import { Tyre } from 'src/app/shared/models/tyre.model';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({

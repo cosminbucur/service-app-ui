@@ -1,5 +1,5 @@
-import { Tyre } from './../../../../shared/models/tyre.model';
-import { TyreOptions } from './../../../../shared/models/tyre.options';
+import { Tyre } from 'src/app/shared/models/tyre.model';
+import { TyreOptions } from 'src/app/shared/models/tyre.options';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/core/services/notification.service';
