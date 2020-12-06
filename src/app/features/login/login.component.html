@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-title>Please login</mat-card-title>
+
+    <form [formGroup]=form novalidate autocomplete="off">
+
+        <mat-form-field>
+            <mat-label>Username</mat-label>
+                <input matInput formControlName="username" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password" required>
+        </mat-form-field>
+
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="login()">Login</button>
+        </mat-card-actions>
+    </form>
+
+</mat-card>
+
+
+
+
+

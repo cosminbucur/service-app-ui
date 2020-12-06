@@ -9,5 +9,6 @@ export const appRoutesNames = {
     STORAGE: 'storage',
     USERS: 'users',
     USER_DETAILS: 'user-details',
-    REPORTS: 'reports'
+    REPORTS: 'reports',
+    LOGIN: 'login'
 };

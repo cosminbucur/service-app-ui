@@ -20,7 +20,11 @@ export class VisitsService {
 
   getAll(): Observable<CustomerVisit[]> {
     return this.http
-    .get<CustomerVisit[]>(this.VISITS_API);
+    .get<CustomerVisit[]>(this.VISITS_API)
+    .pipe(map(dtos => {
+      console.log('dtos', dtos);
+      return this.toEntities(dtos);
+    }));
   }
 
   getById(id: number): Observable<CustomerVisit> {
@@ -32,7 +36,16 @@ export class VisitsService {
 
   // mapper
 
-  toEntity(dto: any): CustomerVisit {
+  private toEntities(dtos: any): CustomerVisit[] {
+    let result = [];
+    dtos.array.forEach(dto => {
+      result.push(this.toEntity(dto))
+    });
+    console.log('result=',result);
+    return result;
+  }
+
+  private toEntity(dto: any): CustomerVisit {
     return {
       id: dto.id,
       visitDate: dto.visitDate,

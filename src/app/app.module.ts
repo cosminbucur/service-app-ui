@@ -30,6 +30,7 @@ import { StepServiceComponent } from './features/visits/components/stepper/step-
 import { StepSummaryComponent } from './features/visits/components/stepper/step-summary/step-summary.component';
 import { CustomerDialogComponent } from './features/visits/components/dialogs/customer-dialog/customer-dialog.component';
 import { TyreDialogComponent } from './features/visits/components/dialogs/tyre-dialog/tyre-dialog.component';
+import { LoginComponent } from './features/login/login.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,8 @@ import { TyreDialogComponent } from './features/visits/components/dialogs/tyre-d
     MechanicSearchComponent,
 
     TyreDialogComponent,
+
+    LoginComponent,
   ],
   imports: [
     CoreModule,
