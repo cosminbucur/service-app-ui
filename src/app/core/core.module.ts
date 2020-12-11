@@ -3,9 +3,10 @@ import { UsersService } from './services/users.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { JwtInterceptor } from './auth/jwtInterceptor';
 
 @NgModule({
   declarations: [],
@@ -22,7 +23,8 @@ import { ToastrModule } from 'ngx-toastr';
   ],
   providers: [
     /* custom services */
-    UsersService
+    UsersService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ]
 })
 export class CoreModule {

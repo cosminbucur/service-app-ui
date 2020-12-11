@@ -11,6 +11,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { appRoutesNames } from './app.routes.names';
 import { VisitsComponent } from './features/visits/pages/visits/visits.component';
+import { RegisterComponent } from './features/register/register.component';
 
 export const appRoutes: Routes = [
   { path: appRoutesNames.HOME, component: HomeComponent, canActivate: [AuthGuard] },
@@ -21,7 +22,8 @@ export const appRoutes: Routes = [
   { path: appRoutesNames.USERS, component: UsersComponent, canActivate: [AuthGuard] },
   { path: appRoutesNames.USER_DETAILS, component: UserDetailsComponent, canActivate: [AuthGuard] },
   { path: appRoutesNames.REPORTS, component: ReportsComponent, canActivate: [AuthGuard] },
-  { path: appRoutesNames.LOGIN, component: LoginComponent, canActivate: [AuthGuard] },
+  { path: appRoutesNames.LOGIN, component: LoginComponent },
+  { path: appRoutesNames.REGISTER, component: RegisterComponent },
   { path: '', pathMatch: 'full', component: HomeComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/' }
 ];

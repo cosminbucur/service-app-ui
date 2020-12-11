@@ -10,5 +10,6 @@ export const appRoutesNames = {
     USERS: 'users',
     USER_DETAILS: 'user-details',
     REPORTS: 'reports',
-    LOGIN: 'login'
+    LOGIN: 'login',
+    REGISTER: 'register'
 };

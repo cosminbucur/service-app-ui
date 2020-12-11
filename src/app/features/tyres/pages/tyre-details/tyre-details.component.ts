@@ -1,6 +1,6 @@
 import { Tyre } from 'src/app/shared/models/tyre.model';
 import { TyreOptions } from 'src/app/shared/models/tyre.options';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/core/services/notification.service';
 import { appRoutesNames } from 'src/app/app.routes.names';
@@ -14,6 +14,9 @@ import { startWith, map } from 'rxjs/operators';
   styleUrls: ['./tyre-details.component.scss']
 })
 export class TyreDetailsComponent implements OnInit {
+
+  @Output() tyreSaved = new EventEmitter<Tyre>();
+  @Output() tyreCanceled = new EventEmitter<void>();
 
   private tyreOptions: TyreOptions = new TyreOptions();
   public rimTypes = this.tyreOptions.rimTypes;
@@ -66,10 +69,11 @@ export class TyreDetailsComponent implements OnInit {
     }
 
     this.notificationService.success('Tire details saved.');
+    this.tyreSaved.emit(this.form.value);
   }
 
   public cancel() {
-    this.goToVisitDetails();
+    this.tyreCanceled.emit();
   }
 
   // private methods
@@ -97,10 +101,6 @@ export class TyreDetailsComponent implements OnInit {
       map(brand => typeof brand === 'string' ? brand : brand.viewValue),
       map(viewValue => viewValue ? this._filter(viewValue) : this.brands.slice())
     );
-  }
-
-  private goToVisitDetails() {
-    this.router.navigate([`/${appRoutesNames.STEP_TYRES}`]);
   }
 
 }

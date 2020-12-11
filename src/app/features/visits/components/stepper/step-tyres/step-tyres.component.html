@@ -22,32 +22,39 @@
             <input matInput formControlName="capsNo" placeholder="Ex. 14" required>
         </mat-form-field>    
 
-        <!-- on car -->
-        <div class="tyre-container">
-            <h2>On car</h2>
+        <div class="tyre-lists-container">
+            <!-- on car -->
+            <div class="tyre-container">
+                <h2>On car</h2>
 
-            <div cdkDropList #onCarList="cdkDropList" [cdkDropListData]="onCarData"
-                [cdkDropListConnectedTo]="[inStorageList]" class="tyre-list" (cdkDropListDropped)="drop($event)">
+                <div cdkDropList #onCarList="cdkDropList" [cdkDropListData]="onCarData"
+                    [cdkDropListConnectedTo]="[inStorageList]" class="tyre-list" (cdkDropListDropped)="drop($event)">
 
-                <div *ngFor="let item of onCarData" cdkDrag>
-                    <app-tyre-card [tyre]="item"></app-tyre-card>
+                    <div *ngFor="let item of onCarData" cdkDrag>
+                        <app-tyre-card [tyre]="item"
+                                        (tyreDeleted)="onTyreDeleted($event)"
+                                        (tyreCloned)="onTyreCloned($event)">
+                        </app-tyre-card>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- in storage -->
-        <div class="tyre-container">
-            <h2>In storage</h2>
+            <!-- in storage -->
+            <div class="tyre-container">
+                <h2>In storage</h2>
 
-            <div cdkDropList #inStorageList="cdkDropList" [cdkDropListData]="inStorageData"
-                [cdkDropListConnectedTo]="[onCarList]" class="tyre-list" (cdkDropListDropped)="drop($event)">
+                <div cdkDropList #inStorageList="cdkDropList" [cdkDropListData]="inStorageData"
+                    [cdkDropListConnectedTo]="[onCarList]" class="tyre-list" (cdkDropListDropped)="drop($event)">
 
-                <div *ngFor="let item of inStorageData" cdkDrag>
-                    <app-tyre-card [tyre]="item"></app-tyre-card>
+                    <div *ngFor="let item of inStorageData" cdkDrag>
+                        <app-tyre-card [tyre]="item"
+                                        (tyreDeleted)="onTyreDeleted($event)">
+                        </app-tyre-card>
+                    </div>
                 </div>
             </div>
+        
         </div>
-
     </form>
 
     <mat-card-actions>

@@ -3,27 +3,27 @@
 
         <mat-card-title>User info</mat-card-title>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field>
             <mat-label>Username</mat-label>
             <input matInput formControlName="username">
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field>
             <mat-label>First name</mat-label>
             <input matInput formControlName="firstName">
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field>
             <mat-label>Last name</mat-label>
             <input matInput formControlName="lastName">
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field>
             <mat-label>Email</mat-label>
             <input matInput formControlName="email">
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field>
             <mat-label>Phone</mat-label>
             <input matInput maxlength="10" placeholder="Ex. 0722333444" formControlName="phone">
         </mat-form-field>
@@ -38,7 +38,7 @@
         </mat-form-field>
 
         <mat-card-actions>
-            <mat-slide-toggle class="example-margin" [checked]="user.active" formControlName="active">
+            <mat-slide-toggle [checked]="user.active" formControlName="active">
                 Active
             </mat-slide-toggle>
             <button mat-raised-button (click)="resetPassword()" type="button">Prompt reset password</button>

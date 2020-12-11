@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MockData } from 'src/app/shared/mocks/mocks';
+import { Tyre } from 'src/app/shared/models/tyre.model';
 
 @Component({
   selector: 'app-step-tyres',
@@ -32,8 +33,11 @@ export class StepTyresComponent implements OnInit {
   public openDialog(): void {
     const dialogRef = this.dialog.open(TyreDialogComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+    dialogRef.afterClosed().subscribe(newTyre => {
+      if (newTyre) {
+        console.log('dialog result', newTyre);
+        this.onCarData.push(newTyre);
+      }
     });
   }
 
@@ -46,6 +50,19 @@ export class StepTyresComponent implements OnInit {
         event.previousIndex,
         event.currentIndex);
     }
+  }
+
+  public onTyreDeleted(selectedTyre: any) {
+    console.log('delete', selectedTyre);
+    const deletedIndex = this.onCarData.indexOf(selectedTyre);
+    if (deletedIndex > -1) {
+      this.onCarData.splice(deletedIndex, 1);
+    }
+  }
+
+  public onTyreCloned(selectedTyre: any) {
+    console.log('clone', selectedTyre);
+    this.onCarData.push(selectedTyre);
   }
 
   // private methods

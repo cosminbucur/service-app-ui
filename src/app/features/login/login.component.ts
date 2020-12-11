@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
       });
   }
 
-  // create login form
   private createForm(): void {
     this.form = this.fb.group({
       username: ['', Validators.required],

@@ -31,6 +31,7 @@ import { StepSummaryComponent } from './features/visits/components/stepper/step-
 import { CustomerDialogComponent } from './features/visits/components/dialogs/customer-dialog/customer-dialog.component';
 import { TyreDialogComponent } from './features/visits/components/dialogs/tyre-dialog/tyre-dialog.component';
 import { LoginComponent } from './features/login/login.component';
+import { RegisterComponent } from './features/register/register.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,8 @@ import { LoginComponent } from './features/login/login.component';
     TyreDialogComponent,
 
     LoginComponent,
+
+    RegisterComponent,
   ],
   imports: [
     CoreModule,

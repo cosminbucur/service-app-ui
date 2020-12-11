@@ -1,5 +1,5 @@
 export interface Tyre {
-  id: number;
+  id?: number;
   width: number,
   height: number,
   diameterType: number,

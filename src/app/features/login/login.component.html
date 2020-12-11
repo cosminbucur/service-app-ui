@@ -1,5 +1,5 @@
 <mat-card>
-    <mat-card-title>Please login</mat-card-title>
+    <mat-card-title>Login</mat-card-title>
 
     <form [formGroup]=form novalidate autocomplete="off">
 
@@ -14,7 +14,11 @@
         </mat-form-field>
 
         <mat-card-actions>
-            <button mat-raised-button color="primary" (click)="login()">Login</button>
+            <button mat-raised-button color="primary" (click)="loginWithFacebook()">Login with Facebook</button>
+            <button mat-raised-button color="primary" (click)="loginWithGoogle()">Login with Google</button>
+            --- or ---
+            <button mat-raised-button color="primary" (click)="register()">Create account</button>
+            <button mat-button color="primary" (click)="login()">Already have an account? Login</button>
         </mat-card-actions>
     </form>
 

@@ -1,51 +1,59 @@
 <form [formGroup]="form" novalidate autocomplete="off">
-    <mat-card>
-        <!-- <form class="example-form"> -->
+  <mat-card>
+    <div class="tyre-size">
+      <mat-form-field>
+        <mat-label>Width</mat-label>
+        <input matInput placeholder="Ex. 205" formControlName="width" />
+      </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-            <mat-label>Width</mat-label>
-            <input matInput placeholder="Ex. 205" formControlName="width">
-        </mat-form-field>
+      <mat-form-field>
+        <mat-label>Height</mat-label>
+        <input matInput placeholder="Ex. 40" formControlName="height" />
+      </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-            <mat-label>Height</mat-label>
-            <input matInput placeholder="Ex. 40" formControlName="height">
-        </mat-form-field>
+      <mat-form-field>
+        <mat-label>Diameter type</mat-label>
+        <input matInput placeholder="Ex. R15" formControlName="diameterType" />
+      </mat-form-field>
+    </div>
 
-        <mat-form-field class="example-full-width">
-            <mat-label>Diameter type</mat-label>
-            <input matInput placeholder="Ex. R15" formControlName="diameterType">
-        </mat-form-field>
+    <mat-form-field>
+      <mat-label>Rim type</mat-label>
+      <mat-select formControlName="rimType">
+        <mat-option *ngFor="let type of rimTypes" [value]="type.value">
+          {{ type.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>Rim type</mat-label>
-            <mat-select formControlName="rimType">
-                <mat-option *ngFor="let type of rimTypes" [value]="type.value">
-                    {{ type.viewValue }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+    <mat-form-field>
+      <mat-label>Tyre type</mat-label>
+      <mat-select formControlName="tyreType">
+        <mat-option *ngFor="let type of tyreTypes" [value]="type.value">
+          {{ type.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>Tyre type</mat-label>
-            <mat-select formControlName="tyreType">
-                <mat-option *ngFor="let type of tyreTypes" [value]="type.value">
-                    {{ type.viewValue }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+    <mat-form-field>
+      <mat-label>Brand</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="brand"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayBrand">
+        <mat-option
+          *ngFor="let brand of filteredBrands | async"
+          [value]="brand.value"
+        >
+          {{ brand.viewValue }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>Brand</mat-label>
-            <input type="text" matInput formControlName="brand" [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayBrand">
-              <mat-option *ngFor="let brand of filteredBrands | async" [value]="brand.value">
-                {{ brand.viewValue }}
-              </mat-option>
-            </mat-autocomplete>
-          </mat-form-field>
-
-        <!-- <mat-form-field>
+    <!-- <mat-form-field>
             <mat-label>Brand</mat-label>
             <mat-select formControlName="brand">
                 <mat-option *ngFor="let brand of brands" [value]="brand.value">
@@ -54,32 +62,35 @@
             </mat-select>
         </mat-form-field> -->
 
-        <mat-form-field>
-            <mat-label>Wear level</mat-label>
-            <mat-select formControlName="wearLevel">
-                <mat-option *ngFor="let wearLevel of wearLevels" [value]="wearLevel.value">
-                    {{wearLevel.viewValue}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+    <mat-form-field>
+      <mat-label>Wear level</mat-label>
+      <mat-select formControlName="wearLevel">
+        <mat-option
+          *ngFor="let wearLevel of wearLevels"
+          [value]="wearLevel.value"
+        >
+          {{ wearLevel.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>Season</mat-label>
-            <mat-select formControlName="season">
-                <mat-option *ngFor="let season of seasons" [value]="season.value">
-                    {{season.viewValue}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+    <mat-form-field>
+      <mat-label>Season</mat-label>
+      <mat-select formControlName="season">
+        <mat-option *ngFor="let season of seasons" [value]="season.value">
+          {{ season.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-        <mat-card-actions>
-            <button mat-raised-button (click)="cancel()" type="button">CANCEL</button>
-            <button mat-raised-button color="primary" (click)="save()" type="submit">SAVE</button>
-        </mat-card-actions>
+    <mat-card-actions>
+      <button mat-raised-button (click)="cancel()" type="button">CANCEL</button>
+      <button mat-raised-button color="primary" (click)="save()" type="submit">
+        SAVE
+      </button>
+    </mat-card-actions>
+  </mat-card>
 
-    </mat-card>
-
-    <!-- TODO remove this in production -->
-    <pre>{{ form.value | json }}</pre>
-
+  <!-- TODO remove this in production -->
+  <pre>{{ form.value | json }}</pre>
 </form>

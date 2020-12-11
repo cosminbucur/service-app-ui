@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Tyre } from 'src/app/shared/models/tyre.model';
 
 @Component({
   selector: 'app-tyre-dialog',
@@ -15,9 +16,8 @@ export class TyreDialogComponent implements OnInit {
   public ngOnInit(): void {
   }
 
-  // TODO get value from component
-  public save(): void {
-    this.dialogRef.close('tyre data');
+  public save(tyre: any): void {
+    this.dialogRef.close(tyre);
   }
 
   public cancel(): void {
