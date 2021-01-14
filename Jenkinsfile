@@ -1,8 +1,8 @@
 pipeline {
-    agent any
-
+  agent any
+  stages {
     stages {
-        stage('Prepare environment') {
+        stage('Prepare env') {
             steps {
                 sh 'yarn add'
             }
@@ -23,4 +23,12 @@ pipeline {
             }
         }
     }
+
+    stage('Deploy') {
+      steps {
+        echo 'Deploying....'
+      }
+    }
+
+  }
 }
