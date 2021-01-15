@@ -30,6 +30,7 @@ export class TyreDetailsComponent implements OnInit {
 
   public tyre: Tyre = {
     id: null,
+    size: null,
     width: null,
     height: null,
     diameterType: null,

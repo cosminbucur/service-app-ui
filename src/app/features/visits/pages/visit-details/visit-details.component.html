@@ -4,25 +4,25 @@
 <mat-horizontal-stepper [linear]="isLinear" #stepper>
 
   <!-- step 1 -->
-  <mat-step [stepControl]="customerFormGroup">
+  <mat-step>
     <ng-template matStepLabel>Customer</ng-template>
     <app-step-customer></app-step-customer>
   </mat-step>
 
   <!-- step 2 -->
-  <mat-step [stepControl]="serviceFormGroup">
+  <mat-step>
       <ng-template matStepLabel>Service</ng-template>
       <app-step-service></app-step-service>
   </mat-step>
 
   <!-- step 3 -->
-  <mat-step [stepControl]="tyresFormGroup">
+  <mat-step>
       <ng-template matStepLabel>Tyres</ng-template>
       <app-step-tyres></app-step-tyres>
   </mat-step>
 
   <!-- step 4 -->
-  <mat-step [stepControl]="summaryFormGroup">
+  <mat-step>
     <ng-template matStepLabel>Summary</ng-template>
     <app-step-summary></app-step-summary>
   </mat-step>

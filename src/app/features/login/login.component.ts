@@ -31,12 +31,17 @@ export class LoginComponent implements OnInit {
       });
   }
 
+  public loginWithFacebook(): void {}
+
+  public loginWithGoogle(): void {}
+
+  public register(): void {}
+
   private createForm(): void {
     this.form = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
-
 
 }
