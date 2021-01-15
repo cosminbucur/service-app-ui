@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ToastrModule } from 'ngx-toastr';
+import { RouterTestingModule } from '@angular/router/testing';
 import { StepSummaryComponent } from './step-summary.component';
 
 describe('StepSummaryComponent', () => {
@@ -8,6 +9,7 @@ describe('StepSummaryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [ToastrModule.forRoot(), RouterTestingModule],
       declarations: [ StepSummaryComponent ]
     })
     .compileComponents();

@@ -1,16 +1,18 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { ReactiveFormsModule } from "@angular/forms";
+import { MatDialogModule } from "@angular/material/dialog";
+import { DragDropModule } from "@angular/cdk/drag-drop";
+import { StepTyresComponent } from "./step-tyres.component";
 
-import { StepTyresComponent } from './step-tyres.component';
-
-describe('StepTyresComponent', () => {
+describe("StepTyresComponent", () => {
   let component: StepTyresComponent;
   let fixture: ComponentFixture<StepTyresComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StepTyresComponent ]
-    })
-    .compileComponents();
+      imports: [ReactiveFormsModule, MatDialogModule, DragDropModule],
+      declarations: [StepTyresComponent]
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +21,7 @@ describe('StepTyresComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

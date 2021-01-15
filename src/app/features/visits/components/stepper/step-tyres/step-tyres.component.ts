@@ -1,10 +1,9 @@
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { TyreDialogComponent } from './../../dialogs/tyre-dialog/tyre-dialog.component';
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MockData } from 'src/app/shared/mocks/mocks';
-import { Tyre } from 'src/app/shared/models/tyre.model';
 
 @Component({
   selector: 'app-step-tyres',

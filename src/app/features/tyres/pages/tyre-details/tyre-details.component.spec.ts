@@ -1,16 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { ReactiveFormsModule } from "@angular/forms";
+import { RouterTestingModule } from "@angular/router/testing";
+import { ToastrModule } from "ngx-toastr";
+import { TyreDetailsComponent } from "./tyre-details.component";
+import { MatAutocompleteModule } from "@angular/material/autocomplete";
 
-import { TyreDetailsComponent } from './tyre-details.component';
-
-describe('TyreDetailsComponent', () => {
+xdescribe("TyreDetailsComponent", () => {
   let component: TyreDetailsComponent;
   let fixture: ComponentFixture<TyreDetailsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TyreDetailsComponent ]
-    })
-    .compileComponents();
+      imports: [
+        ReactiveFormsModule,
+        RouterTestingModule,
+        ToastrModule.forRoot(),
+        MatAutocompleteModule
+      ],
+
+      declarations: [TyreDetailsComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +28,7 @@ describe('TyreDetailsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

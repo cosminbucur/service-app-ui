@@ -1,16 +1,18 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { MechanicSearchComponent } from "./mechanic-search.component";
+import { MatAutocompleteModule } from "@angular/material/autocomplete";
 
-import { MechanicSearchComponent } from './mechanic-search.component';
-
-describe('MechanicSearchComponent', () => {
+describe("MechanicSearchComponent", () => {
   let component: MechanicSearchComponent;
   let fixture: ComponentFixture<MechanicSearchComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MechanicSearchComponent ]
-    })
-    .compileComponents();
+      imports: [ReactiveFormsModule, HttpClientModule, MatAutocompleteModule],
+      declarations: [MechanicSearchComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -19,7 +21,7 @@ describe('MechanicSearchComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
