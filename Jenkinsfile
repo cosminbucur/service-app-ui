@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Prepare env') {
         steps {
-            sh 'yarn add'
+            sh 'npm install'
         }
     }
     stage('Test') {
