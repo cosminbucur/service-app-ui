@@ -1,8 +1,8 @@
 pipeline {
   agent any
 
-  tools {nodejs "nodejs"}
-  
+  tools {nodejs "node js"}
+
   stages {
     stage('Prepare env') {
         steps {
