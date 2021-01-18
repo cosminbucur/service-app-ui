@@ -23,6 +23,7 @@ pipeline {
     stage('Deploy') {
         steps {
             echo 'Deploying....'
+            sh 'cp -r /var/lib/jenkins/workspace/service-app-ui_master/dist/service-app-ui /var/www/freeminions.com/service-app-ui'
         }
     }
   }
