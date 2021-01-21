@@ -1,3 +1,5 @@
+import { Customer } from './customer.model';
+
 export interface CustomerVisit {
     id: number;
     visitDate: Date;
@@ -6,15 +8,6 @@ export interface CustomerVisit {
     observations: string;
     customer: Customer;
     storagePoint: StoragePoint;
-}
-
-export interface Customer {
-    id: number;
-    firstName: string;
-    lastName: string;
-    company: string;
-    phoneNumber: string;
-    email: string;
 }
 
 export interface StoragePoint {

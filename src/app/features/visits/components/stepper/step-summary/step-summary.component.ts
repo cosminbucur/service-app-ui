@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { appRoutesNames } from 'src/app/app.routes.names';
 import { NotificationService } from 'src/app/core/services/notification.service';
+import { VisitService } from '../../../../../core/services/visits.service';
 
 @Component({
   selector: 'app-step-summary',
@@ -24,6 +25,7 @@ export class StepSummaryComponent implements OnInit {
 
   constructor(
     private notificationService: NotificationService,
+    private visitService: VisitService,
     private router: Router
   ) { }
 
@@ -58,7 +60,13 @@ export class StepSummaryComponent implements OnInit {
       return;
     }
 
+    this.visitService.create(null);
+
     this.notificationService.success('Visit details saved.');
+  }
+
+  private createObject(): void {
+
   }
 
   // private methods

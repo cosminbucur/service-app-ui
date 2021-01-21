@@ -1,9 +1,10 @@
 import { CustomerDialogComponent } from './../../dialogs/customer-dialog/customer-dialog.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, } from '@angular/material/dialog';
 import { CustomersService } from 'src/app/core/services/customers.service';
 import { Customer } from 'src/app/shared/models/customer.model';
+import { CustomerVisit } from '../../../../../shared/models/visit.model';
 
 @Component({
   selector: 'app-step-customer',
@@ -12,29 +13,40 @@ import { Customer } from 'src/app/shared/models/customer.model';
 })
 export class StepCustomerComponent implements OnInit {
 
-  public form: FormGroup;
+  customers: Customer[];
+  form: FormGroup;
 
-  public customers: Customer[];
-
-  public customerDetails: any = {
-    firstName: null,
-    lastName: null,
-    company: null,
-    phoneNumber: null,
-    email: null,
-    licensePlate: null
-  };
+  @Input() visit: CustomerVisit;
 
   constructor(private fb: FormBuilder,
     private customerService: CustomersService,
     private dialog: MatDialog) { }
 
-  public ngOnInit(): void {
+  ngOnInit() {
     this.initializeData();
     this.createForm();
+
+    // TODO: remove this
+    console.log("STEP customer", this.visit);
   }
 
-  public openDialog(): void {
+  public populateVisit(visit: CustomerVisit) {
+    let customerInfo: FormGroup = this.form;
+
+    let customer = {} as Customer;
+
+    customer.firstName = customerInfo.controls['firstName'].value;
+    customer.lastName = customerInfo.controls['lastName'].value;
+    customer.company = customerInfo.controls['company'].value;
+    customer.phoneNumber = customerInfo.controls['phoneNumber'].value;
+    customer.email = customerInfo.controls['email'].value;
+    customer.licensePlate = customerInfo.controls['licensePlate'].value;
+
+    visit.customer = customer;
+    console.log("COSMIN", visit);
+  }
+
+  openDialog() {
     const dialogRef = this.dialog.open(CustomerDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {

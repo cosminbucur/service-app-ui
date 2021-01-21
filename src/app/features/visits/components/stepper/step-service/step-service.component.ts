@@ -8,9 +8,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class StepServiceComponent implements OnInit {
 
-  public form: FormGroup;
+  form: FormGroup;
 
-  public serviceDetails: any = {
+  serviceDetails: any = {
     visitDate: null,
     mechanicName: null,
     servicesPerformed: null,
@@ -19,7 +19,7 @@ export class StepServiceComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
 
-  public ngOnInit(): void {
+  ngOnInit() {
     this.initializeData();
     this.createForm();
   }

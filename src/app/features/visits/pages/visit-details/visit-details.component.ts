@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { CustomerVisit } from '../../../../shared/models/visit.model';
+import { NotificationService } from '../../../../core/services/notification.service';
+import { VisitService } from '../../../../core/services/visits.service';
+import { StepCustomerComponent } from '../../components/stepper/step-customer/step-customer.component';
 
 @Component({
   selector: 'app-visit-details',
@@ -8,11 +11,27 @@ import { FormGroup } from '@angular/forms';
 })
 export class VisitDetailsComponent implements OnInit {
 
-  public isLinear = false;
+  currentStepIndex: number = 0;
 
-  // TODO remove this
-  public form: FormGroup;
+  @ViewChild(StepCustomerComponent) stepCustomerComponent: StepCustomerComponent;
 
-  public ngOnInit(): void { }
+  @Input() visit: CustomerVisit;
 
+  constructor(
+    private notificationService: NotificationService,
+    private visitService: VisitService
+  ) {}
+
+  public ngOnInit(): void { 
+    this.visit = {} as CustomerVisit;
+  }
+
+  public onStepChange(event: any): void {
+    let previousIndex: number = event.previouslySelectedIndex;
+    let currentIndex: number = event.selectedIndex;
+
+    this.currentStepIndex = currentIndex;
+
+    this.stepCustomerComponent.populateVisit(this.visit);
+  }
 }

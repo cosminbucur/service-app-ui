@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { VisitsService } from 'src/app/core/services/visits.service';
+import { VisitService } from 'src/app/core/services/visits.service';
 import { CustomerVisit } from 'src/app/shared/models/visit.model';
 
 @Component({
@@ -12,14 +12,14 @@ export class VisitsComponent implements OnInit {
   public displayedColumns = ['visitDate', 'services'];
   public customerVisits: CustomerVisit[] = [];
 
-  constructor(private visitsService: VisitsService) { }
+  constructor(private visitService: VisitService) { }
 
   public ngOnInit(): void {
     this.fetchVisits();
   }
 
   private fetchVisits() {
-    this.visitsService.getAll().subscribe(data => {
+    this.visitService.getAll().subscribe(data => {
       this.customerVisits = data;
       console.log('customerVisits', this.customerVisits);
     });
