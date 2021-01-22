@@ -19,7 +19,7 @@
         <!-- caps number -->
         <mat-form-field>
             <mat-label>Caps number</mat-label>
-            <input matInput formControlName="capsNo" placeholder="Ex. 14" required>
+            <input matInput formControlName="rimCapsCount" placeholder="Ex. 16" required>
         </mat-form-field>    
 
         <div class="tyre-lists-container">
@@ -27,11 +27,11 @@
             <div class="tyre-container">
                 <h2>On car</h2>
 
-                <div cdkDropList #onCarList="cdkDropList" [cdkDropListData]="onCarData"
+                <div cdkDropList #onCarList="cdkDropList" [cdkDropListData]="mountedTyres"
                     [cdkDropListConnectedTo]="[inStorageList]" class="tyre-list" (cdkDropListDropped)="drop($event)">
 
-                    <div *ngFor="let item of onCarData" cdkDrag>
-                        <app-tyre-card [tyre]="item"
+                    <div *ngFor="let tyre of mountedTyres" cdkDrag>
+                        <app-tyre-card [tyre]="tyre"
                                         (tyreDeleted)="onTyreDeleted($event)"
                                         (tyreCloned)="onTyreCloned($event)">
                         </app-tyre-card>
@@ -43,11 +43,11 @@
             <div class="tyre-container">
                 <h2>In storage</h2>
 
-                <div cdkDropList #inStorageList="cdkDropList" [cdkDropListData]="inStorageData"
+                <div cdkDropList #inStorageList="cdkDropList" [cdkDropListData]="storedTyres"
                     [cdkDropListConnectedTo]="[onCarList]" class="tyre-list" (cdkDropListDropped)="drop($event)">
 
-                    <div *ngFor="let item of inStorageData" cdkDrag>
-                        <app-tyre-card [tyre]="item"
+                    <div *ngFor="let tyre of storedTyres" cdkDrag>
+                        <app-tyre-card [tyre]="tyre"
                                         (tyreDeleted)="onTyreDeleted($event)">
                         </app-tyre-card>
                     </div>
@@ -64,7 +64,7 @@
 
     <!-- TODO remove this in production -->
     <pre>{{ form.value | json }}</pre>
-    <pre>{{ onCarData | json }}</pre>
-    <pre>{{ inStorageData | json }}</pre>
+    <pre>{{ mountedTyres | json }}</pre>
+    <pre>{{ storedTyres | json }}</pre>
 
 </mat-card>

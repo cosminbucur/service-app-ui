@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MockData } from 'src/app/shared/mocks/mocks';
+import { CustomerVisit } from 'src/app/shared/models/visit.model';
+import { StoragePoint } from '../../../../../shared/models/storagePoint.model';
 
 @Component({
   selector: 'app-step-tyres',
@@ -12,35 +14,34 @@ import { MockData } from 'src/app/shared/mocks/mocks';
 })
 export class StepTyresComponent implements OnInit {
 
-  public form: FormGroup;
+  form: FormGroup;
 
+  // TODO: remove mock data
   private mockData: MockData = new MockData();
-  public onCarData = this.mockData.onCarData;
-  public inStorageData = this.mockData.inStorageData;
+  mountedTyres = this.mockData.onCarData;
+  storedTyres = this.mockData.inStorageData;
 
   constructor(
     private fb: FormBuilder,
     private dialog: MatDialog) { }
 
-  public ngOnInit(): void {
+  ngOnInit() {
     this.initializeData();
-    this.createForm();
+    this.initForm();
   }
 
-  // actions
-
-  public openDialog(): void {
+  openDialog() {
     const dialogRef = this.dialog.open(TyreDialogComponent);
 
     dialogRef.afterClosed().subscribe(newTyre => {
       if (newTyre) {
         console.log('dialog result', newTyre);
-        this.onCarData.push(newTyre);
+        this.mountedTyres.push(newTyre);
       }
     });
   }
 
-  public drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -51,29 +52,39 @@ export class StepTyresComponent implements OnInit {
     }
   }
 
-  public onTyreDeleted(selectedTyre: any) {
+  onTyreDeleted(selectedTyre: any) {
     console.log('delete', selectedTyre);
-    const deletedIndex = this.onCarData.indexOf(selectedTyre);
+    const deletedIndex = this.mountedTyres.indexOf(selectedTyre);
     if (deletedIndex > -1) {
-      this.onCarData.splice(deletedIndex, 1);
+      this.mountedTyres.splice(deletedIndex, 1);
     }
   }
 
-  public onTyreCloned(selectedTyre: any) {
+  onTyreCloned(selectedTyre: any) {
     console.log('clone', selectedTyre);
-    this.onCarData.push(selectedTyre);
+    this.mountedTyres.push(selectedTyre);
   }
-
-  // private methods
 
   private async initializeData() {
   }
 
-  private createForm() {
+  private initForm() {
     this.form = this.fb.group({
       storagePoint: ['', Validators.required],
-      capsNo: ['12', Validators.required],
+      rimCapsCount: ['16', Validators.required],
     });
   }
 
+  populateVisit(visit: CustomerVisit) {
+    let tyreInfo: FormGroup = this.form;
+
+    let storagePoint = {} as StoragePoint;
+
+    storagePoint.code = tyreInfo.controls['storagePoint'].value;
+    storagePoint.rimCapsCount = tyreInfo.controls['rimCapsCount'].value;
+    storagePoint.mountedTyres = this.mountedTyres;
+    storagePoint.storedTyres = this.storedTyres;
+
+    visit.storagePoint = storagePoint;
+  }
 }

@@ -42,17 +42,19 @@ export class CustomersService {
       firstName: 'daenerys',
       lastName: 'vasilescu',
       email: 'danny@gmail.com',
-      phone: '0722333444',
+      phoneNumber: '0722333444',
       company: 'westeros',
+      licensePlate: "B11AAA",
       id: 1
     },
     {
       firstName: 'daenerys',
       lastName: 'vasile',
       email: 'danny@gmail.com',
-      phone: '0722333444',
+      phoneNumber: '0722333444',
       company: 'westeros',
-      id: 1
+      licensePlate: "B11BBB",
+      id: 2
     }]);
   }
 
@@ -62,7 +64,7 @@ export class CustomersService {
       firstName: customer.firstName,
       lastName: customer.lastName,
       email: customer.email,
-      phone: customer.phone,
+      phone: customer.phoneNumber,
       company: customer.company
     };
   }

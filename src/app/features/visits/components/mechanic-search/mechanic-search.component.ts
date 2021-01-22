@@ -14,9 +14,9 @@ import { FormArray } from '@angular/forms';
 })
 export class MechanicSearchComponent implements OnInit {
 
-  public mechanics: Mechanic[] = [];
-  public filteredMechanics: Observable<Mechanic[]>;
-  public form: FormGroup;
+  mechanics: Mechanic[] = [];
+  filteredMechanics: Observable<Mechanic[]>;
+  form: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -25,7 +25,7 @@ export class MechanicSearchComponent implements OnInit {
 
   public ngOnInit(): void {
     this.form = this.fb.group({
-      filter: null
+      filter: null,
     });
 
     this.mechanicsService.getAll().subscribe(data => {
@@ -40,13 +40,13 @@ export class MechanicSearchComponent implements OnInit {
       );
   }
 
+  displayFn(mechanic: Mechanic): string {
+    return mechanic && mechanic.lastName && mechanic.firstName ? mechanic.lastName + ' ' + mechanic.firstName : '';
+  }
+
   private filter(name: string): Mechanic[] {
     const filterValue = name.toLowerCase();
     return this.mechanics.filter(mechanic => mechanic.lastName.toLowerCase().indexOf(filterValue) === 0);
-  }
-
-  public displayFn(mechanic: Mechanic): string {
-    return mechanic && mechanic.lastName && mechanic.firstName ? mechanic.lastName + ' ' + mechanic.firstName : '';
   }
 
   get mechanicFilter() {

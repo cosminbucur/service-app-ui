@@ -4,7 +4,12 @@
 
     <form [formGroup]="form" novalidate autocomplete="off">
 
-        <app-mechanic-search></app-mechanic-search>
+        <!-- <app-mechanic-search></app-mechanic-search> -->
+
+        <mat-form-field>
+            <mat-label>Mechanic</mat-label>
+            <input matInput formControlName="mechanicName" placeholder="2" required>
+        </mat-form-field>
 
         <!-- services performed -->
         <mat-form-field>

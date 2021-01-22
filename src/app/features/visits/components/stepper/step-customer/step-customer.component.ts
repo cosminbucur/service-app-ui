@@ -13,7 +13,7 @@ import { CustomerVisit } from '../../../../../shared/models/visit.model';
 })
 export class StepCustomerComponent implements OnInit {
 
-  customers: Customer[];
+  customers: Customer[] = [];
   form: FormGroup;
 
   @Input() visit: CustomerVisit;
@@ -25,12 +25,9 @@ export class StepCustomerComponent implements OnInit {
   ngOnInit() {
     this.initializeData();
     this.createForm();
-
-    // TODO: remove this
-    console.log("STEP customer", this.visit);
   }
 
-  public populateVisit(visit: CustomerVisit) {
+  populateVisit(visit: CustomerVisit) {
     let customerInfo: FormGroup = this.form;
 
     let customer = {} as Customer;

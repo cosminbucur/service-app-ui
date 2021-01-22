@@ -9,13 +9,13 @@
   <!-- step 2 -->
   <mat-step>
       <ng-template matStepLabel>Service</ng-template>
-      <app-step-service></app-step-service>
+      <app-step-service [visit]="visit"></app-step-service>
   </mat-step>
 
   <!-- step 3 -->
   <mat-step>
       <ng-template matStepLabel>Tyres</ng-template>
-      <app-step-tyres></app-step-tyres>
+      <app-step-tyres [visit]="visit"></app-step-tyres>
   </mat-step>
 
   <!-- step 4 -->

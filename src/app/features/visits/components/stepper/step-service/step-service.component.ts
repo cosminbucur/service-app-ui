@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CustomerVisit } from 'src/app/shared/models/visit.model';
 
 @Component({
   selector: 'app-step-service',
@@ -10,27 +11,23 @@ export class StepServiceComponent implements OnInit {
 
   form: FormGroup;
 
-  serviceDetails: any = {
-    visitDate: null,
-    mechanicName: null,
-    servicesPerformed: null,
-    observations: null
-  };
+  @Input() visit: CustomerVisit;
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.initializeData();
-    this.createForm();
+    this.initForm();
   }
 
-  // private methods
+  populateVisit(visit: CustomerVisit) {
+    let serviceInfo: FormGroup = this.form;
 
-  private async initializeData() {
-
+    visit.mechanicId = serviceInfo.controls['mechanicName'].value;
+    visit.servicesPerformed = serviceInfo.controls['servicesPerformed'].value;
+    visit.observations = serviceInfo.controls['observations'].value;
   }
 
-  private createForm() {
+  private initForm() {
     this.form = this.fb.group({
       mechanicName: ['', Validators.required],
       servicesPerformed: ['', Validators.required],

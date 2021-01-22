@@ -58,7 +58,8 @@ export class VisitService {
         lastName: dto.customerRead.lastName,
         company: dto.customerRead.company,
         phoneNumber: dto.customerRead.phoneNumber,
-        email: dto.customerRead.email
+        email: dto.customerRead.email,
+        licensePlate: dto.storagepointRead.licensePlate
       },
       storagePoint: dto.storagePointRead
     }

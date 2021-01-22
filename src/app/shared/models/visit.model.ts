@@ -1,4 +1,5 @@
 import { Customer } from './customer.model';
+import { StoragePoint } from './storagePoint.model';
 
 export interface CustomerVisit {
     id: number;
@@ -8,13 +9,4 @@ export interface CustomerVisit {
     observations: string;
     customer: Customer;
     storagePoint: StoragePoint;
-}
-
-export interface StoragePoint {
-    id: number;
-    code: string;
-    numberOfRimCaps: number;
-    licensePlate: string;
-    mountedTyres: any[];
-    storedTyres: any[];
 }

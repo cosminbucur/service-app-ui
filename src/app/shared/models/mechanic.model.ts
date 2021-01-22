@@ -3,5 +3,5 @@ export interface Mechanic {
   firstName: string;
   lastName: string;
   email: string;
-  phone: string;
+  phoneNumber: string;
 }
