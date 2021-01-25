@@ -1,6 +1,6 @@
 import { MatDialog } from '@angular/material/dialog';
 import { TyreDialogComponent } from './../../dialogs/tyre-dialog/tyre-dialog.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MockData } from 'src/app/shared/mocks/mocks';
@@ -13,6 +13,8 @@ import { StoragePoint } from '../../../../../shared/models/storagePoint.model';
   styleUrls: ['./step-tyres.component.scss']
 })
 export class StepTyresComponent implements OnInit {
+
+  @Input() visit: CustomerVisit;
 
   form: FormGroup;
 
@@ -52,17 +54,24 @@ export class StepTyresComponent implements OnInit {
     }
   }
 
-  onTyreDeleted(selectedTyre: any) {
+  onMountedTyreDeleted(selectedTyre: any) {
     console.log('delete', selectedTyre);
-    const deletedIndex = this.mountedTyres.indexOf(selectedTyre);
-    if (deletedIndex > -1) {
-      this.mountedTyres.splice(deletedIndex, 1);
-    }
+    this.mountedTyres.splice(this.mountedTyres.indexOf(selectedTyre), 1);
   }
 
-  onTyreCloned(selectedTyre: any) {
+  onStoredTyreDeleted(selectedTyre: any) {
+    console.log('delete', selectedTyre);
+    this.storedTyres.splice(this.storedTyres.indexOf(selectedTyre), 1);
+  }
+
+  onMountedTyreCloned(selectedTyre: any) {
     console.log('clone', selectedTyre);
     this.mountedTyres.push(selectedTyre);
+  }
+
+  onStoredTyreCloned(selectedTyre: any) {
+    console.log('clone', selectedTyre);
+    this.storedTyres.push(selectedTyre);
   }
 
   private async initializeData() {

@@ -5,33 +5,33 @@
     <!-- client details -->
     <mat-card>
         <div>Full Name:
-            {{ customerDetails.firstName }}
-            {{ customerDetails.lastName }}
+            {{ visit.customer.firstName }}
+            {{ visit.customer.lastName }}
         </div>
-        <div>Company: {{ customerDetails.company }} </div>
-        <div>Phone Number: {{ customerDetails.phoneNumber }} </div>
-        <div>Email: {{ customerDetails.email }}</div>
-        <div>License Plate: {{ customerDetails.licensePlate }}</div>
+        <div>Company: {{ visit.customer.company }} </div>
+        <div>Phone Number: {{ visit.customer.phoneNumber }} </div>
+        <div>Email: {{ visit.customer.email }}</div>
+        <div>License Plate: {{ visit.customer.licensePlate }}</div>
     </mat-card>
 
     <!-- service details -->
     <mat-card>
-        <div>Date: {{ serviceDetails.visitDate | date }}</div>
-        <div>Mechanic: {{ serviceDetails.mechanicName }} </div>
-        <div>Services: {{ serviceDetails.servicesPerformed }}</div>
-        <div>Observations: {{ serviceDetails.observations }}</div>
+        <div>Date: {{ visit.visitDate | date }}</div>
+        <div>Mechanic: {{ visit.mechanicId }} </div>
+        <div>Services: {{ visit.servicesPerformed }}</div>
+        <div>Observations: {{ visit.observations }}</div>
     </mat-card>
 
     <!-- tyre details -->
     <mat-card>
-        <div>Storage Point: {{ storagePoint }}</div>
-        <div>Caps number: {{ capsNo }}</div>
+        <div>Storage Point: {{ visit.storagePoint.code }}</div>
+        <div>Caps number: {{ visit.storagePoint.rimCapsCount }}</div>
     </mat-card>
 
     <div>
 
         <div class="tyres-container">
-            <div *ngFor="let tyre of onCarData">
+            <div *ngFor="let tyre of visit.storagePoint.mountedTyres">
                 <mat-card>
                     <div>Size: {{ tyre.size }}</div>
                     <div>Rim type: {{ tyre.rimType }}</div>
@@ -45,7 +45,7 @@
 
 
         <div class="tyres-container">
-            <div *ngFor="let tyre of inStorageData">
+            <div *ngFor="let tyre of visit.storagePoint.storedTyres">
                 <mat-card>
                     <div>Size: {{ tyre.size }}</div>
                     <div>Rim type: {{ tyre.rimType }}</div>
@@ -76,3 +76,6 @@
     </mat-card-actions>
 
 </mat-card>
+
+   <!-- TODO remove this in production -->
+   <pre>{{ visit | json }}</pre>

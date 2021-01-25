@@ -32,8 +32,8 @@
 
                     <div *ngFor="let tyre of mountedTyres" cdkDrag>
                         <app-tyre-card [tyre]="tyre"
-                                        (tyreDeleted)="onTyreDeleted($event)"
-                                        (tyreCloned)="onTyreCloned($event)">
+                                        (tyreDeleted)="onMountedTyreDeleted($event)"
+                                        (tyreCloned)="onMountedTyreCloned($event)">
                         </app-tyre-card>
                     </div>
                 </div>
@@ -48,7 +48,8 @@
 
                     <div *ngFor="let tyre of storedTyres" cdkDrag>
                         <app-tyre-card [tyre]="tyre"
-                                        (tyreDeleted)="onTyreDeleted($event)">
+                                        (tyreDeleted)="onStoredTyreDeleted($event)"
+                                        (tyreCloned)="onStoredTyreCloned($event)">
                         </app-tyre-card>
                     </div>
                 </div>

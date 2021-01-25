@@ -1,9 +1,10 @@
 
+import { Tyre } from './tyre.model';
 export interface StoragePoint {
   id: number;
   code: string;
   rimCapsCount: number;
   licensePlate: string;
-  mountedTyres: any[];
-  storedTyres: any[];
+  mountedTyres: Tyre[];
+  storedTyres: Tyre[];
 }

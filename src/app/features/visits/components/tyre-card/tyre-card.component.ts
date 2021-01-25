@@ -14,15 +14,15 @@ export class TyreCardComponent implements OnInit {
 
   constructor() { }
 
-  public ngOnInit(): void {
+  ngOnInit() {
   }
 
-  public deleteTyre(tyre: Tyre) {
+  deleteTyre(tyre: Tyre) {
     console.log('delete tyre', tyre);
     this.tyreDeleted.emit(tyre);
   }
 
-  public cloneTyre(tyre: Tyre) {
+  cloneTyre(tyre: Tyre) {
     console.log('clone tyre', tyre);
     this.tyreCloned.emit(tyre);
   }

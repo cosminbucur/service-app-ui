@@ -5,6 +5,7 @@ import { VisitService } from '../../../../core/services/visits.service';
 import { StepCustomerComponent } from '../../components/stepper/step-customer/step-customer.component';
 import { StepServiceComponent } from '../../components/stepper/step-service/step-service.component';
 import { StepTyresComponent } from '../../components/stepper/step-tyres/step-tyres.component';
+import { StepSummaryComponent } from '../../components/stepper/step-summary/step-summary.component';
 
 @Component({
   selector: 'app-visit-details',
@@ -18,6 +19,7 @@ export class VisitDetailsComponent implements OnInit {
   @ViewChild(StepCustomerComponent) stepCustomerComponent: StepCustomerComponent;
   @ViewChild(StepServiceComponent) stepServiceComponent: StepServiceComponent;
   @ViewChild(StepTyresComponent) stepTyresComponent: StepTyresComponent;
+  @ViewChild(StepSummaryComponent) stepSummaryComponent: StepSummaryComponent;
 
   @Input() visit: CustomerVisit;
 
@@ -27,7 +29,11 @@ export class VisitDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() { 
-    this.visit = {} as CustomerVisit;
+    this.visit = {
+      visitDate: new Date(),
+      customer: {},
+      storagePoint: {}
+    } as CustomerVisit;
   }
 
   onStepChange(event: any) {
@@ -39,5 +45,6 @@ export class VisitDetailsComponent implements OnInit {
     this.stepCustomerComponent.populateVisit(this.visit);
     this.stepServiceComponent.populateVisit(this.visit);
     this.stepTyresComponent.populateVisit(this.visit);
+    this.stepSummaryComponent.visit = this.visit;
   }
 }

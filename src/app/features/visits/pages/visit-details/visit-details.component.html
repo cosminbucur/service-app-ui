@@ -1,4 +1,4 @@
-<mat-horizontal-stepper [linear]="true" (selectionChange)="onStepChange($event)" #stepper>
+<mat-horizontal-stepper [linear]="false" (selectionChange)="onStepChange($event)" #stepper>
 
   <!-- step 1 -->
   <mat-step>
@@ -21,7 +21,7 @@
   <!-- step 4 -->
   <mat-step>
     <ng-template matStepLabel>Summary</ng-template>
-    <app-step-summary></app-step-summary>
+    <app-step-summary [visit]="visit"></app-step-summary>
   </mat-step>
 
 </mat-horizontal-stepper>

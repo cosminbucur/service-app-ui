@@ -1,10 +1,11 @@
 import { MockData } from 'src/app/shared/mocks/mocks';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { appRoutesNames } from 'src/app/app.routes.names';
 import { NotificationService } from 'src/app/core/services/notification.service';
 import { VisitService } from '../../../../../core/services/visits.service';
+import { CustomerVisit } from 'src/app/shared/models/visit.model';
 
 @Component({
   selector: 'app-step-summary',
@@ -13,15 +14,17 @@ import { VisitService } from '../../../../../core/services/visits.service';
 })
 export class StepSummaryComponent implements OnInit {
 
-  public form: FormGroup;
+  @Input() visit: CustomerVisit;
+
+  form: FormGroup;
 
   private mockData: MockData = new MockData();
-  public customerDetails: any = this.mockData.customerDetails;
-  public serviceDetails: any = this.mockData.serviceDetails;
-  public storagePoint = this.mockData.storagePoint;
-  public capsNo = this.mockData.capsNo;
-  public onCarData = this.mockData.onCarData;
-  public inStorageData = this.mockData.inStorageData;
+  customerDetails: any = this.mockData.customerDetails;
+  serviceDetails: any = this.mockData.serviceDetails;
+  storagePoint = this.mockData.storagePoint;
+  capsNo = this.mockData.capsNo;
+  onCarData = this.mockData.onCarData;
+  inStorageData = this.mockData.inStorageData;
 
   constructor(
     private notificationService: NotificationService,
@@ -29,54 +32,47 @@ export class StepSummaryComponent implements OnInit {
     private router: Router
   ) { }
 
-  public ngOnInit(): void {
-    this.initializeData();
+  ngOnInit() {
+    console.log("visit", this.visit);
+    
     this.form = new FormGroup({});
   }
 
   // actions
 
-  public print() {
+  print() {
     this.notificationService.info('Printing in progress.');
   }
 
-  public toggleActive() {
+  toggleActive() {
     this.notificationService.info('Customer activated');
   }
 
-  public sendEmail() {
+  sendEmail() {
     this.notificationService.info('Email sent to ' + this.customerDetails.email);
   }
 
   // navigation actions
 
-  public cancel() {
+  cancel() {
     this.goToVisitsPage();
   }
 
-  public async save() {
+  async save() {
     if (!this.form.valid) {
       this.notificationService.error('There are errors on the visit fields!');
       return;
     }
 
-    this.visitService.create(null);
+    this.visitService.create(this.visit);
 
     this.notificationService.success('Visit details saved.');
-  }
-
-  private createObject(): void {
-
   }
 
   // private methods
 
   private goToVisitsPage() {
     this.router.navigate([`/${appRoutesNames.VISITS}`]);
-  }
-
-  private async initializeData() {
-
   }
 
 }
