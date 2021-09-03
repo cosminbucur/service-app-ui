@@ -46,6 +46,7 @@ export class StepSummaryComponent implements OnInit {
 
   toggleActive() {
     this.notificationService.info('Customer activated');
+    this.visit.customer.isActive = !this.visit.customer.isActive;
   }
 
   sendEmail() {
@@ -64,12 +65,29 @@ export class StepSummaryComponent implements OnInit {
       return;
     }
 
-    this.visitService.create(this.visit);
-
-    this.notificationService.success('Visit details saved.');
+    if (!this.visit.id) {
+      this.createVisit();
+    }
   }
 
   // private methods
+
+  private createVisit() {
+    this.visitService.create(this.visit)
+      .subscribe(
+        (visit: CustomerVisit) => this.handleVisitSaveResponse(visit),
+        err => this.handleVisitSaveError(err)
+      );
+  }
+
+  private handleVisitSaveResponse(visit: CustomerVisit) {
+    this.notificationService.success('Visit details saved.');
+  }
+
+  private handleVisitSaveError(err) {
+    console.log(err);
+    this.notificationService.error('There was a problem - please contact support');
+  }
 
   private goToVisitsPage() {
     this.router.navigate([`/${appRoutesNames.VISITS}`]);

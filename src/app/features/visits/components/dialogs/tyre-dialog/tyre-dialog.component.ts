@@ -9,18 +9,16 @@ import { Tyre } from 'src/app/shared/models/tyre.model';
 })
 export class TyreDialogComponent implements OnInit {
 
-  constructor(
-    private dialogRef: MatDialogRef<TyreDialogComponent>
-    ) { }
+  constructor(private dialogRef: MatDialogRef<TyreDialogComponent>) { }
 
-  public ngOnInit(): void {
+  ngOnInit() {
   }
 
-  public save(tyre: any): void {
+  save(tyre: any) {
     this.dialogRef.close(tyre);
   }
 
-  public cancel(): void {
+  cancel() {
     this.dialogRef.close();
   }
 

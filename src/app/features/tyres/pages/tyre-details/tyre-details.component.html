@@ -1,5 +1,6 @@
 <form [formGroup]="form" novalidate autocomplete="off">
-  <mat-card>
+
+  <div class="main-container">
     <div class="tyre-size">
       <mat-form-field>
         <mat-label>Width</mat-label>
@@ -13,84 +14,61 @@
 
       <mat-form-field>
         <mat-label>Diameter type</mat-label>
-        <input matInput placeholder="Ex. R15" formControlName="diameterType" />
+        <input matInput placeholder="Ex. 15" formControlName="diameterType" />
       </mat-form-field>
     </div>
 
     <mat-form-field>
-      <mat-label>Rim type</mat-label>
-      <mat-select formControlName="rimType">
-        <mat-option *ngFor="let type of rimTypes" [value]="type.value">
-          {{ type.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Tyre type</mat-label>
-      <mat-select formControlName="tyreType">
-        <mat-option *ngFor="let type of tyreTypes" [value]="type.value">
-          {{ type.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field>
       <mat-label>Brand</mat-label>
-      <input
-        type="text"
-        matInput
-        formControlName="brand"
-        [matAutocomplete]="auto"
-      />
+      <input type="text" matInput formControlName="brand" [matAutocomplete]="auto">
       <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayBrand">
-        <mat-option
-          *ngFor="let brand of filteredBrands | async"
-          [value]="brand.value"
-        >
-          {{ brand.viewValue }}
+        <mat-option *ngFor="let option of filteredBrands | async" [value]="option">
+          {{ option.display }}
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
 
-    <!-- <mat-form-field>
-            <mat-label>Brand</mat-label>
-            <mat-select formControlName="brand">
-                <mat-option *ngFor="let brand of brands" [value]="brand.value">
-                    {{brand.viewValue}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field> -->
+    <div class="radio-container">
+      <div>
+        <mat-label>Rim type</mat-label>
+        <mat-radio-group class="radio-group" formControlName="rimType">
+          <mat-radio-button class="radio-button" *ngFor="let type of rimTypes" [value]="type.value">
+            {{ type.viewValue }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
 
-    <mat-form-field>
-      <mat-label>Wear level</mat-label>
-      <mat-select formControlName="wearLevel">
-        <mat-option
-          *ngFor="let wearLevel of wearLevels"
-          [value]="wearLevel.value"
-        >
-          {{ wearLevel.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+      <div>
+        <mat-label>Tyre type</mat-label>
+        <mat-radio-group class="radio-group" formControlName="tyreType">
+          <mat-radio-button class="radio-button" *ngFor="let type of tyreTypes" [value]="type.value">
+            {{ type.viewValue }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
 
-    <mat-form-field>
-      <mat-label>Season</mat-label>
-      <mat-select formControlName="season">
-        <mat-option *ngFor="let season of seasons" [value]="season.value">
-          {{ season.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <mat-label>Wear level</mat-label>
+    <mat-radio-group class="radio-group" formControlName="wearLevel">
+      <mat-radio-button class="radio-button" *ngFor="let type of wearLevels" [value]="type.value">
+        {{ type.viewValue }}
+      </mat-radio-button>
+    </mat-radio-group>
 
-    <mat-card-actions>
+    <mat-label>Season</mat-label>
+    <mat-radio-group class="radio-group" formControlName="season">
+      <mat-radio-button class="radio-button" *ngFor="let type of availableSeasons" [value]="type.value">
+        {{ type.display }}
+      </mat-radio-button>
+    </mat-radio-group>
+
+    <div class="navigation-container">
       <button mat-raised-button (click)="cancel()" type="button">CANCEL</button>
-      <button mat-raised-button color="primary" (click)="save()" type="submit">
-        SAVE
-      </button>
-    </mat-card-actions>
-  </mat-card>
+      <button mat-raised-button color="primary" (click)="save()" type="submit">SAVE</button>
+    </div>
+  </div>
 
-  <!-- TODO remove this in production -->
-  <pre>{{ form.value | json }}</pre>
 </form>
+
+<!-- TODO remove this in production -->
+<pre>{{ form.value | json }}</pre>

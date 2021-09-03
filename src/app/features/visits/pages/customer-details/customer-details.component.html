@@ -1,43 +1,38 @@
 <form [formGroup]="form" novalidate autocomplete="off">
-    <mat-card>
 
-        <mat-card-title>Customer info</mat-card-title>
-
-        <mat-form-field class="example-full-width">
+    <div class="main-container">
+        <mat-form-field>
             <mat-label>First name</mat-label>
             <input matInput formControlName="firstName">
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field>
             <mat-label>Last name</mat-label>
             <input matInput formControlName="lastName">
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field>
             <mat-label>Company</mat-label>
             <input matInput formControlName="company">
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field>
             <mat-label>Phone</mat-label>
             <input matInput maxlength="10" placeholder="Ex. 0722333444" formControlName="phone">
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field>
             <mat-label>Email</mat-label>
             <input matInput formControlName="email">
         </mat-form-field>
+    </div>
+    
+    <div class="navigation-container">
+        <button mat-raised-button (click)="cancel()" type="button">CANCEL</button>
+        <button mat-raised-button color="primary" (click)="save()" type="submit">SAVE</button>
+    </div>
 
-        <mat-card-actions>
-            <button mat-raised-button (click)="cancel()" type="button">CANCEL</button>
-            <button mat-raised-button color="primary" (click)="save()" type="submit">SAVE</button>
-        </mat-card-actions>
-
-    </mat-card>
 </form>
 
-<mat-card>
-    <!-- TODO remove this in production -->
-    <pre>{{ form.value | json }}</pre>
-
-</mat-card>
+<!-- TODO remove this in production -->
+<pre>{{ form.value | json }}</pre>

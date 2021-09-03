@@ -1,81 +1,87 @@
-<mat-card>
-
-    <mat-card-title>Summary</mat-card-title>
-
-    <!-- client details -->
-    <mat-card>
-        <div>Full Name:
-            {{ visit.customer.firstName }}
-            {{ visit.customer.lastName }}
+    <div class="summary-container">
+        <!-- customer details -->
+        <div class="summary-item">
+            
+            <h3><mat-icon>account_box</mat-icon> Customer</h3>
+            <div>Full Name:
+                {{ visit.customer.firstName }}
+                {{ visit.customer.lastName }}
+            </div>
+            <div>Company: {{ visit.customer.company }} </div>
+            <div>Phone: {{ visit.customer.phoneNumber }} </div>
+            <div>Email: {{ visit.customer.email }}</div>
+            <div>License Plate: {{ visit.customer.licensePlate }}</div>
         </div>
-        <div>Company: {{ visit.customer.company }} </div>
-        <div>Phone Number: {{ visit.customer.phoneNumber }} </div>
-        <div>Email: {{ visit.customer.email }}</div>
-        <div>License Plate: {{ visit.customer.licensePlate }}</div>
-    </mat-card>
 
-    <!-- service details -->
-    <mat-card>
-        <div>Date: {{ visit.visitDate | date }}</div>
-        <div>Mechanic: {{ visit.mechanicId }} </div>
-        <div>Services: {{ visit.servicesPerformed }}</div>
-        <div>Observations: {{ visit.observations }}</div>
-    </mat-card>
-
-    <!-- tyre details -->
-    <mat-card>
-        <div>Storage Point: {{ visit.storagePoint.code }}</div>
-        <div>Caps number: {{ visit.storagePoint.rimCapsCount }}</div>
-    </mat-card>
+        <!-- service details -->
+        <div class="summary-item">
+            
+            <h3><mat-icon>build</mat-icon> Service</h3>
+            <div>{{ visit.visitDate | date }}</div>
+            <div>Mechanic: {{ visit.mechanicId }} </div>
+            <div>Services: {{ visit.servicesPerformed }}</div>
+            <div>Observations: {{ visit.observations }}</div>
+        </div>
+    
+        <!-- tyre details -->
+        <div class="summary-item">
+            
+            <h3><mat-icon>roofing</mat-icon> Storage</h3>
+            <div>Storage Point: {{ visit.storagePoint.code }}</div>
+            <div>Rim caps count: {{ visit.storagePoint.rimCapsCount }}</div>
+        </div>
+    </div>
 
     <div>
-
+        <h3><mat-icon>drive_eta</mat-icon> On car</h3>
         <div class="tyres-container">
             <div *ngFor="let tyre of visit.storagePoint.mountedTyres">
-                <mat-card>
+                <div class="tyre-item">
                     <div>Size: {{ tyre.size }}</div>
                     <div>Rim type: {{ tyre.rimType }}</div>
                     <div>Tyre type: {{ tyre.tyreType }}</div>
                     <div>Brand: {{ tyre.brand }}</div>
                     <div>Season: {{ tyre.season }}</div>
                     <div>Wear indicator: {{ tyre.wearLevel }} </div>
-                </mat-card>
+                </div>
             </div>
         </div>
-
-
+        
+        <h3><mat-icon>view_module</mat-icon> In storage</h3>
         <div class="tyres-container">
             <div *ngFor="let tyre of visit.storagePoint.storedTyres">
-                <mat-card>
+                <div class="tyre-item">
                     <div>Size: {{ tyre.size }}</div>
                     <div>Rim type: {{ tyre.rimType }}</div>
                     <div>Rim type: {{ tyre.tyreType }}</div>
                     <div>Brand: {{ tyre.brand }}</div>
                     <div>Season: {{ tyre.season }}</div>
                     <div>Wear indicator: {{ tyre.wearLevel }} </div>
-                </mat-card>
+                </div>
             </div>
         </div>
 
     </div>
 
-    <mat-card-actions>
-        <div>
-            <button mat-raised-button (click)="print()" type="button">PRINT</button>
-            <button *ngIf="customerDetails.isActive" mat-raised-button (click)="toggleActive()"
-                type="button">DEACTIVATE</button>
-            <button *ngIf="!customerDetails.isActive" mat-raised-button (click)="toggleActive()"
-                type="button">ACTIVATE</button>
-            <button mat-raised-button (click)="sendEmail()" type="button">EMAIL</button>
-        </div>
-        <div>
-            <button mat-button matStepperPrevious>BACK</button>
-            <button mat-raised-button (click)="cancel()" type="button">GO TO VISITS</button>
-            <button mat-raised-button color="primary" (click)="save()" type="submit">SAVE</button>
-        </div>
-    </mat-card-actions>
+    <div class="navigation-container">
+        <button mat-raised-button color="gray" (click)="cancel()" type="button">GO TO VISITS</button>
+        <button mat-button matStepperPrevious>BACK</button>
+        <button mat-raised-button color="primary" (click)="save()" type="submit">SAVE</button>
+    </div>
 
-</mat-card>
+    <div>
+        <button mat-raised-button matTooltip="Print summary" (click)="print()" type="button">
+            <mat-icon>print</mat-icon>
+        </button>
+        <button *ngIf="visit.customer.isActive" mat-raised-button (click)="toggleActive()"
+            type="button">DEACTIVATE</button>
+        <button *ngIf="!visit.customer.isActive" mat-raised-button (click)="toggleActive()"
+            type="button">ACTIVATE</button>
+        <button mat-raised-button matTooltip="Send email" (click)="sendEmail()" type="button">
+            <mat-icon>forward_to_inbox</mat-icon>
+        </button>
+    </div>
+
 
    <!-- TODO remove this in production -->
    <pre>{{ visit | json }}</pre>

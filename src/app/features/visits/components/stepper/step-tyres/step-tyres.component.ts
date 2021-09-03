@@ -82,6 +82,12 @@ export class StepTyresComponent implements OnInit {
       storagePoint: ['', Validators.required],
       rimCapsCount: ['16', Validators.required],
     });
+
+    // TODO: remove this
+    this.form = this.fb.group({
+      storagePoint: ['R1E1E2', Validators.required],
+      rimCapsCount: ['16', Validators.required],
+    });
   }
 
   populateVisit(visit: CustomerVisit) {

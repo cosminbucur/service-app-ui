@@ -9,20 +9,16 @@ import { TyreDialogComponent } from '../tyre-dialog/tyre-dialog.component';
 })
 export class CustomerDialogComponent implements OnInit {
 
-  constructor(
-    private dialogRef: MatDialogRef<TyreDialogComponent>
-  ) { }
+  constructor(private dialogRef: MatDialogRef<TyreDialogComponent>) { }
 
-  public ngOnInit(): void {
+  ngOnInit() {
   }
 
-  // TODO get value from component
-  // https://stackoverflow.com/questions/47592364/usage-of-mat-dialog-close
-  public save(): void {
-    this.dialogRef.close('customer data');
+  save(customer: any) {
+    this.dialogRef.close(customer);
   }
 
-  public cancel(): void {
+  cancel() {
     this.dialogRef.close();
   }
 

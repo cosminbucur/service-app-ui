@@ -1,8 +1,8 @@
 export class TyreOptions {
 
     public tyreTypes = [
-        { value: 'regular', viewValue: 'Regular' },
-        { value: 'runflat', viewValue: 'Runflat' }
+        { value: 'REGULAR', viewValue: 'Regular' },
+        { value: 'RUN_FLAT', viewValue: 'Runflat' }
     ];
 
     public brands = [
@@ -13,20 +13,21 @@ export class TyreOptions {
     ];
 
     public wearLevels = [
-        { value: 'good', viewValue: 'Good' },
-        { value: 'medium', viewValue: 'Medium' },
-        { value: 'worn', viewValue: 'Worn' }
+        { value: 'GOOD', viewValue: 'Good' },
+        { value: 'OK', viewValue: 'OK' },
+        { value: 'WARNING', viewValue: 'Warning' },
+        { value: 'DANGER', viewValue: 'Danger' }
     ];
 
     public seasons = [
-        { value: 'summer', viewValue: 'Summer' },
-        { value: 'winter', viewValue: 'Winter' },
-        { value: 'all-season', viewValue: 'All season' }
+        { value: 'SUMMER', viewValue: 'Summer' },
+        { value: 'WINTER', viewValue: 'Winter' },
+        { value: 'ALL_SEASON', viewValue: 'All season' }
     ];
 
     public rimTypes = [
-        { value: 'plate', viewValue: 'Plate' },
-        { value: 'alloy', viewValue: 'Alloy' }
+        { value: 'PLATE', viewValue: 'Plate' },
+        { value: 'ALLOY', viewValue: 'Alloy' }
     ];
 
 }

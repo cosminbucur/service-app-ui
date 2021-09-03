@@ -1,5 +1,25 @@
+
+.summary-container {
+    display: flex;
+    flex-flow: row nowrap;
+    
+    .summary-item {
+        width: 40%;
+        height: 40%;
+    }
+}
+
 .tyres-container {
-    flex-direction: row;
-    // justify-content: center;
-    // align-content: space-between;
+    display: flex;
+    align-content: space-between;
+
+    .tyre-item {
+        margin: 20px;
+        height: 40%;
+    }
+}
+
+.navigation-container {
+    display: flex;
+    justify-content: flex-end;
 }

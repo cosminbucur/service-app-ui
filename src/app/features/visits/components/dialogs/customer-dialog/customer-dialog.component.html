@@ -1,8 +1,4 @@
 <h2 mat-dialog-title>Add customer</h2>
 <mat-dialog-content>
-    <app-customer-details></app-customer-details>
+    <app-customer-details (customerSaved)=save($event) (customerCanceled)=cancel()></app-customer-details>
 </mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-raised-button (click)="cancel()">CANCEL</button>
-  <button mat-raised-button color="primary" (click)="save()" [disabled]="false" cdkFocusInitial>SAVE</button>
-</mat-dialog-actions>

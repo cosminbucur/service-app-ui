@@ -46,8 +46,12 @@ export class StepCustomerComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(CustomerDialogComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+    dialogRef.afterClosed().subscribe(newCustomer => {
+      if (newCustomer) {
+        console.log('dialog result', newCustomer);
+        this.visit.customer = newCustomer;
+        this.visit.customer.isActive = true;
+      }
     });
   }
 
@@ -72,6 +76,16 @@ export class StepCustomerComponent implements OnInit {
       phoneNumber: ['', [Validators.pattern(phonePattern), Validators.required]],
       email: ['', [Validators.pattern(emailPattern), Validators.required]],
       licensePlate: ['', Validators.required]
+    });
+
+    // TODO: remove this
+    this.form = this.fb.group({
+      firstName: ['Alex', Validators.required],
+      lastName: ['Vasile', Validators.required],
+      company: ['Pipera', Validators.required],
+      phoneNumber: ['0722333444', [Validators.pattern(phonePattern), Validators.required]],
+      email: ['alexvasile@gmail.com', [Validators.pattern(emailPattern), Validators.required]],
+      licensePlate: ['B22AAA', Validators.required]
     });
   }
 }

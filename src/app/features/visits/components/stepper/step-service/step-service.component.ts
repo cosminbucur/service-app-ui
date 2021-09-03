@@ -33,6 +33,13 @@ export class StepServiceComponent implements OnInit {
       servicesPerformed: ['', Validators.required],
       observations: ['']
     });
+
+    // TODO: remove this
+    this.form = this.fb.group({
+      mechanicName: ['1', Validators.required],
+      servicesPerformed: ['complete 15inch', Validators.required],
+      observations: ['tyres require changing soon']
+    });
   }
 }
 

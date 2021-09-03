@@ -1,5 +1,29 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
 .tyre-size {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.radio-container {
+  display: flex;
+}
+
+.radio-group {
+  display: flex;
+  margin: 15px 0;
+
+  .radio-button {
+    margin: 5px;
+  }
+}
+
+.navigation-container {
+  display: flex;
+  justify-content: flex-end;
 }

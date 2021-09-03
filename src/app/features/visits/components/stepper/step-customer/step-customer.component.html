@@ -1,16 +1,12 @@
-<mat-card>
-
-    <mat-card-title>Customer info</mat-card-title>
-
-    <form [formGroup]="form" novalidate autocomplete="off">
+<form [formGroup]="form" novalidate autocomplete="off">
         
-        <div>
-            <button mat-mini-fab color="primary" matTooltip="Add customer" (click)="openDialog()">
-                <mat-icon>add</mat-icon>
-            </button>
-        </div>
+    <div>
+        <button mat-mini-fab color="primary" matTooltip="Add customer" (click)="openDialog()">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
 
-        <div class="container">
+    <div class="main-container">
 
         <app-customer-search></app-customer-search>
 
@@ -52,13 +48,12 @@
 
     </div>
 
-    </form>
+</form>
 
-    <mat-card-actions>
-        <button mat-raised-button color="primary" matStepperNext>NEXT</button>
-    </mat-card-actions>
+<div class="navigation-container">
+    <button mat-raised-button color="primary" matStepperNext>NEXT</button>
+</div>
 
-    <!-- TODO remove this in production -->
-    <pre>{{ form.value | json }}</pre>
 
-</mat-card>
+<!-- TODO remove this in production -->
+<pre>{{ form.value | json }}</pre>

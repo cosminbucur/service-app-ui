@@ -6,4 +6,5 @@ export interface Customer {
   phoneNumber: string;
   email: string;
   licensePlate: string;
+  isActive: boolean;
 }

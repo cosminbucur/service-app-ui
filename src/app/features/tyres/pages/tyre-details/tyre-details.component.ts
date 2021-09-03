@@ -1,12 +1,13 @@
 import { Tyre } from 'src/app/shared/models/tyre.model';
 import { TyreOptions } from 'src/app/shared/models/tyre.options';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
 import { NotificationService } from 'src/app/core/services/notification.service';
-import { appRoutesNames } from 'src/app/app.routes.names';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
 import { startWith, map } from 'rxjs/operators';
+import { DropdownOption } from '../../../../shared/models/dropdown-options';
+import { seasons } from '../../../../shared/models/constants/seasons';
+import { brands } from '../../../../shared/models/constants/brands';
 
 @Component({
   selector: 'app-tyre-details',
@@ -19,51 +20,37 @@ export class TyreDetailsComponent implements OnInit {
   @Output() tyreCanceled = new EventEmitter<void>();
 
   private tyreOptions: TyreOptions = new TyreOptions();
-  public rimTypes = this.tyreOptions.rimTypes;
-  public tyreTypes = this.tyreOptions.tyreTypes;
-  public brands = this.tyreOptions.brands;
-  public filteredBrands: Observable<any[]>;
-  public wearLevels = this.tyreOptions.wearLevels;
-  public seasons = this.tyreOptions.seasons;
+  rimTypes = this.tyreOptions.rimTypes;
+  tyreTypes = this.tyreOptions.tyreTypes;
+  availableBrands: DropdownOption[] = brands;
+  availableSeasons: DropdownOption[] = seasons;
+  wearLevels = this.tyreOptions.wearLevels;
 
-  public form: FormGroup;
+  filteredBrands: Observable<DropdownOption[]>;
+  form: FormGroup;
 
-  public tyre: Tyre = {
-    id: null,
-    size: null,
-    width: null,
-    height: null,
-    diameterType: null,
-    rimType: 'plate',
-    tyreType: 'regular',
-    brand: null,
-    wearLevel: 'medium',
-    season: 'summer'
-  };
+  tire: Tyre = {} as Tyre;
 
   constructor(
     private fb: FormBuilder,
-    private router: Router,
     private notificationService: NotificationService
   ) { }
 
-  public ngOnInit(): void {
+  ngOnInit() {
     this.initializeData();
     this.setBrand();
   }
 
-  // TODO fix display brand
-  public displayBrand(brand: any): string {
-    return brand && brand.value ? brand.value : '';
+  displayBrand(brand: DropdownOption): string {
+    return brand && brand.display ? brand.display : '';
   }
 
-  private _filter(value: string): any[] {
-    const filterValue = value.toLowerCase();
-
-    return this.brands.filter(brand => brand.value.toLowerCase().indexOf(filterValue) === 0);
+  private filter(display: string): DropdownOption[] {
+    const filterValue = display.toLowerCase();
+    return this.availableBrands.filter(brand => brand.display.toLowerCase().indexOf(filterValue) === 0);
   }
 
-  public async save() {
+  async save() {
     if (!this.form.valid) {
       this.notificationService.error('There are errors on the tire fields!');
       return;
@@ -73,7 +60,7 @@ export class TyreDetailsComponent implements OnInit {
     this.tyreSaved.emit(this.form.value);
   }
 
-  public cancel() {
+  cancel() {
     this.tyreCanceled.emit();
   }
 
@@ -85,22 +72,23 @@ export class TyreDetailsComponent implements OnInit {
 
   private createForm() {
     this.form = this.fb.group({
-      width: [this.tyre.width, Validators.required],
-      height: [this.tyre.height, Validators.required],
-      diameterType: [this.tyre.diameterType, Validators.required],
-      rimType: [this.tyre.rimType, Validators.required],
-      tyreType: [this.tyre.tyreType, Validators.required],
-      brand: [this.tyre.brand, Validators.required],
-      wearLevel: [this.tyre.wearLevel, Validators.required],
-      season: [this.tyre.season, Validators.required]
+      width: ['', Validators.required],
+      height: ['', Validators.required],
+      diameterType: ['', Validators.required],
+      rimType: ['plate', Validators.required],
+      tyreType: ['regular', Validators.required],
+      brand: [null, Validators.required],
+      wearLevel: ['medium', Validators.required],
+      season: ['summer', Validators.required]
     });
   }
 
   private setBrand() {
-    this.filteredBrands = this.form.get('brand').valueChanges.pipe(
+    this.filteredBrands = this.form.get('brand').valueChanges
+    .pipe(
       startWith(''),
-      map(brand => typeof brand === 'string' ? brand : brand.viewValue),
-      map(viewValue => viewValue ? this._filter(viewValue) : this.brands.slice())
+      map(value => typeof value === 'string' ? value : value.display),
+      map(display => display ? this.filter(display) : this.availableBrands.slice())
     );
   }
 
