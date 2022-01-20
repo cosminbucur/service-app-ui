@@ -8,6 +8,8 @@ import { startWith, map } from 'rxjs/operators';
 import { DropdownOption } from '../../../../shared/models/dropdown-options';
 import { seasons } from '../../../../shared/models/constants/seasons';
 import { brands } from '../../../../shared/models/constants/brands';
+import { Subscription } from 'rxjs';
+import { DialogService } from 'src/app/core/services/dialog.service';
 
 @Component({
   selector: 'app-tyre-details',
@@ -27,18 +29,24 @@ export class TyreDetailsComponent implements OnInit {
   wearLevels = this.tyreOptions.wearLevels;
 
   filteredBrands: Observable<DropdownOption[]>;
+  subscription: Subscription;
   form: FormGroup;
 
-  tire: Tyre = {} as Tyre;
+  tyre: Tyre = {} as Tyre;
 
   constructor(
     private fb: FormBuilder,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private dialogService: DialogService
   ) { }
 
   ngOnInit() {
     this.initializeData();
     this.setBrand();
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   displayBrand(brand: DropdownOption): string {
@@ -68,6 +76,7 @@ export class TyreDetailsComponent implements OnInit {
 
   private async initializeData() {
     this.createForm();
+    this.setTyreDetails();
   }
 
   private createForm() {
@@ -81,6 +90,22 @@ export class TyreDetailsComponent implements OnInit {
       wearLevel: ['medium', Validators.required],
       season: ['summer', Validators.required]
     });
+  }
+
+  private setTyreDetails() {
+    this.subscription = this.dialogService.currentTyre
+    .subscribe(tyre => this.tyre = tyre);
+
+    this.form.controls['width'].setValue(this.tyre.width);
+    this.form.controls['height'].setValue(this.tyre.height);
+    this.form.controls['diameterType'].setValue(this.tyre.diameterType);
+    this.form.controls['rimType'].setValue(this.tyre.rimType);
+    this.form.controls['tyreType'].setValue(this.tyre.tyreType);
+    this.form.controls['brand'].setValue(this.tyre.brand);
+    this.form.controls['wearLevel'].setValue(this.tyre.wearLevel);
+    this.form.controls['season'].setValue(this.tyre.season);
+
+    console.log('set', this.tyre);
   }
 
   private setBrand() {

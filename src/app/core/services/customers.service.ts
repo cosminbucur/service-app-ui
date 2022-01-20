@@ -34,29 +34,29 @@ export class CustomersService {
       .pipe(catchError(this.handleError));
   }
 
-  getByLastName(lastName: string): Observable<Customer[]> {
-    // return this.http
-    //   .get<Customer>(this.CUSTOMER_API + `${lastName}`)
-    //   .pipe(catchError(this.handleError));
-    return of([{
-      firstName: 'daenerys',
-      lastName: 'vasilescu',
-      email: 'danny@gmail.com',
-      phoneNumber: '0722333444',
-      company: 'westeros',
-      licensePlate: "B11AAA",
-      id: 1
-    },
-    {
-      firstName: 'daenerys',
-      lastName: 'vasile',
-      email: 'danny@gmail.com',
-      phoneNumber: '0722333444',
-      company: 'westeros',
-      licensePlate: "B11BBB",
-      id: 2
-    }]);
-  }
+  // getByLastName(lastName: string): Observable<Customer[]> {
+  //   // return this.http
+  //   //   .get<Customer>(this.CUSTOMER_API + `${lastName}`)
+  //   //   .pipe(catchError(this.handleError));
+  //   return of([{
+  //     firstName: 'daenerys',
+  //     lastName: 'vasilescu',
+  //     email: 'danny@gmail.com',
+  //     phoneNumber: '0722333444',
+  //     company: 'westeros',
+  //     licensePlate: "B11AAA",
+  //     id: 1
+  //   },
+  //   {
+  //     firstName: 'daenerys',
+  //     lastName: 'vasile',
+  //     email: 'danny@gmail.com',
+  //     phoneNumber: '0722333444',
+  //     company: 'westeros',
+  //     licensePlate: "B11BBB",
+  //     id: 2
+  //   }]);
+  // }
 
   private toRequestDto(customer: Customer): object {
     return {
